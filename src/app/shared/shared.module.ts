@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ToolbarModule } from 'primeng/toolbar';
 
 
 @NgModule({
@@ -10,6 +11,7 @@ import { FooterComponent } from './components/footer/footer.component';
   imports: [
     CommonModule,
     ButtonModule,
+    ToolbarModule
   ],
   exports: [ HeaderComponent, FooterComponent  ],
   bootstrap: [ HeaderComponent, FooterComponent ],

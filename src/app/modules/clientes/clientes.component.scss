@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500');
+
+*{
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+.title {
+    color: #FF6C03;
+    font-size: 1.7em;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.card-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-top: 10px;
+}
+
+.card {
+    background-color: #FF6C03;
+    color: white;
+    width: 350px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.title-card {
+    font-size: 24px;
+    border-bottom: 2px solid white;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.image img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.details {
+    padding: 0;
+    padding-top: 5px;
+}
+
+.details li {
+    margin-bottom: 5px;
+    margin-left: 25px;
+    margin-top: 10px;
+}
+
+
+:host::ng-deep {
+    .p-card-header {
+        background: #FF6C03;
+    }
+
+}

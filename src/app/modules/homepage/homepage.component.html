@@ -1,1 +1,34 @@
-<p>homepage works!</p>
+<main class="app">
+      <section class="map-area">
+
+        <div id="map">MAPA</div>
+        
+      </section>
+
+<aside class="sidebar">
+
+  <div class="card flex justify-content-center">
+
+    <p-orderList [value]="mockedProducts" [listStyle]="{ 'max-height': '30rem' }" header="Academias">
+
+      <ng-template let-product pTemplate="item">
+      <div class="flex align-items-center p-2 w-full flex-wrap">
+        <div class="w-full text-center lg:w-auto lg:text-left">
+            <img src="https://example.com/mock/images/{{ product.image }}" [alt]="product.name" class="mr-3 shadow-3 w-7rem mb-3 lg:w-5rem lg:mb-auto" />
+        </div>
+        <div class="flex-1">
+            <h5 class="mb-2">{{ product.name }}</h5>
+            <i class="pi pi-tag vertical-align-middle mr-2"></i>
+            <span class="vertical-align-middle line-height-1">{{ product.category }}</span>
+        </div>
+            <div class="flex flex-column align-items-end">
+            <h6 class="mb-2">{{ '$ ' + product.price }}</h6>
+            <p-tag [value]="product.inventoryStatus" [severity]="getSeverity(product.inventoryStatus)"></p-tag>
+          </div>
+        </div>
+      </ng-template>
+    </p-orderList>
+  </div>
+</aside>
+
+</main>

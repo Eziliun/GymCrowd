@@ -8,21 +8,27 @@
 }
 
 header {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 5%;
-    width: 100%;
+    width: 100vw;
     height: 80px;
-    z-index: 99;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .navigation a {
     position: relative;
-    font-size: 1.3em;
+    font-size: 1.2em;
     color: #ffff;
     text-decoration: none;
-    margin-left: 55px;
+    margin-left: 50px;
 }
 
 .navigation a::after {
@@ -59,6 +65,7 @@ h1 {
     color: #FF6C03 !important;
 
   }
+  
 
   
 

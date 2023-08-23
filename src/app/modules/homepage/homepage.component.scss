@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+ body {
+  height: 100%;
+}
+
+.app {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.sidebar {
+  flex-basis: 260px;
+  flex-shrink: 0;
+  height: 100%;
+  overflow: auto;
+  padding: 10px;
+}
+
+.map-area {
+  flex-basis: 100%;
+}
+
+:host ::ng-deep {
+  .p-orderlist-controls{
+    display: none;
+  }
+
+  .p-orderlist-title{
+    text-align: center;
+  }
+}
