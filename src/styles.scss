@@ -2,5 +2,23 @@
 @import "primeng/resources/primeng.css";
 *{
     margin: 0;
-    padding: 0;
 }
+
+
+::-webkit-scrollbar {
+    width: 0.5rem; 
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 9999px;
+    
+  }
+  ::-webkit-scrollbar-thumb {
+    tw-border-opacity: 1;
+    background-color: rgba(212, 211, 211, 0.8);
+    border-color: rgba(255,255,255,var(--tw-border-opacity));
+    border-radius: 9999px;
+    border-width: 1px;
+  }
+
