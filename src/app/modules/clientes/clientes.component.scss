@@ -12,9 +12,9 @@
 }
 
 .title {
-    color: #FF6C03;
+    color: #FF6000;
     font-size: 1.3em;
-    padding-top: 10px; 
+    padding-top: 30px; 
     text-align: center;
 }
 
@@ -31,7 +31,7 @@
 .card {
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
   overflow: hidden;
   width: 300px;
 }
@@ -90,8 +90,8 @@
 
     .p-button {
         margin-top: 20px;
-        background: #FF6C03 !important;
-        border: 1px solid #FF6C03 !important;
+        background: #FF6000 !important;
+        border: 1px solid #FF6000 !important;
         padding-left: 80px; 
         padding-right: 80px; 
     }

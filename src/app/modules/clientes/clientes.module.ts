@@ -4,6 +4,7 @@ import { ClientesRoutingModule } from './clientes-routing.module';
 import { CardModule } from 'primeng/card';
 import { ClientesComponent } from './clientes.component';
 import { ButtonModule } from 'primeng/button';
+import { CarouselModule } from 'primeng/carousel';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { ButtonModule } from 'primeng/button';
     ClientesRoutingModule,
     CardModule,
     ButtonModule,
+    CarouselModule,
   ]
 })
 export class ClientesModule { }

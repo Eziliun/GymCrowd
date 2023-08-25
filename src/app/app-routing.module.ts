@@ -20,7 +20,7 @@ const routes: Routes = [
     title:"Clientes",
   },
   {
-    path:'nossosservicos',
+    path:'servicos',
     loadChildren: () => import ('./modules/nossosservicos/nossosservicos.module').then(m => m.NossosservicosModule),
     title:"Nossos Servicos",
   }

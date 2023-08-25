@@ -1,17 +1,14 @@
-<nav class="nav">
-    <input type="checkbox" id="nav-checkbox" class="nav-checkbox">
-    <label for="nav-checkbox" class="toggle">
-        <i class="pi pi-bars"></i>
-        <i class="pi pi-times"></i>
-    </label>
-    <ul class="menu">
-        <li>
-            <h1 class="logo">GymCrowd</h1>
-        </li>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Clientes</a></li>
-        <li><a href="#">Serviços</a></li>
-        <li><a href="#">Contratar</a></li>
-        <li><p-button label="Login" styleClass="p-button-outlined"></p-button></li>
-    </ul>
+<nav class="navbar">
+    <input type="checkbox" id="toggler">
+    <label for="toggler"> <i class="fa-solid fa-bars" style="color: #ffffff;" (click)="globalService.toggleSidebar()"></i> </label>
+    <h1 class="logo">GymCrowd</h1>
+    <div class="menu">
+        <ul class="list">
+            <a href="homepage">Inicio</a>
+            <a href="clients">Clientes</a>
+            <a href="servicos">Serviços</a>
+            <a href="#">Contratar</a>
+        </ul>
+    </div>
+    <p-button label="Login" styleClass="p-button-outlined"></p-button>
 </nav>
