@@ -5,33 +5,49 @@
     box-sizing: border-box;
     background-color: #FF6C03;
     font-family: "Montserrat", sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-header {
-    position: relative;
+
+.nav {
+    background-color: #FF6C03;
+    padding-inline: 1rem;
+}
+
+.toggle {
+    position: absolute;
+    top: 0.7rem;
+    right: 1rem;
+    cursor: pointer;
+}
+
+.toggle .pi.pi-bars {
+    font-size: 1.3em;
+    color: white;
+}
+
+.toggle .pi.pi-times {
+    display: none;
+}
+
+.nav-checkbox {
+    display: none;
+}
+
+.menu {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    padding: 20px 5%;
-    width: 100%;
-    height: 80px;
 }
-
-.navigation {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.navigation a {
+.menu a {
     position: relative;
     font-size: 1.2em;
     color: #ffff;
     text-decoration: none;
-    margin-left: 50px;
 }
 
-.navigation a::after {
+.menu a::after {
     content: '';
     position: absolute;
     left: 0;
@@ -42,16 +58,46 @@ header {
     border-radius: 5px;
     transform: scaleX(0);
     transition: transform 0.5s;
+
 }
 
-.navigation a:hover::after {
+.menu a:hover::after {
     transform: scaleX(1);
 }
 
-h1 {
-    font-size: 2.8rem;
+.menu li {
+    display: none;
+    padding: 1rem;
+    list-style: none;
+
+}
+
+.menu li:first-child {
+    display: block;
+    margin-right: auto;
+    padding: 0;
+}
+
+.logo {
+    font-size: 2.3rem;
     color: #fff;
 }
+
+#nav-checkbox:checked ~ ul.menu li:not(:first-child) {
+    display: block;
+    animation: slide-down 1.5s ease;
+}
+
+#nav-checkbox:checked~label.toggle .pi.pi-times  {
+    display: block;
+    font-size: 1.3em;
+    color: white;
+}
+
+#nav-checkbox:checked~label.toggle .pi.pi-bars  {
+    display: none;
+}
+
 :host ::ng-deep {
  .p-button {
     width: 130px;
@@ -66,7 +112,34 @@ h1 {
 
   }
 }
+
+@media (min-width: 800px){
+    
+    .toggle {
+        display: none;
+    }
+
+    .menu {
+        flex-direction: row;
+    }
+
+    .menu li {
+        display: block;
+    }
+
+}
   
+
+@keyframes slide-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
   
 
