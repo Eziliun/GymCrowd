@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { SharedServiceService } from '../../services/shared-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,6 +10,11 @@ import { SharedServiceService } from '../../services/shared-service.service';
 })
 export class HeaderComponent {
   constructor(
-    public globalService: SharedServiceService
+    public globalService: SharedServiceService,
+    private router: Router
   ) {}
+
+  navigateToLogin() {
+    this.router.navigate(['/login']);
+}
 }

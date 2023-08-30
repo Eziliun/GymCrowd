@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:500');
-
+@import "primeicons/primeicons.css";
 *{
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
@@ -18,12 +18,14 @@
     padding-top: 20px;
 }
 
-img {
-    max-width: 100%; 
-    height: auto; 
-  }
+h3{
+    font-size: 2rem;
+    color: #ffffff;
+    padding-bottom: 20px;
+}
 
-.infos {
+
+.loginForm {
     background-color: #FF6000;
     color: white;
     text-align: center;
@@ -32,12 +34,6 @@ img {
     width: 70%;
     border-radius: 10px;
     box-shadow: 5px 5px 17px #bebebe, -5px -5px 17px #fff;
-}
-
-.infos h5 {
-    margin-bottom: 10px;
-    text-align: left;
-    font-size: 1.2em;
 }
 
 :host::ng-deep {
@@ -56,13 +52,4 @@ img {
         border: 1px solid #FF6000 !important;
         color:#FF6000 !important;
     } 
-
-    @media screen and (max-width: 995px) {
-        .title {
-            font-size: 2.2rem;
-        }
-
-    }
-
-    
 }

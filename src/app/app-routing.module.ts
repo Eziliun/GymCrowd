@@ -23,7 +23,17 @@ const routes: Routes = [
     path:'servicos',
     loadChildren: () => import ('./modules/nossosservicos/nossosservicos.module').then(m => m.NossosservicosModule),
     title:"Nossos Servicos",
-  }
+  },
+  {
+    path:'contratar',
+    loadChildren: () => import ('./modules/contratar/contratar.module').then(m => m.ContratarModule),
+    title:"Contratar"
+  },
+  {
+    path:'login',
+    loadChildren: () => import ('./modules/login-page/login-page.module').then(m => m.LoginPageModule),    
+    title:"Login"
+  },
 
 
 

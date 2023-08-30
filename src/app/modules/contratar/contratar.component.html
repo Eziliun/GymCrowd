@@ -1,0 +1,53 @@
+<div class="container">
+    <h2 class="titulo">Contrate-nos</h2>
+    <div class="form-block">
+
+            <div class="card">
+
+        <h4>Preencha as Credenciais</h4>
+
+            <div class="inputRow">
+            <span class="p-input-icon-left span-icon">
+            <i class="pi pi-building"></i>
+            <input pInputText id="academiaNome" placeholder="Nome da Academia" />
+            </span>
+
+            <span class="p-input-icon-left span-icon">
+            <i class="pi pi-file"></i>
+            <input pInputText id="academiaCNPJ" placeholder="CNPJ da Academia"/>
+            </span>
+            </div>
+            <div class="inputRow">
+            <span class="p-input-icon-left span-icon">
+            <i class="pi pi-envelope"></i>
+            <input pInputText id="email" placeholder="Email"/>
+            </span>
+
+            <span class="p-input-icon-left span-icon">
+            <i class="pi pi-phone"></i>
+            <input pInputText id="numberContact" placeholder="Numero de Contato"/>
+            </span>
+            </div>
+
+            <div class="dropdownRow">
+                <div class="columnFlexContainer">
+                    <label>Quantidade de Sedes</label>
+                    <p-dropdown [options]="cities" optionLabel="name"></p-dropdown>
+                </div>
+                <div class="columnFlexContainer">
+                    <label>Tipo de Frequência</label>
+                    <p-dropdown [options]="cities" optionLabel="name"></p-dropdown>
+                </div>
+            </div>
+
+        <p-button label="Enviar" styleClass="p-button-rounded"></p-button>
+
+        </div>
+
+        <p-divider layout="vertical">
+        </p-divider>
+
+        <img src="../../../assets/img/undraw_agreement_re_d4dv.svg" alt="">
+
+        </div>
+    </div>
