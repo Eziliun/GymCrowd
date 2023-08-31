@@ -5,19 +5,18 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ToolbarModule } from 'primeng/toolbar';
 import { SidebarModule } from 'primeng/sidebar';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, SidebarComponent],
+  declarations: [HeaderComponent, FooterComponent],
   imports: [
     CommonModule,
     ButtonModule,
     ToolbarModule,
     SidebarModule
   ],
-  exports: [ HeaderComponent, FooterComponent, SidebarComponent  ],
-  bootstrap: [ HeaderComponent, FooterComponent, SidebarComponent ],
+  exports: [ HeaderComponent, FooterComponent  ],
+  bootstrap: [ HeaderComponent, FooterComponent ],
   providers: []
   
 })

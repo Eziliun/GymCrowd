@@ -1,9 +1,0 @@
-<p-sidebar  [(visible)]="sideBarVisibless">
-    <ng-template pTemplate="header"><h1 class="headerSideBar">GymCrowd</h1></ng-template>
-    <ng-template pTemplate="closeicon"><button>X</button></ng-template>
-    <div class="menu2">
-        <ul class="list2" *ngFor="let item of lista">
-            <a [href]=item.rota>{{item.nome}}</a> 
-        </ul>
-    </div>
-</p-sidebar>

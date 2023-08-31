@@ -1,14 +1,20 @@
-<nav class="navbar">
-    <input type="checkbox" id="toggler">
-    <label for="toggler"> <i class="fa-solid fa-bars" style="color: #ffffff;"></i> </label>
-    <h1 class="logo">GymCrowd</h1>
-    <div class="menu">
-        <ul class="list">
-            <a href="homepage">Inicio</a>
-            <a href="clients">Clientes</a>
-            <a href="servicos">Serviços</a>
-            <a href="contratar">Contratar</a>
-        </ul>
+<nav>
+    <div class="nav-bar">
+        <i class='pi pi-bars sidebarOpen' ></i>
+        <span class="logo navLogo"><a href="#">GymCrowd</a></span>
+        <div class="menu">
+            <div class="logo-toggle">
+                <span class="logo"><a href="#">GymCrowd</a></span>
+                <i class='pi pi-times siderbarClose'></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Clientes</a></li>
+                <li><a href="#">Serviços</a></li>
+                <li><a href="#">Contratar</a></li>
+            </ul>
+        </div>
+            <p-button label="Login" styleClass="p-button-outlined" (click)="navigateToLogin()"></p-button>
     </div>
-    <p-button label="Login" styleClass="p-button-outlined" (click)="navigateToLogin()"></p-button>
 </nav>
+    

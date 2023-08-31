@@ -30,9 +30,9 @@ const routes: Routes = [
     title:"Contratar"
   },
   {
-    path:'login',
+    path:'auth',
     loadChildren: () => import ('./modules/login-page/login-page.module').then(m => m.LoginPageModule),    
-    title:"Login"
+    title:"Auth"
   },
 
 

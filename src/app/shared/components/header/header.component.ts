@@ -1,20 +1,41 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { SharedServiceService } from '../../services/shared-service.service';
+import { Component, ElementRef, ViewChild, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+
+  @ViewChild('nav') nav!: ElementRef;
+
   constructor(
-    public globalService: SharedServiceService,
     private router: Router
   ) {}
 
   navigateToLogin() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/auth']);
+  }
+
+  ngOnInit(): void {
+    const nav = document.querySelector("nav") as HTMLElement;
+    const sidebarOpen = document.querySelector(".sidebarOpen") as HTMLElement;
+
+    sidebarOpen.addEventListener("click", () => {
+      nav.classList.add("active");
+    });
+
+    nav.addEventListener("click", (e) => {
+      let clickedElm = e.target as HTMLElement;
+      if (
+        !clickedElm.classList.contains("sidebarOpen")
+      ) {
+        nav.classList.remove("active");
+      }
+    });
+  }
 }
-}
+
+
+
