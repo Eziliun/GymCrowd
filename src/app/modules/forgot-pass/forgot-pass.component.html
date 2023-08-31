@@ -1,12 +1,14 @@
-<p-dialog header="Recuperar Senha" [(visible)]="visible" [style]="{width: '30vw', height: '400px'}">
-
-    <div class="corpoDialog">
-    <p>
-        Esqueceu sua Senha? Vamos enviar um link para seu email para que possa recupera-la!
-    </p>
-
-    <input type="text" placeholder="Email de Recuperação" required />
-
-    <p-button label="Enviar" styleClass="p-button-rounded"></p-button>
+<body>
+    
+<section class="wrapper" #wrapper>
+    <div class="form signup">
+      <header class="signup" #signupHeader>Recuperar Senha
+      <p>Esqueceu sua Senha? <br> Vamos te enviar um link por email para recupera-la!</p>
+      </header>
+      <form action="#">
+        <input type="text" placeholder="Email" required />
+        <p-button label="Enviar" styleClass="p-button-rounded"></p-button>
+      </form>
     </div>
-</p-dialog>
+  </section>
+</body>
