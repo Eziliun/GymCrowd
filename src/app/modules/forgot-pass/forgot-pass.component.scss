@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500');
+@import "primeicons/primeicons.css";
+
+*{
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+ input {
+    height: 50px;
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 0 15px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 8px;
+    background: #fff;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+  .corpoDialog {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .corpoDialog p {
+    font-size: 1.1rem;
+    gap: 1rem;
+  }
+
+
+  :host::ng-deep {
+    .p-dialog-content {
+        background: #FF6000;
+        color: #fff;
+    }
+
+    .p-dialog-header {
+        background: #FF6000;
+        color: #fff;
+    }
+
+     .p-dialog-title {
+        font-size: 2.2rem !important;
+        padding-left: 80px !important;
+        padding-bottom: 11px !important;
+    }
+
+    .p-button {
+        width: 300px;
+        height: 55px;
+        color: #ffffff;
+        background: #FF6000;
+        border: 1px solid #ffffff;
+      }
+      
+      .p-button:hover{
+         background: #ffffff !important;
+         border: 1px solid #FF6000 !important;
+         color:#FF6000 !important;
+     } 
+  }
+  

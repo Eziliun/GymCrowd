@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -6,6 +7,11 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent {
+
+  constructor(
+    private router: Router,
+  ) {}
+
   @ViewChild('wrapper') wrapper!: ElementRef;
   @ViewChild('signupHeader') signupHeader!: ElementRef;
   @ViewChild('loginHeader') loginHeader!: ElementRef;

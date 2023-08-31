@@ -1,1 +1,12 @@
-<p>forgot-pass works!</p>
+<p-dialog header="Recuperar Senha" [(visible)]="visible" [style]="{width: '30vw', height: '400px'}">
+
+    <div class="corpoDialog">
+    <p>
+        Esqueceu sua Senha? Vamos enviar um link para seu email para que possa recupera-la!
+    </p>
+
+    <input type="text" placeholder="Email de Recuperação" required />
+
+    <p-button label="Enviar" styleClass="p-button-rounded"></p-button>
+    </div>
+</p-dialog>

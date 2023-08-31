@@ -34,6 +34,11 @@ const routes: Routes = [
     loadChildren: () => import ('./modules/login-page/login-page.module').then(m => m.LoginPageModule),    
     title:"Auth"
   },
+  {
+    path:'forgotPass',
+    loadChildren: () => import ('./modules/forgot-pass/forgot-pass.module').then(m => m.ForgotPassModule),    
+    title:"ForgotPass"
+  },
 
 
 
