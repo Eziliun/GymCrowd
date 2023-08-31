@@ -2,26 +2,42 @@
     <h2 class="title">Login</h2>
     <div class="loginForm">
 
+        <div class="loginSpace">
+
         <h3>Insira Credenciais</h3>
 
-        <span class="p-input-icon-left">
-            <i class="pi pi-file"></i>
+
+            <div class="inputsLogin">
+            
+        <span class="p-input-icon-left span-icon">
+            <i class="pi pi-user"></i>
             <input pInputText id="usuario" placeholder="Usuário"/>
             </span>
 
-            <span class="p-input-icon-left">
-                <i class="pi pi-file"></i>
+        </div>
+
+        <div class="inputsLogin">
+
+            <span class="p-input-icon-left span-icon">
+                <i class="pi pi-lock"></i>
                 <input pInputText id="password" placeholder="Senha"/>
                 </span>
+            </div>
 
-                <input type="checkbox" label="Lembre-se de mim">
+                <div class="inputsConfig">
+                
+                    <label>
+                        <input type="checkbox">
+                        Lembrar Senha
+                    </label>
+
                 <a href="#">Esqueci a Senha</a>
+            </div>
 
         <p-button label="Entrar" styleClass="p-button-info"></p-button>
         <a href="#">Crie uma conta</a>
 
-        <p-divider layout="vertical">
-        </p-divider>
+    </div>
 
         <img src="../../../assets/img/undraw_fitness_stats_sht6.svg" alt="">
     </div>
