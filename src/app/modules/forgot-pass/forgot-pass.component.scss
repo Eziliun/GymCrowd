@@ -14,12 +14,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   background: #ffffff;
 }
 
 .wrapper2 {
+  display: flex;
   position: relative;
   max-width: 470px;
+  height: 360px;
   width: 100%;
   border-radius: 12px;
   padding: 20px 30px 120px;
@@ -42,6 +45,14 @@ body {
   margin-top: 20px;
   text-align: center;
   color: #fff;
+  font-weight: 300;
+}
+
+ body p {
+  font-size: 1.2rem;
+  margin-top: 20px;
+  text-align: center;
+  color: #000000;
   font-weight: 300;
 }
 

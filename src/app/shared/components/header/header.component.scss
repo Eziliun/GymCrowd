@@ -97,9 +97,15 @@ nav .nav-bar .logo a{
     }
 
 
-@media (max-width: 790px) {
+@media (max-width: 895px) {
     nav .nav-bar .sidebarOpen{
         display: block;
+    }
+
+    .nav-bar .nav-links {
+        flex-direction: column;
+        padding-top: 0;
+        border-bottom: 2px solid white;
     }
 
     .menu{
@@ -144,14 +150,10 @@ nav .nav-bar .logo a{
         cursor: pointer;
     }
 
-    .nav-bar .nav-links{
-        flex-direction: column;
-        padding-top: 30px;
-    }
-
     .nav-links li a{
         display: block;
         margin-top: 20px;
+        margin-bottom: 20px;
     }
 
     :host ::ng-deep {

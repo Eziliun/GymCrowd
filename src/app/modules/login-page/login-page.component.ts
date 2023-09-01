@@ -7,9 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent {
-
+  
   constructor(
-    private router: Router,
   ) {}
 
   @ViewChild('wrapper') wrapper!: ElementRef;
