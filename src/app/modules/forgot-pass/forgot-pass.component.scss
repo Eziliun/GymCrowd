@@ -17,7 +17,7 @@ body {
   background: #ffffff;
 }
 
-.wrapper {
+.wrapper2 {
   position: relative;
   max-width: 470px;
   width: 100%;
@@ -45,11 +45,11 @@ body {
   font-weight: 300;
 }
 
-.wrapper.active .signup header {
+.wrapper2.active .signup header {
   opacity: 0.6;
 }
 
-.wrapper
+.wrapper2
   form {
   display: flex;
   flex-direction: column;
