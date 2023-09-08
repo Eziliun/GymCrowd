@@ -12,20 +12,19 @@ main {
 }
 
 .map-area {
-  width: 80%;
+  width: 70%;
   height: 540px;
   background: gray;
   border-radius: 10px;
+  margin-right: 10px;
 }
 
 .viewList {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 80%;
-  width: 30%;
-  padding-left: 10px;
-  padding-right: 10px;
+  height: 68%;
+  width: 25%;
   overflow-y: auto;
 }
 
@@ -36,10 +35,9 @@ main {
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: #FF6000;
-  border-radius: 5px 5px 0 0;
-  border-bottom: 3px solid rgb(0, 0, 0);
-  padding: 10px;
+  background: linear-gradient(to right, #FF6000, #FF8000);
+  border-radius: 10px 10px 0 0;
+  padding: 30px;
   color: white;
 }
 
@@ -52,10 +50,11 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #FF6000;
   width: 100%;
   border-radius: 0 0 10px 10px;
   padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
 }
 
 .listHeader2 {
