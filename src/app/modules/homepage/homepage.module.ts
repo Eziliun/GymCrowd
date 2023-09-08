@@ -15,8 +15,7 @@ import { TagModule } from 'primeng/tag';
     CommonModule,
     HomepageRoutingModule,
     OrderListModule,
-    TagModule,
-    
+    TagModule,    
   ],
 })
 export class HomepageModule { }

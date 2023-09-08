@@ -1,4 +1,6 @@
+<form [formGroup]="contratarForm" (ngSubmit)="academiaContact()">
 <div class="container">
+
     <h2 class="titulo">Contrate-nos</h2>
     <div class="form-block">
 
@@ -9,40 +11,44 @@
             <div class="inputRow">
             <span class="p-input-icon-left span-icon">
             <i class="pi pi-building"></i>
-            <input pInputText id="academiaNome" placeholder="Nome da Academia" />
+            <input pInputText id="nome_academia" formControlName="nome_academia" Placeholder="Nome da Academia" />
             </span>
 
             <span class="p-input-icon-left span-icon">
             <i class="pi pi-file"></i>
-            <input pInputText id="academiaCNPJ" placeholder="CNPJ da Academia"/>
+            <input pInputText id="CNPJ_academia" formControlName="CNPJ_academia" placeholder="CNPJ da Academia"/>
             </span>
             </div>
             <div class="inputRow">
             <span class="p-input-icon-left span-icon">
             <i class="pi pi-envelope"></i>
-            <input pInputText id="email" placeholder="Email"/>
+            <input pInputText id="email" formControlName="email" placeholder="Email"/>
             </span>
 
             <span class="p-input-icon-left span-icon">
             <i class="pi pi-phone"></i>
-            <input pInputText id="numberContact" placeholder="Numero de Contato"/>
+            <input pInputText id="numero_telefone" formControlName="numero_telefone" placeholder="Numero de Contato"/>
             </span>
             </div>
 
             <div class="dropdownRow">
                 <div class="columnFlexContainer">
-                    <p-dropdown [options]="FreqType" optionLabel="name"></p-dropdown>
+                    <p-dropdown [options]="FreqType" id="tipo_frequencia" formControlName="tipo_frequencia" optionLabel="name"></p-dropdown>
                 </div>
                 <div class="columnFlexContainer">
-                    <p-dropdown [options]="QtdPick" optionLabel="quantidade"></p-dropdown>
+                    <p-dropdown [options]="QtdPick" id="quantidade_academias" formControlName="quantidade_academias" optionLabel="quantidade"></p-dropdown>
                 </div>
             </div>
 
-        <p-button label="Enviar" styleClass="p-button-rounded"></p-button>
-
-        </div>
-
+        <p-button label="Enviar" styleClass="p-button-rounded" type="ngSubmit"></p-button>
 
 
         </div>
+
+
+
+        </div>
+
     </div>
+</form>
+

@@ -1,19 +1,19 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { iContratar } from './interface/contratar.model';
 
 interface Freq {
   name: string;
-  code: string;
 }
 
 interface QTD {
   quantidade: string;
-  code: string;
 }
 
 @Component({
   selector: 'app-contratar',
   templateUrl: './contratar.component.html',
-  styleUrls: ['./contratar.component.scss']
+  styleUrls: ['./contratar.component.scss'],
 })
 export class ContratarComponent {
   FreqType: Freq[] | undefined;
@@ -24,21 +24,51 @@ export class ContratarComponent {
 
   selectedQtd: QTD | undefined;
 
-  ngOnInit() {
-      this.FreqType = [
-          { name: 'Tipo de Frequência', code: 'TF' },
-          { name: 'Catraca', code: 'CT' },
-          { name: 'Leitor Facial', code: 'LF' },
-          { name: 'Lista', code: 'LI' },
-          { name: 'Outro', code: 'OT' }
-      ];
+  contratarForm!: FormGroup;
 
-      this.QtdPick = [
-          { quantidade: 'Quantidade de Academias', code: '0' },
-          { quantidade: '1', code: '1' },
-          { quantidade: '2', code: '2' },
-          { quantidade: '3', code: '3' },
-          { quantidade: '4', code: '4' }
-      ];
+  contratarData!: iContratar;
+
+  constructor(private formBuilder: FormBuilder) {
+
   }
+
+  ngOnInit() {
+    this.setupForm();
+    this.dropData();
+  }
+
+  dropData() {
+    this.FreqType = [
+      { name: 'Tipo de Frequência'},
+      { name: 'Catraca' },
+      { name: 'Leitor Facial'},
+      { name: 'Lista'},
+      { name: 'Outro'},
+    ];
+
+    this.QtdPick = [
+      { quantidade: 'Quantidade de Academias'},
+      { quantidade: '1'},
+      { quantidade: '2'},
+      { quantidade: '3'},
+      { quantidade: '4'},
+    ];
+  }
+
+  setupForm() {
+    this.contratarForm = this.formBuilder.group({
+      nome_academia: ['', Validators.required],
+      CNPJ_academia: ['', Validators.required],
+      email: ['', Validators.required],
+      numero_telefone: ['', Validators.required],
+      tipo_frequencia: ['', Validators.required],
+      quantidade_academias: ['', Validators.required]
+    });
+
+  }
+
+  academiaContact() {
+    console.log('Infos:', JSON.stringify(this.contratarForm.value));
+  }
+  
 }

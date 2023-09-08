@@ -2,28 +2,30 @@
     <section class="wrapper" #wrapper>
       <div class="form signup">
         <header class="signup" #signupHeader>Registrar</header>
-        <form action="#">
-          <input type="text" placeholder="Nome de Usuário" required />
-          <input type="text" placeholder="Email" required />
-          <input type="text" placeholder="CPF" required />
-          <input type="password" placeholder="Senha" required />
-          <input type="password" placeholder="Confirmar Senha" required />
+        <form [formGroup]="registerForm" (ngSubmit)="sendRegister()">
+          <input type="text" formControlName="username" placeholder="Nome de Usuário" required />
+          <input type="text" formControlName="email" placeholder="Email" required />
+          <input type="text" formControlName="CPF" placeholder="CPF" required />
+          <input type="password" formControlName="password" placeholder="Senha" required />
+          <input type="password" formControlName="confirm_password" placeholder="Confirmar Senha" required />
           <div class="checkbox">
-            <input type="checkbox" id="signupCheck" />
+            <input type="checkbox" id="signupCheck" formControlName="terms_conditions" />
             <label for="signupCheck">Aceitos os Termos e Condições</label>
           </div>
           <input type="submit" value="Registrar" />
         </form>
       </div>
+
+
       <div class="form login">
         <header class="login" #loginHeader>Entrar</header>
-        <form action="#">
-          <input type="text" placeholder="Usuário" required />
-          <input type="password" placeholder="Senha" required />
+        <form [formGroup]="loginForm" (ngSubmit)="sendLogin()">
+          <input type="text" formControlName="username" placeholder="Usuário" required />
+          <input type="password" formControlName="password" placeholder="Senha" required />
           <div class="extras">
           <a href="forgotPass">Esqueceu a Senha?</a>
           <div class="remember">
-          <input type="checkbox" id="signupCheck" />
+          <input type="checkbox" formControlName="remember_me" id="signupCheck" />
           <label for="signupCheck">Lembrar Senha</label>
           </div>
         </div>

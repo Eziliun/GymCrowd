@@ -4,6 +4,7 @@ import { ButtonModule } from 'primeng/button';
 import { ForgotPassComponent } from './forgot-pass.component';
 import { ForgotPassRoutingModule } from './forgot-pass.routing.module';
 import { DialogModule } from 'primeng/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { DialogModule } from 'primeng/dialog';
     ButtonModule,
     ForgotPassRoutingModule,
     DialogModule,
+    ReactiveFormsModule,
   ]
 })
 export class ForgotPassModule { }

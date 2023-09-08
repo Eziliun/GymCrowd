@@ -6,6 +6,7 @@ import { ContratarRoutingModule } from './contratar-routing.module';
 import { InputTextModule } from 'primeng/inputtext';
 import { DividerModule } from 'primeng/divider';
 import { DropdownModule } from 'primeng/dropdown';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { DropdownModule } from 'primeng/dropdown';
     ContratarRoutingModule,
     InputTextModule,
     DividerModule,
-    DropdownModule
+    DropdownModule,
+    ReactiveFormsModule,
   ]
 })
 export class ContratarModule { }

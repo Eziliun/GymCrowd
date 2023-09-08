@@ -5,6 +5,7 @@ import { ButtonModule } from 'primeng/button';
 import { LoginPageRoutingModule } from './login-page-routing.module';
 import { DividerModule } from 'primeng/divider';
 import { InputTextModule } from 'primeng/inputtext';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -18,6 +19,7 @@ import { InputTextModule } from 'primeng/inputtext';
     ButtonModule,
     DividerModule,
     InputTextModule,
+    ReactiveFormsModule
   ],
 })
 export class LoginPageModule { }
