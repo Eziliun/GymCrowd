@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { ForgotPassComponent } from './forgot-pass.component';
 import { ForgotPassRoutingModule } from './forgot-pass.routing.module';
-import { DialogModule } from 'primeng/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
@@ -13,7 +12,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ButtonModule,
     ForgotPassRoutingModule,
-    DialogModule,
     ReactiveFormsModule,
   ]
 })

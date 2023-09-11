@@ -77,15 +77,15 @@ i{
     .p-button {
        width: 70%;
        height: 55px;
-       color: #ffffff;
-       background: #FF6000;
-       border: 1px solid #ffffff;
+       color: #FF6000;
+       background: #ffffff;
+       border: 1px solid white;
      }
      
      .p-button:hover{
-        background: #ffffff !important;
-        border: 1px solid #FF6000 !important;
-        color:#FF6000 !important;
+        background: #FF6000 !important;
+        border: 1px solid #ffffff !important;
+        color:#ffffff !important;
     } 
     
     .p-dropdown {
