@@ -1,4 +1,4 @@
-export interface iHomePage {
+export interface iDadosAcademias {
     nome_academia: string;
     endereco_sedes: EnderecoSede[];
     lotacao_media: number;

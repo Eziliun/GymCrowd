@@ -40,6 +40,7 @@ export class ContratarComponent {
   ngOnInit() {
     this.setupForm();
     this.dropData();
+    this.getContact();
   }
 
   dropData() {
@@ -90,8 +91,8 @@ export class ContratarComponent {
 
       this.contratarService.criarContratar(req).subscribe({
         next: () => {
-          this.contratarForm.reset()
           console.log('Infos:', JSON.stringify(this.contratarForm.value));
+          this.contratarForm.reset()
         },
         error: error => {
           console.log(error)

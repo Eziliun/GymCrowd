@@ -4,13 +4,14 @@
 
 <section class="wrapper2" #wrapper>
   
+  
     <div class="form forgot">
       <header class="forgot" #signupHeader>Recuperar Senha
       <p>Esqueceu sua Senha? <br> Vamos te enviar um link por email para recupera-la!</p>
       </header>
       <form [formGroup]="forgotForm" (ngSubmit)="sendForgotPass()">
         <input type="email" formControlName="email" placeholder="Email" required />
-        <p-button label="Enviar" styleClass="p-button-rounded" (click)="toggleGif()" type="ngSubmit"></p-button>
+        <p-button label="Enviar" styleClass="p-button-rounded" type="ngSubmit"></p-button>
       </form>
     </div>
   </section>

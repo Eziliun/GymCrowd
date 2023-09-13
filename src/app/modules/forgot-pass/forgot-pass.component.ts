@@ -1,6 +1,7 @@
 import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { iForgotPass } from './interface/forgot-pass.model';
+import { ForgotPassService } from './services/forgot-pass.service';
 
 @Component({
   selector: 'app-forgot-pass',
@@ -18,6 +19,7 @@ export class ForgotPassComponent {
   constructor(
     private renderer: Renderer2,
     private formBuilder: FormBuilder,
+    private forgotPassService: ForgotPassService,
     ) {}
 
     ngOnInit() {
@@ -32,7 +34,24 @@ export class ForgotPassComponent {
     }
 
     sendForgotPass() {
-      console.log('Infos:', JSON.stringify(this.forgotForm.value));
+      if (this.isFormValid){
+        const req = this.forgotForm.value;
+        this.forgotPassService.criarForgotPass(req).subscribe({
+          next: () => {
+            console.log('Infos:', JSON.stringify(this.forgotForm.value));
+
+          },
+          error: (error) => {
+            console.log(error);
+          }
+        })
+      }
+      this.toggleGif();
+
+    }
+
+    get isFormValid(): boolean {
+      return this.forgotForm.valid;
     }
 
   toggleGif() {
