@@ -1,4 +1,4 @@
-<form [formGroup]="contratarForm" (ngSubmit)="academiaContact()">
+<form [formGroup]="contratarForm" (ngSubmit)="sendContact()">
 <div class="container">
 
     <h2 class="titulo">Contrate-nos</h2>
@@ -40,7 +40,7 @@
                 </div>
             </div>
 
-        <p-button label="Enviar" styleClass="p-button-rounded" type="ngSubmit"></p-button>
+        <p-button label="Enviar" styleClass="p-button-rounded" type="ngSubmit" (click)="sendContact()"></p-button>
 
 
         </div>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { iContratar } from './interface/contratar.model';
+import { ContratarService } from './services/contratar.service';
 
 interface Freq {
   name: string;
@@ -28,7 +29,11 @@ export class ContratarComponent {
 
   contratarData!: iContratar;
 
-  constructor(private formBuilder: FormBuilder) {
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private contratarService: ContratarService,
+    ) {
 
   }
 
@@ -67,8 +72,36 @@ export class ContratarComponent {
 
   }
 
-  academiaContact() {
-    console.log('Infos:', JSON.stringify(this.contratarForm.value));
+  getContact(){
+    this.contratarService.getContratar().subscribe({
+      next: res => {
+        console.log(res);
+        this.contratarData = res;
+      },
+      error: error => {
+        console.log(error)
+      }
+    });
+  }
+
+  sendContact(){
+    if (this.isFormValid){
+      const req = this.contratarForm.value;
+
+      this.contratarService.criarContratar(req).subscribe({
+        next: () => {
+          this.contratarForm.reset()
+          console.log('Infos:', JSON.stringify(this.contratarForm.value));
+        },
+        error: error => {
+          console.log(error)
+        }
+      })
+    }
+  }
+
+  get isFormValid(): boolean {
+    return this.contratarForm.valid;
   }
   
 }
