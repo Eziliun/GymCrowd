@@ -1,6 +1,9 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { iLogin, iRegister } from './interface/auth.model';
+import { AuthService } from './service/auth.service';
+import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-login-page',
@@ -11,6 +14,9 @@ export class LoginPageComponent {
   
   constructor(
     private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private router: Router,
+    private messageService: MessageService,
   ) {}
 
   @ViewChild('wrapper') wrapper!: ElementRef;
@@ -28,34 +34,74 @@ export class LoginPageComponent {
 
 
   ngOnInit() {
-    this.setupForm();
+    this.setupFormRegister();
+    this.setupFormLogin();
+    console.log('Infos:', JSON.stringify(this.registerForm.value));
+
   }
 
-  setupForm() {
+  setupFormRegister() {
     this.registerForm = this.formBuilder.group({
       username:['', Validators.required],
       email:['', Validators.required] ,
-      CPF:['', Validators.required] ,
+      cpf:['', Validators.required] ,
       password:['', Validators.required] ,
-      confirm_password:['', Validators.required] ,
-      terms_conditions:['', Validators.required] ,
+      confirmPassword:['', Validators.required] ,
+      termsConditions:['', Validators.required] ,
     });
+  }
 
+  setupFormLogin() {
     this.loginForm = this.formBuilder.group({
-      username:['', Validators.required],
-      password:['', Validators.required] ,
-      remember_me:['', Validators.required] ,
-    });
-
+        username:['', Validators.required],
+        password:['', Validators.required] ,
+        remember_me:['', Validators.required] ,
+        
+    })
   }
 
   sendRegister() {
-    console.log('Infos:', JSON.stringify(this.registerForm.value));
+    if(this.registerForm.valid){
+      this.authService.register(this.registerForm.value).subscribe({
+        next: () => {
+          this.router.navigateByUrl('homepage');
+        },
+        error: (error) => {
+          console.log(error);
+          this.messageService.add({
+            key: 'tc',
+            severity: 'error',
+            summary: 'Error',
+            detail: error 
+          });
+        }
+      });   
+    }
   }
 
   sendLogin() {
-    console.log('Infos:', JSON.stringify(this.loginForm.value));
+    if(this.loginForm.valid) {
+      this.authService.login(this.loginForm.value).subscribe({
+        next: (resp) => {
+          if(resp.access_token) {
+            console.log('Infos:', JSON.stringify(this.loginForm.value));
+            localStorage.setItem("acess_token", resp.access_token);
+            this.router.navigateByUrl('homepage');
+          }
+        },
+        error: (error) => {
+          console.log(error);
+          this.messageService.add({
+            key: 'tc',
+            severity: 'error',
+            summary: 'Error',
+            detail: error 
+          });
+        }
+      });   
+    }
   }
+
 
 
 

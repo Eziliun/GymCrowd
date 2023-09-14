@@ -5,6 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Montserrat",sans-serif;
+  transition: all 0.4s ease;;
 }
 
 body {
@@ -161,3 +162,28 @@ form input[type="submit"] {
   color: #fff;
   border: none;
 }
+
+.form.login input[type="submit"]:hover {
+  background: #fff;
+  color: #FF6000;
+  border: 1px solid #FF6000;
+}
+
+.form.signup input[type="submit"]:hover {
+  background: #FF6000;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+:host ::ng-deep {
+  .p-inputtext {
+    width: 410px;
+    height: 60px;
+    border-radius: 8px;
+    font-family: "Montserrat",sans-serif;
+  }
+
+  .form.login .p-inputtext {
+    border: 1px solid #aaa;
+  }
+  }

@@ -1,3 +1,4 @@
+<p-toast position="top-center" key="tc"></p-toast>
 <body>
     <section class="wrapper" #wrapper>
       <div class="form signup">
@@ -5,11 +6,22 @@
         <form [formGroup]="registerForm" (ngSubmit)="sendRegister()">
           <input type="text" formControlName="username" placeholder="Nome de Usuário" required />
           <input type="text" formControlName="email" placeholder="Email" required />
-          <input type="text" formControlName="CPF" placeholder="CPF" required />
-          <input type="password" formControlName="password" placeholder="Senha" required />
-          <input type="password" formControlName="confirm_password" placeholder="Confirmar Senha" required />
+          <p-inputMask mask="999-999-999.99" type="text" formControlName="cpf" placeholder="CPF"></p-inputMask>
+          <p-password placeholder="Senha" [toggleMask]="true" formControlName="password">
+            <ng-template pTemplate="footer">
+                <p-divider></p-divider>
+                <p class="mt-6">Dicas</p>
+                <ul style="line-height: 1.5">
+                    <li>Uma Minúscula</li>
+                    <li>Uma Maiúscula</li>
+                    <li>Pelo menos um número</li>
+                    <li>Mínimo de 8 caracteres</li>
+                </ul>
+            </ng-template>
+        </p-password>
+          <input type="password" formControlName="confirmPassword" placeholder="Confirmar Senha" required />
           <div class="checkbox">
-            <input type="checkbox" id="signupCheck" formControlName="terms_conditions" />
+            <input type="checkbox" id="signupCheck" formControlName="termsConditions" />
             <label for="signupCheck">Aceitos os Termos e Condições</label>
           </div>
           <input type="submit" value="Registrar" />
@@ -21,7 +33,8 @@
         <header class="login" #loginHeader>Entrar</header>
         <form [formGroup]="loginForm" (ngSubmit)="sendLogin()">
           <input type="text" formControlName="username" placeholder="Usuário" required />
-          <input type="password" formControlName="password" placeholder="Senha" required />
+          <p-password placeholder="Senha" [toggleMask]="true" [feedback]="false" formControlName="password">
+        </p-password>
           <div class="extras">
           <a href="forgotPass">Esqueceu a Senha?</a>
           <div class="remember">

@@ -2,13 +2,14 @@ export interface iLogin {
     username: string;
     password: string;
     remember_me: boolean;
+    access_token: any
 }
 
 export interface iRegister {
     username: string;
     email: string;
-    CPF: string;
+    cpf: string;
     password: string;
-    confirm_password: string;
-    terms_conditions: boolean;
+    confirmPassword: string;
+    termsConditions: boolean;
 }
