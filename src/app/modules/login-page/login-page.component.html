@@ -1,6 +1,6 @@
 <p-toast position="top-center" key="tc"></p-toast>
 <body>
-    <section class="wrapper" #wrapper>
+    <section class="wrapper active" #wrapper>
       <div class="form signup">
         <header class="signup" #signupHeader>Registrar</header>
         <form [formGroup]="registerForm" (ngSubmit)="sendRegister()">
@@ -32,7 +32,7 @@
       <div class="form login">
         <header class="login" #loginHeader>Entrar</header>
         <form [formGroup]="loginForm" (ngSubmit)="sendLogin()">
-          <input type="text" formControlName="username" placeholder="Usuário" required />
+          <input type="text" formControlName="UserMail" placeholder="Usuário ou Email" required />
           <p-password placeholder="Senha" [toggleMask]="true" [feedback]="false" formControlName="password">
         </p-password>
           <div class="extras">

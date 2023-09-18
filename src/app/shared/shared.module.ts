@@ -5,6 +5,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ToolbarModule } from 'primeng/toolbar';
 import { SidebarModule } from 'primeng/sidebar';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { SidebarModule } from 'primeng/sidebar';
     CommonModule,
     ButtonModule,
     ToolbarModule,
-    SidebarModule
+    SidebarModule,
+    OverlayPanelModule,
   ],
   exports: [ HeaderComponent, FooterComponent  ],
   bootstrap: [ HeaderComponent, FooterComponent ],

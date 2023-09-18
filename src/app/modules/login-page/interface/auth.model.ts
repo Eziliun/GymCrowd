@@ -1,5 +1,5 @@
 export interface iLogin {
-    username: string;
+    UserMail: string;
     password: string;
     remember_me: boolean;
     access_token: any

@@ -36,7 +36,6 @@ export class LoginPageComponent {
   ngOnInit() {
     this.setupFormRegister();
     this.setupFormLogin();
-    console.log('Infos:', JSON.stringify(this.registerForm.value));
 
   }
 
@@ -47,15 +46,15 @@ export class LoginPageComponent {
       cpf:['', Validators.required] ,
       password:['', Validators.required] ,
       confirmPassword:['', Validators.required] ,
-      termsConditions:['', Validators.required] ,
+      termsConditions:[false, Validators.required] ,
     });
   }
 
   setupFormLogin() {
     this.loginForm = this.formBuilder.group({
-        username:['', Validators.required],
+      UserMail:['', Validators.required],
         password:['', Validators.required] ,
-        remember_me:['', Validators.required] ,
+        remember_me:[false, Validators.required] ,
         
     })
   }
@@ -64,7 +63,14 @@ export class LoginPageComponent {
     if(this.registerForm.valid){
       this.authService.register(this.registerForm.value).subscribe({
         next: () => {
-          this.router.navigateByUrl('homepage');
+          console.log('Infos:', JSON.stringify(this.registerForm.value));
+          this.messageService.add({
+            key: 'tc',
+            severity: 'success',
+            summary: 'Deu certo',
+            detail: 'Deu bom', 
+          });
+
         },
         error: (error) => {
           console.log(error);
@@ -83,11 +89,9 @@ export class LoginPageComponent {
     if(this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe({
         next: (resp) => {
-          if(resp.access_token) {
             console.log('Infos:', JSON.stringify(this.loginForm.value));
-            localStorage.setItem("acess_token", resp.access_token);
+            // localStorage.setItem("acess_token", resp.access_token);
             this.router.navigateByUrl('homepage');
-          }
         },
         error: (error) => {
           console.log(error);
@@ -102,16 +106,23 @@ export class LoginPageComponent {
     }
   }
 
+  resetForms() {
+    this.loginForm.reset();
+    this.registerForm.reset();
+  }
+
 
 
 
   ngAfterViewInit() {
     this.loginHeader.nativeElement.addEventListener('click', () => {
       this.wrapper.nativeElement.classList.add('active');
+      this.resetForms();
     });
 
     this.signupHeader.nativeElement.addEventListener('click', () => {
       this.wrapper.nativeElement.classList.remove('active');
+      this.resetForms();
     });
   }
 }

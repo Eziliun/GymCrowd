@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
 
+
   @ViewChild('nav') nav!: ElementRef;
 
   constructor(
@@ -16,6 +17,10 @@ export class HeaderComponent {
 
   navigateToLogin() {
     this.router.navigate(['/auth']);
+  }
+
+  navigateToProfile() {
+    this.router.navigate(['/profile']);
   }
 
   ngOnInit(): void {

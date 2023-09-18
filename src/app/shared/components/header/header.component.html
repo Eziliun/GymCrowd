@@ -15,6 +15,18 @@
             </ul>
         </div>
             <p-button label="Login" styleClass="p-button-outlined" (click)="navigateToLogin()"></p-button>
+            <div class="card flex justify-content-center">
+
+                <p-overlayPanel #op >
+                    <ng-template pTemplate="content">
+
+                        <p-button label="Perfil"  (click)="navigateToProfile()" styleClass="p-button-text" icon="pi pi-user-edit" [style]="{color:'#FF6000'}"></p-button>
+                        <p-button label="Sair" styleClass="p-button-text" icon="pi pi-sign-out" [style]="{color:'#FF6000'}"></p-button>
+                    </ng-template>
+                </p-overlayPanel>
+
+                <p-button (click)="op.toggle($event)" icon="pi pi-user" styleClass="p-button-outlined"></p-button>
+            </div>
     </div>
 </nav>
     

@@ -39,6 +39,11 @@ const routes: Routes = [
     loadChildren: () => import ('./modules/forgot-pass/forgot-pass.module').then(m => m.ForgotPassModule),    
     title:"ForgotPass"
   },
+  {
+    path:'profile',
+    loadChildren: () => import ('./modules/profile/profile.module').then(m => m.ProfileModule),    
+    title:"Profile"
+  },
 
 
 ];
