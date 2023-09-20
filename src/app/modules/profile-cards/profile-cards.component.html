@@ -2,7 +2,7 @@
     <h2 class="titulo">Cartões</h2>
 <div class="form-block">
     <div class="sidebar">
-    <p-button label="Conta" styleClass="p-button-outlined"  icon="pi pi-user"></p-button>
+    <p-button label="Conta" styleClass="p-button-outlined"  icon="pi pi-user" (onClick)="navigatetoProfile()"></p-button>
     <p-button label="Configurações" styleClass="p-button-outlined"  icon="pi pi-cog"></p-button>
     <p-button label="Pagamentos" styleClass="p-button-outlined"  icon="pi pi-credit-card"></p-button>
     </div>
@@ -11,26 +11,63 @@
             <p-button label="Adicionar Cartão" styleClass="p-button-outlined"  icon="pi pi-credit-card"></p-button>
         </div>
         <p-divider align="center">
-            <b>Dados Academia</b>
+            <b>Seus Cartões</b>
         </p-divider>
-        <div class="body-infos">
-            <div class="body-infos-row">
-                <div class="body-infos-colum">
-            <h5>Academia Registrada:</h5>
-            <input type="text" pInputText formControlName="text" readonly/>
-            <h5>Assinatura Feita:</h5>
-            <input type="text" pInputText formControlName="text" readonly/>
+        <div class="content-corpo">
+        <div class="card-list">
+            <div class="card">
+                <div class="visa-logo">
+                    <img src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/visa.png" alt="">
+                    <p>4586 7985 9271 6388</p>
+                </div>
+                <div class="visa-crinfo">
+                    <p>02/12</p>
+                    <p>Nikhil Bobade</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="visa-logo">
+                    <img src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/visa.png" alt="">
+                    <p>4586 7985 9271 6388</p>
+                </div>
+                <div class="visa-crinfo">
+                    <p>02/12</p>
+                    <p>Nikhil Bobade</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="visa-logo">
+                    <img src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/visa.png" alt="">
+                    <p>4586 7985 9271 6388</p>
+                </div>
+                <div class="visa-crinfo">
+                    <p>02/12</p>
+                    <p>Nikhil Bobade</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="visa-logo">
+                    <img src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/visa.png" alt="">
+                    <p>4586 7985 9271 6388</p>
+                </div>
+                <div class="visa-crinfo">
+                    <p>02/12</p>
+                    <p>Nikhil Bobade</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="visa-logo">
+                    <img src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/visa.png" alt="">
+                    <p>4586 7985 9271 6388</p>
+                </div>
+                <div class="visa-crinfo">
+                    <p>02/12</p>
+                    <p>Nikhil Bobade</p>
+                </div>
+            </div>
         </div>
-            <div class="body-infos-colum">
-            <h5>Forma de Pagamento:</h5>
-            <input type="text" pInputText formControlName="text" readonly/>
-            <h5>Frequência do Usuário:</h5>
-            <input type="text" pInputText formControlName="text" readonly/>
-        </div>
-        </div>
-        <p-button label="Editar Informações"></p-button>
+    </div>
 
-        </div>
     </div>
 </div>
 </div>
