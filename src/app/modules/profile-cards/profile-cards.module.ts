@@ -2,20 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ButtonModule } from 'primeng/button';
-import { ProfileComponent } from './profile.component';
-import { ProfileRoutingModule } from './profile-routing.module';
 import { DividerModule } from 'primeng/divider';
 import { InputTextModule } from 'primeng/inputtext';
+import { ProfileCardsComponent } from './profile-cards.component';
+import { ProfileCardsRoutingModule } from './profile-cards-routing.module';
 
 
 @NgModule({
-  declarations: [ProfileComponent],
+  declarations: [ProfileCardsComponent],
   imports: [
     CommonModule,
-    ProfileRoutingModule,
+    ProfileCardsRoutingModule,
     ButtonModule,
     DividerModule,
     InputTextModule,
   ]
 })
-export class ProfileModule { }
+export class ProfileCardsModule { }

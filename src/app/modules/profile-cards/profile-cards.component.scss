@@ -50,23 +50,9 @@
 
 .content-header{
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    text-align: center;
 }
-
-.content-header img{
-    width: 15%;
-    height: 15%;
-    margin: 15px;
-}
-
-.header-infos{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    font-size: 20px;
-    text-align: left;
-}
-
 
 
 .body-infos {
@@ -117,6 +103,12 @@
         border: 1px solid white  !important;
       }
 
+      .body-infos .p-button{
+        background: white;
+        color: #FF6000;
+        width: 30%;
+    }
+    
       .body-infos .p-button{
         background: white;
         color: #FF6000;
