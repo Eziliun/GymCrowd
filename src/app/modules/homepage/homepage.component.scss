@@ -140,6 +140,27 @@ width: 40px;
   }
 }
 
+@media (max-width: 425px){
+
+  main {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .map-area{
+    width: 90%;
+    height: 345px;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+  }
+
+  .viewList {
+    width: 80%;
+  }
+
+
 
 
 

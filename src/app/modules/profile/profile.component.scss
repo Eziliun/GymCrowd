@@ -176,3 +176,45 @@
 
 
 }
+
+@media (max-width: 425px){
+
+    .form-block {
+        width: 100%;
+    }
+
+    .content-header {
+        margin-top: 10px;
+    }
+
+    .body-infos {
+        padding: 10px 30px 10px 5px;
+    }
+
+    .body-infos-row {
+        justify-content: center;
+    }
+
+    .body-infos-colum {
+        margin-left: 25px;
+    }
+
+    .body-infos-row h5 {
+        font-size: 13px;
+    }
+
+    :host ::ng-deep {
+    .body-infos .p-button{
+        width: 40%;
+        height: 55px;
+    }
+
+    .sidebar .p-button-label {
+        display: none;
+    }
+
+}
+
+
+
+  }

@@ -66,3 +66,16 @@ img {
 
     
 }
+
+@media (max-width: 425px){
+
+    :host::ng-deep {
+
+        .p-button {
+            padding-left: 0; 
+            padding-right: 0;
+            width: 75%; 
+        }
+    }
+
+}

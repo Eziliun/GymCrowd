@@ -179,3 +179,11 @@ nav .nav-bar .logo a{
          }
         }
 }
+
+@media (max-width: 425px) {
+
+    .logo{
+        display: none;
+    }
+
+}

@@ -188,3 +188,39 @@ form input[type="submit"] {
     border: 1px solid #aaa;
   }
   }
+
+  @media (max-width: 425px){
+    :host ::ng-deep {
+      .p-inputtext {
+        width: 366px;
+      }
+      }
+
+  }
+
+  @media (max-width: 375px){
+    :host ::ng-deep {
+      .p-inputtext {
+        width: 316px;
+      }
+      }
+
+      .extras {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 10px;
+    }
+
+  }
+
+  @media (max-width: 320px){
+    :host ::ng-deep {
+      .p-inputtext {
+        width: 262px;
+      }
+      }
+
+  }
+
+
+  
