@@ -24,7 +24,7 @@
 
 .form-block {
     display: flex;
-    background-color: #FF6000;
+    background: linear-gradient(to right, #FF6000, #FF8000);;
     color: white;
     text-align: center;
     width: 80%;
@@ -109,7 +109,7 @@
 
     .visa-logo p {
     font-size: 22px;
-    padding: 10px 0;
+    padding: 10px 0; 
     letter-spacing: 2px;
     color: #ffffff;
   }
@@ -120,6 +120,7 @@
     padding: 0 10px;
     color: #ffffff;
   }
+
 :host ::ng-deep {
     .p-button{
         width: 100%;
@@ -148,7 +149,7 @@
     }
 
       .p-divider .p-divider-content {
-        background-color: #FF6000;
+        background: linear-gradient(to right, #FF6000, #FF8000);;
     }
 
     input {
@@ -156,7 +157,7 @@
     }
 }
 
-@media (max-width: 895px) {
+@media (max-width: 960px) {
 
     .form-block {
         display: flex;
@@ -184,6 +185,10 @@
         height: 45%;
     }
 
+    .card-list{
+        width: 70%;
+    }
+
     .visa-logo p {
         font-size: 20px;
       }
@@ -193,9 +198,93 @@
     .sidebar .p-button {
         border: none;
         height: 90%;
+        margin-top: 3px;
     }
 
 }
 
+
+}
+
+@media (max-width: 550px){
+
+    .form-block {
+        width: 100%;
+    }
+
+    .content-header {
+        margin-top: 10px;
+    }
+
+    .content-corpo{
+        height: 29%;
+    }
+
+    .card{
+        height: 58%;
+    }
+
+    :host ::ng-deep {
+    .body-infos .p-button{
+        width: 40%;
+        height: 55px;
+    }
+
+}
+
+.visa-logo {
+    text-align: center;
+    align-items: center;
+}
+
+.visa-crinfo {
+    display: flex;
+    justify-content: space-around;
+    padding: 0px;
+    margin-bottom: 10px;
+}
+
+ }
+
+ @media (max-width: 425px){
+
+    .content-corpo{
+        height: 26%;
+    }
+
+    .card-list{
+        width: 100%;
+    }
+
+    :host ::ng-deep {
+    .sidebar .p-button-label {
+        display: none;
+    
+    }
+    .sidebar .p-button .p-button-icon-left {
+        margin: 0px;
+    }
+}
+
+ }
+
+ @media (max-width: 375px){
+
+    .content-corpo{
+        height: 25%;
+    }
+
+    .visa-logo{
+        flex-direction: column;
+        margin-top: 15px;
+        margin-bottom: 5px;
+    }
+
+    .visa-crinfo {
+        padding: 0px;
+        margin-bottom: 10px;
+        flex-direction: column;
+        padding-bottom: 10px;
+    }
 
 }

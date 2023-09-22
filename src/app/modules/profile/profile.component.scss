@@ -24,7 +24,7 @@
 
 .form-block {
     display: flex;
-    background-color: #FF6000;
+    background: linear-gradient(to right, #FF6000, #FF8000);;
     color: white;
     text-align: center;
     width: 80%;
@@ -130,7 +130,7 @@
     }
 
       .p-divider .p-divider-content {
-        background-color: #FF6000;
+        background: linear-gradient(to right, #FF6000, #FF8000);;
     }
 
     input {
@@ -158,15 +158,12 @@
         justify-content: space-around;
     }
 
-    .body-infos-colum {
-        margin-left: 35px;
-    }
-
     :host ::ng-deep {
 
     .sidebar .p-button {
         border: none;
         height: 90%;
+        margin-top: 3px;
     }
 
     .body-infos .p-button{
@@ -177,7 +174,7 @@
 
 }
 
-@media (max-width: 425px){
+@media (max-width: 580px){
 
     .form-block {
         width: 100%;
@@ -187,34 +184,48 @@
         margin-top: 10px;
     }
 
-    .body-infos {
-        padding: 10px 30px 10px 5px;
-    }
-
-    .body-infos-row {
-        justify-content: center;
-    }
-
-    .body-infos-colum {
-        margin-left: 25px;
-    }
-
-    .body-infos-row h5 {
-        font-size: 13px;
-    }
-
     :host ::ng-deep {
     .body-infos .p-button{
         width: 40%;
         height: 55px;
     }
 
+}
+ }
+
+ @media (max-width: 425px){
+    :host ::ng-deep {
     .sidebar .p-button-label {
         display: none;
     }
+    
+    .sidebar .p-button .p-button-icon-left {
+            margin: 0px;
+        }
 
+    .body-infos .p-button{
+        width: 60%;
+        height: 55px;
+    }
+    
 }
 
+.form-block{
+    height: 100%;
+}
 
+.body-infos-row {
+    flex-direction: column;
+    margin-bottom: 25px;
+    font-size: 18px;
+    text-align: center;
+}
 
-  }
+.body-infos-colum{
+    width: 60%;
+}
+ }
+
+ @media (max-width: 375px){
+
+}

@@ -52,7 +52,7 @@ export class LoginPageComponent {
 
   setupFormLogin() {
     this.loginForm = this.formBuilder.group({
-      UserMail:['', Validators.required],
+      email:['', Validators.required],
         password:['', Validators.required] ,
         remember_me:[false, Validators.required] ,
         

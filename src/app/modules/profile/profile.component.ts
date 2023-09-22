@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { HostListener, Renderer2, ElementRef } from '@angular/core';
+
 
 @Component({
   selector: 'app-profile',
@@ -15,5 +17,7 @@ export class ProfileComponent {
   navigatetoCards() {
     this.router.navigate(['/profileCards']);
   }
+
+  
 
 }

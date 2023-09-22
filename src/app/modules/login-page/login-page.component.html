@@ -32,7 +32,7 @@
       <div class="form login">
         <header class="login" #loginHeader>Entrar</header>
         <form [formGroup]="loginForm" (ngSubmit)="sendLogin()">
-          <input type="text" formControlName="UserMail" placeholder="Usuário ou Email" required />
+          <input type="text" formControlName="email" placeholder="Usuário ou Email" required />
           <p-password placeholder="Senha" [toggleMask]="true" [feedback]="false" formControlName="password">
         </p-password>
           <div class="extras">
