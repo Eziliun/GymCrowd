@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/modules/login-page/service/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,8 @@ export class HeaderComponent {
   @ViewChild('nav') nav!: ElementRef;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private authService: AuthService,
   ) {}
 
   navigateToLogin() {
@@ -21,6 +23,10 @@ export class HeaderComponent {
 
   navigateToProfile() {
     this.router.navigate(['/profile']);
+  }
+
+  isLoggedIn(){
+    this.authService.isAuthenticated();
   }
 
   ngOnInit(): void {

@@ -1,8 +1,8 @@
 export interface iLogin {
-    email: string;
+    login: string;
     password: string;
     remember_me: boolean;
-    access_token: any
+    token: any
 }
 
 export interface iRegister {

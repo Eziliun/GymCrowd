@@ -52,7 +52,7 @@ export class LoginPageComponent {
 
   setupFormLogin() {
     this.loginForm = this.formBuilder.group({
-      email:['', Validators.required],
+        login:['', Validators.required],
         password:['', Validators.required] ,
         remember_me:[false, Validators.required] ,
         
@@ -90,7 +90,7 @@ export class LoginPageComponent {
       this.authService.login(this.loginForm.value).subscribe({
         next: (resp) => {
             console.log('Infos:', JSON.stringify(this.loginForm.value));
-            // localStorage.setItem("acess_token", resp.access_token);
+            localStorage.setItem("acess_token", resp.token);
             this.router.navigateByUrl('homepage');
         },
         error: (error) => {
