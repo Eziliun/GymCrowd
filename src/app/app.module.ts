@@ -11,6 +11,7 @@ import { CurrencyPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './shared/services/interceptors/auth-interceptor';
 import { AppConfig } from './shared/config/appconfig';
+import { MapComponent } from './modules/map/map.component';
 
 
 @NgModule({

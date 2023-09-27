@@ -41,6 +41,11 @@ const routes: Routes = [
     title:"ForgotPass"
   },
   {
+    path:'map',
+    loadChildren: () => import ('./modules/map/map.module').then(m => m.MapModule),    
+    title:"Map"
+  },
+  {
     path:'profile',
     loadChildren: () => import ('./modules/profile/profile.module').then(m => m.ProfileModule),    
     title:"Profile",
