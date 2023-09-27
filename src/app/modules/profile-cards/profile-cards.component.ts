@@ -16,4 +16,8 @@ export class ProfileCardsComponent {
     this.router.navigate(['/profile']);
   }
 
+  navigatetoConfig() {
+    this.router.navigate(['/profileConfig']);
+  }
+
 }
