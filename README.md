@@ -1,5 +1,7 @@
 # Gymcrowd
 
+Aplicativo de Academia WEB feito para apresentação na Faculdade
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.
 
 ## Development server
