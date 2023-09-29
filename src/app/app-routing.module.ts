@@ -44,19 +44,19 @@ const routes: Routes = [
     path:'profile',
     loadChildren: () => import ('./modules/profile/profile.module').then(m => m.ProfileModule),    
     title:"Profile",
-    canActivate: [authGuard],
+    // canActivate: [authGuard],
   },
   {
     path:'profileCards',
     loadChildren: () => import ('./modules/profile-cards/profile-cards.module').then(m => m.ProfileCardsModule),    
     title:"ProfileCards",
-    canActivate: [authGuard],
+    // canActivate: [authGuard],
   },
   {
     path:'profileConfig',
     loadChildren: () => import ('./modules/profile-config/profile-config.module').then(m => m.ProfileConfigModule),    
     title:"ProfileConfig",
-    canActivate: [authGuard],
+    // canActivate: [authGuard],
   },
 
 

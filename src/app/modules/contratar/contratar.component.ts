@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { iContratar } from './interface/contratar.model';
 import { ContratarService } from './services/contratar.service';
+import { MessageService } from 'primeng/api';
 
 interface Freq {
   name: string;
@@ -33,6 +34,7 @@ export class ContratarComponent {
   constructor(
     private formBuilder: FormBuilder,
     private contratarService: ContratarService,
+    private messageService: MessageService,
     ) {
 
   }
@@ -92,6 +94,12 @@ export class ContratarComponent {
       this.contratarService.criarContratar(req).subscribe({
         next: () => {
           console.log('Infos:', JSON.stringify(this.contratarForm.value));
+          this.messageService.add({
+            key: 'tc',
+            severity: 'success',
+            summary: 'Sucesso!',
+            detail: 'Formuário Enviado com Sucesso!', 
+          });
           this.contratarForm.reset()
         },
         error: error => {
@@ -100,6 +108,18 @@ export class ContratarComponent {
       })
     }
   }
+
+  sendContactTest(){
+
+          console.log('Infos:', JSON.stringify(this.contratarForm.value));
+          this.messageService.add({
+            key: 'tc',
+            severity: 'success',
+            summary: 'Sucesso!',
+            detail: 'Formuário Enviado com Sucesso!', 
+          });
+          this.contratarForm.reset()
+        }
 
   get isFormValid(): boolean {
     return this.contratarForm.valid;

@@ -54,7 +54,7 @@ export class LoginPageComponent {
     this.loginForm = this.formBuilder.group({
         login:['', Validators.required],
         password:['', Validators.required] ,
-        remember_me:[false, Validators] ,
+        remember_me:[false] ,
         
     })
   }
@@ -67,8 +67,8 @@ export class LoginPageComponent {
           this.messageService.add({
             key: 'tc',
             severity: 'success',
-            summary: 'Deu certo',
-            detail: 'Deu bom', 
+            summary: 'Sucesso!',
+            detail: 'Conta Criada!', 
           });
 
         },
@@ -85,9 +85,9 @@ export class LoginPageComponent {
     }
   }
 
-  loginUser() {
-    this.authService.loginUser();
-  }
+  // loginUser() {
+  //   this.authService.loginUser();
+  // }
 
   sendLogin() {
     if(this.loginForm.valid) {
@@ -95,7 +95,14 @@ export class LoginPageComponent {
         next: (resp) => {
             console.log('Infos:', JSON.stringify(this.loginForm.value));
             localStorage.setItem("acess_token", resp.token);
+            this.messageService.add({
+            key: 'tc',
+            severity: 'success',
+            summary: 'Sucesso!',
+            detail: 'Logado Com Sucesso!!', 
+          });
             this.router.navigateByUrl('homepage');
+            this.authService.loginUser();
         },
         error: (error) => {
           console.log(error);
