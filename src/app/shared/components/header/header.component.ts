@@ -25,9 +25,14 @@ export class HeaderComponent {
     this.router.navigate(['/profile']);
   }
 
-  isLoggedIn(){
-    this.authService.isAuthenticated();
+  isLoggedIn(): boolean {
+    return this.authService.isAuthenticatedUser();
   }
+
+  logout() {
+    this.authService.logoutUser();
+  }
+
 
   ngOnInit(): void {
     const nav = document.querySelector("nav") as HTMLElement;

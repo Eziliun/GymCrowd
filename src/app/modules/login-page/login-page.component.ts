@@ -54,7 +54,7 @@ export class LoginPageComponent {
     this.loginForm = this.formBuilder.group({
         login:['', Validators.required],
         password:['', Validators.required] ,
-        remember_me:[false, Validators.required] ,
+        remember_me:[false, Validators] ,
         
     })
   }
@@ -83,6 +83,10 @@ export class LoginPageComponent {
         }
       });   
     }
+  }
+
+  loginUser() {
+    this.authService.loginUser();
   }
 
   sendLogin() {
