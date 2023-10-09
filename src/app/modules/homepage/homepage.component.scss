@@ -122,6 +122,12 @@ width: 40px;
   padding-left: 9px;
 }
 
+@media (max-width: 1400px) {
+
+  .viewList{
+    height: 82%;
+  }
+}
 @media (max-width: 895px) {
 
   .listCorpo {
