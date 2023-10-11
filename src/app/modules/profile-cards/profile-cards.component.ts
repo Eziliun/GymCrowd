@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,8 +9,11 @@ import { Router } from '@angular/router';
 })
 export class ProfileCardsComponent {
 
+  cartaoForm!: FormGroup;
+
   constructor(
-    private router: Router
+    private router: Router,
+    private formBuilder: FormBuilder,
   ) {}
 
   navigatetoProfile() {

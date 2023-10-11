@@ -6,6 +6,8 @@ import { DividerModule } from 'primeng/divider';
 import { InputTextModule } from 'primeng/inputtext';
 import { ProfileCardsComponent } from './profile-cards.component';
 import { ProfileCardsRoutingModule } from './profile-cards-routing.module';
+import { DialogModule } from 'primeng/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,6 +18,9 @@ import { ProfileCardsRoutingModule } from './profile-cards-routing.module';
     ButtonModule,
     DividerModule,
     InputTextModule,
+    DialogModule,
+    ReactiveFormsModule,
+    
   ]
 })
 export class ProfileCardsModule { }
