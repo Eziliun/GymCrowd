@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, take, tap } from 'rxjs';
-import { AddressResponse, iMarker } from '../interface/mapa.model';
+import { AddressResponse, iMarker, markerRequest } from '../interface/mapa.model';
 
 @Injectable({
     providedIn: 'root'
@@ -20,7 +20,7 @@ export class MapaService{
         .pipe(tap(console.log), take(1));;
     }
 
-    sendMarkerDados(dataEndereco: iMarker): Observable<AddressResponse>{
+    sendMarkerDados(dataEndereco: markerRequest): Observable<AddressResponse>{
         return this.http
         .post<AddressResponse>(this.apiURL, dataEndereco)
     }

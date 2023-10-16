@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import * as L from 'leaflet';
-import { AddressResponse, iMarker } from './interface/mapa.model';
+import { AddressResponse, iMarker, markerRequest } from './interface/mapa.model';
 import { MapaService } from './services/mapa.service';
 
 @Component({
@@ -24,32 +24,52 @@ export class MapComponent {
     this.initMap();
     this.getUserLocation();
 
-    let req: iMarker = {
-      address: ['Rua Joaquim Sa,20', 'Rua Joaquim sa,55'],
-    };
+    const addresses = [
+      'Rua Joaquim Sa, 20',
+      'Rua Joaquim Sa, 55',
+      'Rua Joaquim Sa, 24',
+    ];
 
-    this.mapaService.sendMarkerDados(req).subscribe({
-      next: (res) => {
-        if (res.result.length > 0) {
-          let array = res.result;
-          array.forEach((object) => {
-            let ResponseBody = {
-              latitude: object.latitude,
-              longitude: object.longitude,
-              displayName: object.displayName,
-            };
-            L.marker([ResponseBody.latitude!, ResponseBody.longitude!])
-              .addTo(this.map)
-              .bindPopup(ResponseBody.displayName!)
-              .openPopup();
-          });
-        }
+    addresses.forEach((address) => {
+      let req: markerRequest = {
+        address: address,
+      };
+    
+      this.mapaService.sendMarkerDados(req).subscribe({
+        next: (res) => {
+          if (res.result.length > 0) {
+            let array = res.result;
+            array.forEach((object) => {
+              let ResponseBody = {
+                latitude: object.latitude,
+                longitude: object.longitude,
+                address: {
+                  road: object.address.road,
+                  residential: object.address.residential,
+                  suburb: object.address.suburb,
+                  city: object.address.city,
+                  state:object.address.state,
+                  municipality: object.address.municipality,
+                  country:  object.address.country,
+                  countryCode: object.address.countryCode,
+                  houseNumber: object.address.houseNumber,
+                  postCode: object.address.postcode
+                },
+              };
+              L.marker([ResponseBody.latitude!, ResponseBody.longitude!])
+                .addTo(this.map)
+                .bindPopup(ResponseBody.address.road + ', ' + ResponseBody.address.suburb + ', ' + ResponseBody.address.city + ', ' + ResponseBody.address.state)
 
-        console.log(res);
-      },
-      error: (error) => {
-        console.log(error);
-      },
+                .openPopup();
+            });
+          }
+    
+          console.log(res);
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
     });
   }
 

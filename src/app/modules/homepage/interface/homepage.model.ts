@@ -7,6 +7,4 @@ export interface iDadosAcademias {
 export interface EnderecoSede {
     rua: string;
     numero: string;
-    cidade: string;
-    cep: string;
 }
