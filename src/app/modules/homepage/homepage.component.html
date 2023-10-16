@@ -10,98 +10,23 @@
     <div class="listHeader">
       <h4>Academias</h4>
     </div>
-    <div class="listItens">
+    <div class="listItens" *ngFor="let item of academiaListData">
       <div class="listHeader2">
-      <h6>SmartFit</h6>
+      <h6>{{item.nome_academia}}</h6>
       </div>
       <div class="listCorpo">
       <div class="enderecos">
-      <p>Joaquim Nabuco 239</p>
-      <p>Costa Barros 658</p>
+      <p *ngFor="let endereco of  item.endereco_sedes"> {{ endereco.rua }} + ' ' + {{ endereco.numero }} </p>
       </div>
       <div class="crowdNumber">
       <img src="../../../assets/icons/crowd2.png" alt="crowd">
-      <p>29%</p>
-    </div>
-    </div>
-      <div class="listHeader2">
-      <h6>SmartFit</h6>
-      </div>
-      <div class="listCorpo">
-      <div class="enderecos">
-      <p>Joaquim Nabuco 239</p>
-      <p>Costa Barros 658</p>
-      </div>
-      <div class="crowdNumber">
-      <img src="../../../assets/icons/crowd2.png" alt="crowd">
-      <p>29%</p>
-    </div>
-    </div>
-      <div class="listHeader2">
-      <h6>SmartFit</h6>
-      </div>
-      <div class="listCorpo">
-      <div class="enderecos">
-      <p>Joaquim Nabuco 239</p>
-      <p>Costa Barros 658</p>
-      </div>
-      <div class="crowdNumber">
-      <img src="../../../assets/icons/crowd2.png" alt="crowd">
-      <p>29%</p>
-    </div>
-    </div>
-      <div class="listHeader2">
-      <h6>SmartFit</h6>
-      </div>
-      <div class="listCorpo">
-      <div class="enderecos">
-      <p>Joaquim Nabuco 239</p>
-      <p>Costa Barros 658</p>
-      </div>
-      <div class="crowdNumber">
-      <img src="../../../assets/icons/crowd2.png" alt="crowd">
-      <p>29%</p>
-    </div>
-    </div>
-      <div class="listHeader2">
-      <h6>SmartFit</h6>
-      </div>
-      <div class="listCorpo">
-      <div class="enderecos">
-      <p>Joaquim Nabuco 239</p>
-      <p>Costa Barros 658</p>
-      </div>
-      <div class="crowdNumber">
-      <img src="../../../assets/icons/crowd2.png" alt="crowd">
-      <p>29%</p>
-    </div>
-    </div>
-      <div class="listHeader2">
-      <h6>SmartFit</h6>
-      </div>
-      <div class="listCorpo">
-      <div class="enderecos">
-      <p>Joaquim Nabuco 239</p>
-      <p>Costa Barros 658</p>
-      </div>
-      <div class="crowdNumber">
-      <img src="../../../assets/icons/crowd2.png" alt="crowd">
-      <p>29%</p>
-    </div>
-    </div>
-      <div class="listHeader2">
-      <h6>SmartFit</h6>
-      </div>
-      <div class="listCorpo">
-      <div class="enderecos">
-      <p>Joaquim Nabuco 239</p>
-      <p>Costa Barros 658</p>
-      </div>
-      <div class="crowdNumber">
-      <img src="../../../assets/icons/crowd2.png" alt="crowd">
-      <p>29%</p>
+      <p>{{ item.lotacao_media }}%</p>
     </div>
     </div>
   </div>
+  <div class="listItens" *ngIf="!academiaListData">
+    <p class="empty-list">Lista Vazia <br> Tente Novamente mais tarde!</p>
+  </div>
+
   </div>
 </main>

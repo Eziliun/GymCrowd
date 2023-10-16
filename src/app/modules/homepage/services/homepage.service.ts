@@ -14,28 +14,14 @@ export class HomePageService{
         
     ){}
 
-    getDadosAcademia(): Observable<iDadosAcademias>{
+    getDadosAcademia(): Observable<iDadosAcademias[]>{
         return this.http
-        .get<iDadosAcademias>(this.apiURL)
+        .get<iDadosAcademias[]>(this.apiURL)
     }
 
     criarDadosAcademia(dadosAcademias: iDadosAcademias): Observable<iDadosAcademias> {
         return this.http
         .post<iDadosAcademias>(this.apiURL, dadosAcademias)
     }
-
-    atualizarDadosAcademia(dadosAcademia: iDadosAcademias): Observable<iDadosAcademias> {
-        const url = `${this.apiURL}/${dadosAcademia}`;
-        return this.http
-        .put<iDadosAcademias>(url, dadosAcademia)
-      }
-
-      deletarDadosAcademia(id?: number): Observable<iDadosAcademias> {
-        const url = `${this.apiURL}/${id}`;
-        return this.http.delete<iDadosAcademias>(url);
-      }
-
-
-
     
 }

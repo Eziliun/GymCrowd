@@ -122,6 +122,18 @@ width: 40px;
   padding-left: 9px;
 }
 
+.empty-list{
+  display: flex;
+  align-items: center;
+  width: 80%;
+  height: 20rem;
+  text-align: center;
+  font-size: 2rem;
+  background: #ee7124;
+  color: white;
+  border-radius: 10px;
+}
+
 @media (max-width: 1400px) {
 
   .viewList{

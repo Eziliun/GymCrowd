@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { iDadosAcademias } from './interface/homepage.model';
 import { HomePageService } from './services/homepage.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-homepage',
@@ -9,7 +10,9 @@ import { HomePageService } from './services/homepage.service';
 })
 export class HomepageComponent {
 
-  academiaListData!: iDadosAcademias;
+  academiaListData!: iDadosAcademias[];
+
+  academiaForm!: FormGroup;
 
   constructor(
     private homepageService: HomePageService,
@@ -17,11 +20,12 @@ export class HomepageComponent {
   
 }
 
-ngOnIniti() {
+ngOnInit() {
   this.getDadosAcademia()
 }
 
 getDadosAcademia() {
+  
   this.homepageService.getDadosAcademia().subscribe({
     next: res => {
       console.log(res);

@@ -4,6 +4,7 @@ import { HomepageRoutingModule } from './homepage-routing.module';
 import { HomepageComponent } from './homepage.component';
 import { MapModule } from '../map/map.module';
 import { MapComponent } from '../map/map.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -14,6 +15,8 @@ import { MapComponent } from '../map/map.component';
   imports: [
     CommonModule,
     HomepageRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
 })
 export class HomepageModule { }

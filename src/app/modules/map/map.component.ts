@@ -59,8 +59,6 @@ export class MapComponent {
               L.marker([ResponseBody.latitude!, ResponseBody.longitude!])
                 .addTo(this.map)
                 .bindPopup(ResponseBody.address.road + ', ' + ResponseBody.address.suburb + ', ' + ResponseBody.address.city + ', ' + ResponseBody.address.state)
-
-                .openPopup();
             });
           }
     

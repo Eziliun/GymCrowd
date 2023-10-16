@@ -8,6 +8,8 @@ import { ProfileCardsComponent } from './profile-cards.component';
 import { ProfileCardsRoutingModule } from './profile-cards-routing.module';
 import { DialogModule } from 'primeng/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 
 
 @NgModule({
@@ -20,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     InputTextModule,
     DialogModule,
     ReactiveFormsModule,
+    ToastModule,
     
   ]
 })
