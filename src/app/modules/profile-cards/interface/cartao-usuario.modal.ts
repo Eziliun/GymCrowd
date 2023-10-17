@@ -5,8 +5,8 @@ export interface CartaoResponse {
 }
 
 export interface iCartaoUsuario {
-    NumeroCartao: string;
-    BandeiraCartao: string;
-    NomeUsuarioCartao:string;
-    DataVencimentoCartao: string;
+    cardNumber: string;
+    flag: string;
+    nameHolder:string;
+    dueDate: string;
 }

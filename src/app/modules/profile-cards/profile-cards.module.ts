@@ -10,6 +10,7 @@ import { DialogModule } from 'primeng/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { InputMaskModule } from 'primeng/inputmask';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { ToastModule } from 'primeng/toast';
     DialogModule,
     ReactiveFormsModule,
     ToastModule,
+    InputMaskModule
     
   ]
 })

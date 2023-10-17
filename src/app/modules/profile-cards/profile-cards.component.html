@@ -18,13 +18,13 @@
         <div class="card-list">
             <div class="card" *ngFor="let item of cartaoData">
                 <div class="visa-logo">
-                    <p>{{item.BandeiraCartao}}</p>
+                    <p>{{item.flag}}</p>
                     <!-- <img src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/visa.png" alt=""> -->
-                    <p>{{item.NumeroCartao}}</p>
+                    <p>{{item.cardNumber}}</p>
                 </div>
                 <div class="visa-crinfo">
-                    <p>{{item.DataVencimentoCartao}}</p>
-                    <p>{{item.NomeUsuarioCartao}}</p>
+                    <p>{{item.dueDate}}</p>
+                    <p>{{item.nameHolder}}</p>
                 </div>
             </div>
         </div>
@@ -39,18 +39,53 @@
       </ng-template>
 
       <ng-template pTemplate="content">
-        <form [formGroup]="cartaoForm"></form>
 
+        <div class="cartaoCorpoForm">
+            <div class="cartaoFormHeader">
+                <img src="../../../assets/img/lasca.png" alt="">
+
+                <p>Visa</p>
+            </div>
+
+                <div class="cartaoFormCenter">
+                    <h2>{{ cartaoCreditoShow.cardNumber }}</h2>
+                </div>
+
+                <div class="cartaoFormBottom">
+                    <div class="cartaoFormBottomNome">
+                    <h4>NOME CARTAO</h4>
+                    <h3>{{ cartaoCreditoShow.nameHolder }}</h3>
+                </div>
+
+                <div class="cartaoFormBottomData">
+                    <h4>Validade</h4>
+                    <h3>{{ cartaoCreditoShow.dueDate }}</h3>
+                </div>
+                </div>
+        
+        </div>
+
+  
+        <form [formGroup]="cartaoForm" (ngSubmit)="sendCartao()">
         <h3>Numero Cartao</h3>
-        <input type="text" pInputText />
+
+        <p-inputMask type="text" mask="9999 9999 9999 9999"  formControlName="cardNumber" [(ngModel)]="cartaoCreditoShow.cardNumber"> </p-inputMask>
+
         <h3>Bandeira Cartao</h3>
-        <input type="text" pInputText />
+
+        <input  type="text" l formControlName="flag" [(ngModel)]="cartaoCreditoShow.flag" pInputText />
+
         <h3>Nome de Usuario</h3>
-        <input type="text" pInputText />
+
+        <input  type="text"  formControlName="nameHolder" [(ngModel)]="cartaoCreditoShow.nameHolder" pInputText />
+
         <h3>Data Vencimento</h3>
-        <input type="text" pInputText />
+        
+        <p-inputMask type="text" mask="99/99"  formControlName="dueDate" [(ngModel)]="cartaoCreditoShow.dueDate"></p-inputMask>
 
         <p-button label="Submit" (onClick)="sendCartao()"></p-button>
+    </form>
+
       </ng-template>
 </p-dialog>
 

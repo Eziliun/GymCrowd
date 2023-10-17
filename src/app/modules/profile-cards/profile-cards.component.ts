@@ -18,6 +18,8 @@ export class ProfileCardsComponent {
 
   cartaoForm!: FormGroup;
 
+  cartaoCreditoShow: any = {};
+
   visibleCardDialog: boolean = false;
 
   constructor(
@@ -34,10 +36,10 @@ export class ProfileCardsComponent {
 
   setupForm() {
     this.cartaoForm = this.formBuilder.group({
-      NumeroCartao: ['', Validators.required],
-      BandeiraCartao: ['', Validators.required],
-      NomeUsuarioCartao:['', Validators.required],
-      DataVencimentoCartao: ['', Validators.required],
+      cardNumber: ['', Validators.required],
+      flag: ['', Validators.required],
+      nameHolder:['', Validators.required],
+      dueDate: ['', Validators.required],
     });
   }
 
@@ -55,10 +57,10 @@ export class ProfileCardsComponent {
     if (this.isFormValid) {
 
       const request: iCartaoUsuario = {
-        NumeroCartao: this.cartaoForm.controls['NumeroCartao'].value,
-        BandeiraCartao: this.cartaoForm.controls['BandeiraCartao'].value,
-        NomeUsuarioCartao: this.cartaoForm.controls['NomeUsuarioCartao'].value,
-        DataVencimentoCartao: this.cartaoForm.controls['DataVencimentoCartao'].value,
+        cardNumber: this.cartaoForm.controls['cardNumber'].value,
+        flag: this.cartaoForm.controls['flag'].value,
+        nameHolder: this.cartaoForm.controls['nameHolder'].value,
+        dueDate: this.cartaoForm.controls['dueDate'].value,
       };
 
       this.cartaoService.enviarCartao(request).subscribe({
@@ -69,6 +71,11 @@ export class ProfileCardsComponent {
             summary: 'Sucesso!',
             detail: 'Cupom Enviado Com Sucesso!',
           });
+
+          this.cartaoCreditoShow.cardNumber = request.cardNumber;
+          this.cartaoCreditoShow.flag = request.flag;
+          this.cartaoCreditoShow.nameHolder = request.nameHolder;
+          this.cartaoCreditoShow.dueDate = request.dueDate;
           this.cartaoForm.reset();
           this.getCards();
         },

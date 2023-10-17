@@ -121,6 +121,57 @@
     color: #ffffff;
   }
 
+
+
+  .cartaoCorpoForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 55%;
+    height: 13rem;
+    padding: 10px;
+    background: purple;
+    border-radius: 20px;
+    color: white;
+  }
+
+  .cartaoCorpoForm img{
+    height: 3rem;
+    width: 11%;
+  }
+
+  .cartaoFormHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .cartaoFormCenter{
+    text-align: center;
+  }
+
+  .cartaoFormBottom{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .cartaoFormBottomNome{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .cartaoFormBottomNome h4 {
+    font-size: 0.7rem;
+    color: #bfbdba;
+  }
+  
+  .cartaoFormBottomData h4 {
+    font-size: 0.7rem;
+    color: #bfbdba;
+  }
+
 :host ::ng-deep {
     .p-button{
         width: 100%;
@@ -151,6 +202,21 @@
       .p-divider .p-divider-content {
         background: linear-gradient(to right, #FF6000, #FF8000);;
     }
+
+    .p-dialog .p-dialog-header{
+        display: flex;
+        font-size: 1.5rem;
+        
+      }
+
+    .p-dialog .p-dialog-content{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        gap: 2rem;
+      }
+
 
     input {
         width: 100%;
