@@ -1,93 +1,165 @@
 <p-toast position="top-center" key="tc"></p-toast>
 <div class="container">
-    <h2 class="titulo">Cartões</h2>
-<div class="form-block">
+  <h2 class="titulo">Cartões</h2>
+  <div class="form-block">
     <div class="sidebar">
-    <p-button label="Conta" styleClass="p-button-outlined"  icon="pi pi-user" (onClick)="navigatetoProfile()"></p-button>
-    <p-button label="Configurações" styleClass="p-button-outlined"  icon="pi pi-cog" (onClick)="navigatetoConfig()"></p-button>
-    <p-button label="Pagamentos" styleClass="p-button-outlined"  icon="pi pi-credit-card"></p-button>
+      <p-button
+        label="Conta"
+        [outlined]="true"
+        icon="pi pi-user"
+        (onClick)="navigatetoProfile()"
+      ></p-button>
+      <p-button
+        label="Configurações"
+        [outlined]="true"
+        icon="pi pi-cog"
+        (onClick)="navigatetoConfig()"
+      ></p-button>
+      <p-button
+        label="Pagamentos"
+        [outlined]="true"
+        icon="pi pi-credit-card"
+      ></p-button>
     </div>
     <div class="content">
-        <div class="content-header">
-            <p-button label="Adicionar Cartão" (onClick)="openCardDialog()" styleClass="p-button-outlined"  icon="pi pi-credit-card"></p-button>
-        </div>
-        <p-divider align="center">
-            <b>Seus Cartões</b>
-        </p-divider>
-        <div class="content-corpo">
+      <div class="content-header">
+        <p-button
+          class="buttonCreditCard"
+          label="Adicionar Cartão"
+          (onClick)="openCardDialog()"
+          [outlined]="true"
+          icon="pi pi-credit-card"
+        ></p-button>
+      </div>
+      <p-divider align="center">
+        <b>Seus Cartões</b>
+      </p-divider>
+      <div class="content-corpo">
         <div class="card-list">
-            <div class="card" *ngFor="let item of cartaoData">
-                <div class="visa-logo">
-                    <p>{{item.flag}}</p>
-                    <!-- <img src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/visa.png" alt=""> -->
-                    <p>{{item.cardNumber}}</p>
-                </div>
-                <div class="visa-crinfo">
-                    <p>{{item.dueDate}}</p>
-                    <p>{{item.nameHolder}}</p>
-                </div>
+            
+          <div class="card" (click)="handleCartaoDelete()" *ngFor="let item of cartaoData">
+            <div class="visa-logo">
+              <p>{{ item.flag }}</p>
+              <p>{{ item.cardNumber }}</p>
             </div>
+            <div class="visa-crinfo">
+              <p>{{ item.dueDate }}</p>
+              <p>{{ item.nameHolder }}</p>
+            </div>
+
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
-    </div>
-</div>
-
-<p-dialog [(visible)]="visibleCardDialog" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+  <p-dialog
+    [(visible)]="visibleCardDialog"
+    [modal]="true"
+    [style]="{ width: '50vw' }"
+    [draggable]="false"
+    [resizable]="false"
+  >
     <ng-template pTemplate="header" onsubmit="sendCartao()">
-        <p>Adicionar Cartão de Credito</p>
-      </ng-template>
+      <p>Adicionar</p>
+    </ng-template>
 
-      <ng-template pTemplate="content">
+    <ng-template pTemplate="content">
+      <div class="cartaoCorpoForm">
+        <div class="cartaoFormHeader">
+          <img src="../../../assets/img/lasca.png" alt="" />
 
-        <div class="cartaoCorpoForm">
-            <div class="cartaoFormHeader">
-                <img src="../../../assets/img/lasca.png" alt="">
-
-                <p>Visa</p>
-            </div>
-
-                <div class="cartaoFormCenter">
-                    <h2>{{ cartaoCreditoShow.cardNumber }}</h2>
-                </div>
-
-                <div class="cartaoFormBottom">
-                    <div class="cartaoFormBottomNome">
-                    <h4>NOME CARTAO</h4>
-                    <h3>{{ cartaoCreditoShow.nameHolder }}</h3>
-                </div>
-
-                <div class="cartaoFormBottomData">
-                    <h4>Validade</h4>
-                    <h3>{{ cartaoCreditoShow.dueDate }}</h3>
-                </div>
-                </div>
-        
+          <p>{{ cartaoCreditoShow.flag }}</p>
         </div>
 
-  
+        <div class="cartaoFormCenter">
+          <h2>{{ cartaoCreditoShow.cardNumber }}</h2>
+        </div>
+
+        <div class="cartaoFormBottom">
+          <div class="cartaoFormBottomNome">
+            <h4>NOME CARTÃO</h4>
+            <h3>{{ cartaoCreditoShow.nameHolder }}</h3>
+          </div>
+
+          <div class="cartaoFormBottomData">
+            <h4>Validade</h4>
+            <h3>{{ cartaoCreditoShow.dueDate }}</h3>
+          </div>
+        </div>
+      </div>
+      <div class="formCorpoInputs">
         <form [formGroup]="cartaoForm" (ngSubmit)="sendCartao()">
-        <h3>Numero Cartao</h3>
+          <h3>Número Cartão</h3>
 
-        <p-inputMask type="text" mask="9999 9999 9999 9999"  formControlName="cardNumber" [(ngModel)]="cartaoCreditoShow.cardNumber"> </p-inputMask>
+          <p-inputMask
+            type="text"
+            mask="9999 9999 9999 9999"
+            formControlName="cardNumber"
+            placeholder="Digite o número do cartão"
+            [(ngModel)]="cartaoCreditoShow.cardNumber"
+          >
+          </p-inputMask>
 
-        <h3>Bandeira Cartao</h3>
+          <h3>Nome do Titular</h3>
 
-        <input  type="text" l formControlName="flag" [(ngModel)]="cartaoCreditoShow.flag" pInputText />
+          <input
+            type="text"
+            placeholder="Digite o nome do Titular"
+            formControlName="nameHolder"
+            [(ngModel)]="cartaoCreditoShow.nameHolder"
+            maxlength="20"
+            pInputText
+          />
 
-        <h3>Nome de Usuario</h3>
+          <div class="formCorpoInputsDown">
+            <div class="formCorpoInputsDownInfo">
+              <h3>Bandeira Cartão</h3>
 
-        <input  type="text"  formControlName="nameHolder" [(ngModel)]="cartaoCreditoShow.nameHolder" pInputText />
+              <p-dropdown
+                formControlName="flag"
+                optionLabel="flag"
+                name="flag"
+                placeholder="Selecione..."
+                optionValue="flag"
+                [options]="bandeiraCartao"
+                [(ngModel)]="cartaoCreditoShow.flag"
+              ></p-dropdown>
+            </div>
 
-        <h3>Data Vencimento</h3>
-        
-        <p-inputMask type="text" mask="99/99"  formControlName="dueDate" [(ngModel)]="cartaoCreditoShow.dueDate"></p-inputMask>
+            <div class="formCorpoInputsDownInfo">
+              <h3>Data Vencimento</h3>
 
-        <p-button label="Submit" (onClick)="sendCartao()"></p-button>
-    </form>
+              <p-inputMask
+                type="text"
+                placeholder="Digite a Data do Vencimento"
+                mask="99/99"
+                formControlName="dueDate"
+                [(ngModel)]="cartaoCreditoShow.dueDate"
+              ></p-inputMask>
+            </div>
+          </div>
 
-      </ng-template>
-</p-dialog>
-
+          <p-button label="Adicionar" (onClick)="sendCartao()"></p-button>
+        </form>
+      </div>
+    </ng-template>
+  </p-dialog>
 
 </div>
+
+<p-confirmDialog #cd [style]="{ width: '50vw' }">
+  <ng-template pTemplate="header">
+      <h3>Excluir Cartão</h3>
+  </ng-template>
+  <ng-template pTemplate="icon">
+      <i class="pi pi-exclamation-triangle"></i>
+  </ng-template>
+  <ng-template pTemplate="message">
+      <p>Tem certeza que deseja excluir seu cartão?</p>
+  </ng-template>
+  <ng-template pTemplate="footer">
+      <button type="button" pButton icon="pi pi-times" label="Não" style="width: 50%;" (click)="cd.reject()"></button>
+      <button type="button" pButton icon="pi pi-check" label="Sim" style="width: 50%;" (click)="cd.accept()"></button>
+  </ng-template>
+</p-confirmDialog>

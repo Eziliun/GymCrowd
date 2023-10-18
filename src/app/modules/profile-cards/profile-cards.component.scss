@@ -74,6 +74,16 @@
     overflow-y: auto;
 }
 
+.cardListFor {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    gap: 1rem;
+}
+
 .card {
     display: flex;
     flex-direction: column;
@@ -88,7 +98,6 @@
     -webkit-backdrop-filter: blur(5px);
     margin-bottom: 20px;
     margin-top: 20px;
-    
   }
   
   .visa-logo {
@@ -121,8 +130,6 @@
     color: #ffffff;
   }
 
-
-
   .cartaoCorpoForm{
     display: flex;
     flex-direction: column;
@@ -130,7 +137,7 @@
     width: 55%;
     height: 13rem;
     padding: 10px;
-    background: purple;
+    background: linear-gradient(to right, #FF6000, #FF8000);;
     border-radius: 20px;
     color: white;
   }
@@ -164,16 +171,41 @@
 
   .cartaoFormBottomNome h4 {
     font-size: 0.7rem;
-    color: #bfbdba;
   }
   
   .cartaoFormBottomData h4 {
-    font-size: 0.7rem;
-    color: #bfbdba;
+    font-size: 0.9rem;
+  }
+
+  .formCorpoInputs{
+    display: flex;
+    width: 80%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .formCorpoInputs h3 {
+    margin-top: 0.8rem;
+  }
+
+  .formCorpoInputsDown{
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .formCorpoInputsDownInfo{
+    width: 100%;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+
   }
 
 :host ::ng-deep {
-    .p-button{
+      .p-button{
         width: 100%;
         color: white;
         border: none;
@@ -190,7 +222,8 @@
       .content-header .p-button{
         background: white;
         color: #FF6000;
-        margin-top: 10px;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
 
     .content-header .p-button:hover{
@@ -206,7 +239,7 @@
     .p-dialog .p-dialog-header{
         display: flex;
         font-size: 1.5rem;
-        
+        border-bottom: solid 1px rgba(180, 180, 180, 0.397);
       }
 
     .p-dialog .p-dialog-content{
@@ -214,12 +247,47 @@
         flex-direction: column;
         width: 100%;
         align-items: center;
-        gap: 2rem;
+        padding: 10px;
       }
+
+      .p-dialog .p-button {
+        background: #FF6000 !important;
+      }
+
+      .p-dialog .p-button:hover {
+        background: white !important;
+        color: #FF6000;
+        border: solid 1px #FF6000 !important;
+      }
+
+      .content-header .p-button{
+        display: flex;
+        gap: 1rem;
+      }
+
+      .p-dropdown{
+        width: 100%;
+      }
+
+      .p-dialog-footer {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 1rem;
+            }
+
+      .p-dialog p {
+        font-size: 1.5rem;
+            }
+
+      .p-dialog i {
+        font-size: 1.5rem;
+            }
 
 
     input {
         width: 100%;
+        text-align: center;
     }
 }
 

@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CartaoResponse, iCartaoUsuario } from './interface/cartao-usuario.modal';
 import { CartaoUsuario } from './services/cartao-usuario.service';
-import { MessageService } from 'primeng/api';
+import { ConfirmEventType, ConfirmationService, MessageService } from 'primeng/api';
+
+interface cartaoBandeiras {
+  flag: string;
+}
 
 @Component({
   selector: 'app-profile-cards',
@@ -18,20 +22,37 @@ export class ProfileCardsComponent {
 
   cartaoForm!: FormGroup;
 
-  cartaoCreditoShow: any = {};
+  cartaoCreditoShow: any = {
+    flag: 'Visa'
+  };
+
+  bandeiraCartao!: cartaoBandeiras[];
 
   visibleCardDialog: boolean = false;
+
 
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
     private cartaoService: CartaoUsuario,
     private messageService: MessageService,
+    private confirmationService: ConfirmationService,
   ) {}
 
   ngOnInit(){
     this.getCards();
     this.setupForm();
+    this.dropDownSelector();
+  }
+
+  dropDownSelector() {
+    this.bandeiraCartao = [
+      { flag: 'Visa' },
+      { flag: 'MasterCard' },
+      { flag: 'Elo' },
+      { flag: 'American Express' },
+      { flag: 'Maestro' },
+    ];
   }
 
   setupForm() {
@@ -42,6 +63,22 @@ export class ProfileCardsComponent {
       dueDate: ['', Validators.required],
     });
   }
+
+  handleCartaoDelete() {
+    this.confirmationService.confirm({
+        accept: () => {
+            this.messageService.add({ severity: 'success', summary: 'Aceita', detail: 'Cartão Excluido' });
+        },
+        reject: (type: ConfirmEventType) => {
+            switch (type) {
+                case ConfirmEventType.REJECT:
+                    this.messageService.add({ severity: 'error', summary: 'Cancelada', detail: 'Exclusão Cancelada' });
+                    break;
+            }
+        }
+    });
+}
+
 
   getCards(){
     this.cartaoService.getCartao().subscribe({
@@ -92,10 +129,10 @@ export class ProfileCardsComponent {
   }
 
 
-
   openCardDialog() {
     this.visibleCardDialog = true;
 }
+
 
 get isFormValid(): boolean {
   return this.cartaoForm.valid;

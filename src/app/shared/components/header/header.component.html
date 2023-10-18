@@ -14,7 +14,7 @@
                 <li><a href="contratar">Contratar</a></li>
             </ul>
         </div>
-            <p-button *ngIf="!isLoggedIn()" label="Login" styleClass="p-button-outlined" (click)="navigateToLogin()"></p-button>
+            <p-button *ngIf="!isLoggedIn()" label="Login" [outlined]="true" (click)="navigateToLogin()"></p-button>
             <div class="card flex justify-content-center" *ngIf="isLoggedIn()">
 
                 <p-overlayPanel #op>
@@ -25,7 +25,7 @@
                     </ng-template>
                 </p-overlayPanel>
 
-                <p-button (click)="op.toggle($event)" icon="pi pi-user" styleClass="p-button-outlined"></p-button>
+                <p-button (click)="op.toggle($event)" icon="pi pi-user" [outlined]="true"></p-button>
             </div>
     </div>
 </nav>
