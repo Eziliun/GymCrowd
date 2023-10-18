@@ -29,7 +29,7 @@ getDadosAcademia() {
   this.homepageService.getDadosAcademia().subscribe({
     next: res => {
       console.log(res);
-      this.academiaListData = res;  
+      this.academiaListData = res.result; 
     },
 
     error: error => {

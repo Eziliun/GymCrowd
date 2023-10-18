@@ -10,17 +10,17 @@
     <div class="listHeader">
       <h4>Academias</h4>
     </div>
-    <div class="listItens" *ngFor="let item of academiaListData">
-      <div class="listHeader2">
-      <h6>{{item.nome_academia}}</h6>
+    <div class="listItens" >
+      <div class="listHeader2" *ngFor="let item of academiaListData">
+      <h6>{{item.nomeAcademia}}</h6>
       </div>
-      <div class="listCorpo">
+      <div class="listCorpo" *ngFor="let item of academiaListData">
       <div class="enderecos">
-      <p *ngFor="let endereco of  item.endereco_sedes"> {{ endereco.rua }} + ' ' + {{ endereco.numero }} </p>
+      <p *ngFor="let endereco of  item.enderecoSedes"> {{ endereco.rua }}    {{ endereco.numero }} </p>
       </div>
       <div class="crowdNumber">
       <img src="../../../assets/icons/crowd2.png" alt="crowd">
-      <p>{{ item.lotacao_media }}%</p>
+      <p>{{ item.lotacaoMedia }}%</p>
     </div>
     </div>
   </div>

@@ -37,16 +37,12 @@
       <div class="content-corpo">
         <div class="card-list">
             
-          <div class="card" (click)="handleCartaoDelete()" *ngFor="let item of cartaoData">
-            <div class="visa-logo">
+          <div class="card" *ngFor="let item of cartaoData">
+            <div class="card-logo">
               <p>{{ item.flag }}</p>
               <p>{{ item.cardNumber }}</p>
             </div>
-            <div class="visa-crinfo">
-              <p>{{ item.dueDate }}</p>
-              <p>{{ item.nameHolder }}</p>
-            </div>
-
+            <p-button icon="pi pi-trash" [rounded]="true" [outlined]="true" (onClick)="handleCartaoDelete()" ></p-button>
           </div>
         </div>
       </div>
