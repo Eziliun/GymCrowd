@@ -115,6 +115,8 @@ export class ProfileCardsComponent {
           this.cartaoCreditoShow.dueDate = request.dueDate;
           this.cartaoForm.reset();
           this.getCards();
+          this.visibleCardDialog = false;
+
         },
         error: (error) => {
           this.messageService.add({

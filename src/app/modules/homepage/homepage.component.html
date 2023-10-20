@@ -11,18 +11,20 @@
       <h4>Academias</h4>
     </div>
     <div class="listItens" >
-      <div class="listHeader2" *ngFor="let item of academiaListData">
+      <div class="listaCorpoInfo" *ngFor="let item of academiaListData">
+      <div class="listHeader2" >
       <h6>{{item.nomeAcademia}}</h6>
       </div>
-      <div class="listCorpo" *ngFor="let item of academiaListData">
+      <div class="listCorpo" >
       <div class="enderecos">
-      <p *ngFor="let endereco of  item.enderecoSedes"> {{ endereco.rua }}    {{ endereco.numero }} </p>
+      <p *ngFor="let endereco of  item.enderecoSedes">  {{ endereco.rua }}      {{ endereco.numero }} </p>
       </div>
       <div class="crowdNumber">
       <img src="../../../assets/icons/crowd2.png" alt="crowd">
       <p>{{ item.lotacaoMedia }}%</p>
     </div>
     </div>
+  </div>
   </div>
   <div class="listItens" *ngIf="!academiaListData">
     <p class="empty-list">Lista Vazia <br> Tente Novamente mais tarde!</p>

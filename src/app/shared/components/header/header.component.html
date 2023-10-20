@@ -20,8 +20,8 @@
                 <p-overlayPanel #op>
                     <ng-template pTemplate="content">
 
-                        <p-button label="Perfil"  (click)="navigateToProfile()" styleClass="p-button-text" icon="pi pi-user-edit" [style]="{color:'#FF6000'}"></p-button>
-                        <p-button label="Sair" (onClick)="logout()" styleClass="p-button-text" icon="pi pi-sign-out" [style]="{color:'#FF6000'}"></p-button>
+                        <p-button label="Perfil"  (click)="navigateToProfile()" [outlined]="true" icon="pi pi-user-edit" [style]="{color:'#FF6000'}"></p-button>
+                        <p-button label="Sair" (onClick)="logout()" [outlined]="true" icon="pi pi-sign-out" [style]="{color:'#FF6000'}"></p-button>
                     </ng-template>
                 </p-overlayPanel>
 

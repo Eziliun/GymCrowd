@@ -6,6 +6,8 @@ import { ProfileComponent } from './profile.component';
 import { ProfileRoutingModule } from './profile-routing.module';
 import { DividerModule } from 'primeng/divider';
 import { InputTextModule } from 'primeng/inputtext';
+import { Dialog, DialogModule } from 'primeng/dialog';
+import { DropdownModule } from 'primeng/dropdown';
 
 
 @NgModule({
@@ -16,6 +18,9 @@ import { InputTextModule } from 'primeng/inputtext';
     ButtonModule,
     DividerModule,
     InputTextModule,
+    DialogModule,
+    DropdownModule,
+    
   ]
 })
 export class ProfileModule { }

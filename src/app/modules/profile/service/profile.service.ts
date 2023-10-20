@@ -6,7 +6,7 @@ import {
   import { Injectable } from '@angular/core';
   import { Observable, catchError, take, throwError, timeout } from 'rxjs';
   import { Router } from '@angular/router';
-import { iAcademiaUser } from '../interface/academia.model';
+import { iAcademiaUser, userAcademiaRespone } from '../interface/academia.model';
   
   @Injectable({
     providedIn: 'root',
@@ -15,6 +15,11 @@ import { iAcademiaUser } from '../interface/academia.model';
     private apiURLAcademiaUser = 'http://192.168.203.4:8080/v1/academia/user'; //URL da APIAcademiaUser
   
     constructor(private http: HttpClient, private router: Router) {}
+
+    getDadosAcademia(): Observable<userAcademiaRespone>{
+      return this.http
+      .get<userAcademiaRespone>(this.apiURLAcademiaUser)
+  }
   
     iniciarCadastro(dadosAcademiaUser: iAcademiaUser): Observable<iAcademiaUser> {
       return this.http

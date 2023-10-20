@@ -33,9 +33,30 @@
             <input type="text" placeholder="Você ainda não foi malhar!" pInputText formControlName="text" readonly/>
         </div>
         </div>
-        <p-button label="Editar Informações"></p-button>
+        <p-button label="Editar Informações" (onClick)="showAcademiaDialog()"></p-button>
 
         </div>
     </div>
 </div>
 </div>
+
+<p-dialog header="Editar Informações da Academia" [(visible)]="academiaDialogVisible" [modal]="true" [style]="{width: '50vw'}">
+    <div class="contentDialogAcademia">
+
+        
+        <div class="contentDialogAcademiaOptions">
+        <h4>Sua Academia:</h4>
+        <p-dropdown [options]="registerAcademias" formControlName="academiaRegistada" optionValue="registerAcademiaName" optionLabel="registerAcademiaName" placeholder="Selecione..."></p-dropdown>
+        </div>
+
+        <div class="contentDialogAcademiaOptions">
+        <h4>Sua Assinatura:</h4>
+        <p-dropdown  [options]="assinaturaAcademias" formControlName="assinatura" optionValue="assinaturaAcademia" optionLabel="assinaturaAcademia" placeholder="Selecione..."></p-dropdown>
+        </div>
+
+        <div class="contentDialogAcademiaOptions">
+        <h4>Forma de Pagamento:</h4>
+        <p-dropdown  [options]="formadePagamentoAcademias" formControlName="formaPagamento" optionValue="formadePagamentoAcademia" optionLabel="formadePagamentoAcademia" placeholder="Selecione..."></p-dropdown>
+    </div>
+    </div>
+</p-dialog>
