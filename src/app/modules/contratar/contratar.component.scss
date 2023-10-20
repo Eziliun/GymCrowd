@@ -53,12 +53,8 @@ h4{
 .span-icon {
     display: flex;
     width: 50%;
-    text-align: center;
 }
 
-i{
-    padding-left: 0.25rem;
-}
 
 .dropdownRow {
     display: flex;
@@ -107,10 +103,6 @@ i{
         gap: 1rem;
     }
 
-    .span-icon {
-        width: 100%;
-        justify-content: center;
-    }
 
     .columnFlexContainer {
         display: flex;
