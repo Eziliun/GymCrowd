@@ -107,7 +107,16 @@
     height: 20rem;
     display: flex;
     justify-content: space-evenly;
-    align-items: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contentDialogAcademiaUpper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .contentDialogAcademiaOptions{
@@ -149,6 +158,24 @@
 
       .p-divider .p-divider-content {
         background: linear-gradient(to right, #FF6000, #FF8000);;
+    }
+
+    .p-dialog-header {
+        color: #FF6000;
+    }
+
+    .p-dialog p-button {
+        width: 35%;
+    }
+
+    .p-dialog .p-button{
+        color: #FF8000;
+        border: 1px solid #FF6000;
+    }
+
+    .p-dialog .p-button:hover{
+        color: white !important;
+        background: #FF6000 !important;
     }
 
     input {

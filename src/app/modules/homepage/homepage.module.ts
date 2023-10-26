@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomepageRoutingModule } from './homepage-routing.module';
 import { HomepageComponent } from './homepage.component';
-import { MapModule } from '../map/map.module';
 import { MapComponent } from '../map/map.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ButtonModule } from 'primeng/button';
 
 
 
@@ -16,7 +16,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     HomepageRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ButtonModule,
   ],
 })
 export class HomepageModule { }

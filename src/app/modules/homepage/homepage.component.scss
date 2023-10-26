@@ -65,8 +65,9 @@ main {
 
 .listHeader2 {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  flex-direction: row;
   width: 100%;
   background-color: white;
   border-radius: 10px 10px 0 0;
@@ -75,6 +76,12 @@ main {
   padding: 5px;
   margin-top:  30px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  h5 {
+    visibility: hidden;
+  }
+  i {
+    font-size: 1.5rem;
+  }
 }
 
 .listHeader2 h6 {
@@ -136,6 +143,18 @@ width: 40px;
   background: #ee7124;
   color: white;
   border-radius: 10px;
+}
+
+:host::ng-deep {
+  .p-button {
+    color: #FF6000;
+    margin-bottom: 10px;
+  }
+
+  .p-button:hover {
+    background: #FF6000;
+    color: white;
+  }
 }
 
 @media (max-width: 1400px) {

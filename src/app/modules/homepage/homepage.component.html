@@ -7,17 +7,20 @@
   </section>
 
   <div class="viewList">
+    <p-button label="Criar Assinatura agora!" (onClick)="navigateToLogin()" [outlined]="true"></p-button>
     <div class="listHeader">
       <h4>Academias</h4>
     </div>
     <div class="listItens" >
       <div class="listaCorpoInfo" *ngFor="let item of academiaListData">
       <div class="listHeader2" >
+      <h5>l</h5>
       <h6>{{item.nomeAcademia}}</h6>
+      <i class="pi pi-info-circle" style="color: #FF6000"></i>
       </div>
       <div class="listCorpo" >
       <div class="enderecos">
-      <p *ngFor="let endereco of  item.enderecoSedes">  {{ endereco.rua }}      {{ endereco.numero }} </p>
+        <p *ngFor="let endereco of  item.enderecoSedes">  {{ endereco.rua }}      {{ endereco.numero }} </p>
       </div>
       <div class="crowdNumber">
       <img src="../../../assets/icons/crowd2.png" alt="crowd">

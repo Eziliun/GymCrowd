@@ -33,15 +33,17 @@
             <input type="text" placeholder="Você ainda não foi malhar!" pInputText formControlName="text" readonly/>
         </div>
         </div>
-        <p-button label="Editar Informações" (onClick)="showAcademiaDialog()"></p-button>
+        <p-button label="Criar Assinatura" (onClick)="showAcademiaDialog()"></p-button>
 
         </div>
     </div>
 </div>
 </div>
 
-<p-dialog header="Editar Informações da Academia" [(visible)]="academiaDialogVisible" [modal]="true" [style]="{width: '50vw'}">
+<p-dialog header="Criar Assinatura" [(visible)]="academiaDialogVisible" [modal]="true" [style]="{width: '50vw'}">
     <div class="contentDialogAcademia">
+
+        <div class="contentDialogAcademiaUpper">
 
         
         <div class="contentDialogAcademiaOptions">
@@ -54,9 +56,12 @@
         <p-dropdown  [options]="assinaturaAcademias" formControlName="assinatura" optionValue="assinaturaAcademia" optionLabel="assinaturaAcademia" placeholder="Selecione..."></p-dropdown>
         </div>
 
-        <div class="contentDialogAcademiaOptions">
-        <h4>Forma de Pagamento:</h4>
-        <p-dropdown  [options]="formadePagamentoAcademias" formControlName="formaPagamento" optionValue="formadePagamentoAcademia" optionLabel="formadePagamentoAcademia" placeholder="Selecione..."></p-dropdown>
     </div>
+
+        <div class="contentDialogAcademiaOptions" >
+        <h4>Forma de Pagamento:</h4>
+        <p-dropdown  [options]="formadePagamentoAcademias" appendTo="body" formControlName="formaPagamento" optionValue="formadePagamentoAcademia" optionLabel="formadePagamentoAcademia" placeholder="Selecione..."></p-dropdown>
+    </div>
+    <p-button [outlined]="true" label="Criar"></p-button>
     </div>
 </p-dialog>

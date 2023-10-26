@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { iDadosAcademias } from './interface/homepage.model';
 import { HomePageService } from './services/homepage.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -16,12 +17,17 @@ export class HomepageComponent {
 
   constructor(
     private homepageService: HomePageService,
+    private router: Router
     ) {
   
 }
 
 ngOnInit() {
   this.getDadosAcademia()
+}
+
+navigateToLogin() {
+  this.router.navigate(['/auth']);
 }
 
 getDadosAcademia() {
