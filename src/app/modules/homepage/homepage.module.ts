@@ -5,6 +5,7 @@ import { HomepageComponent } from './homepage.component';
 import { MapComponent } from '../map/map.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
 
 
 
@@ -18,6 +19,7 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     ReactiveFormsModule,
     ButtonModule,
+    DialogModule
   ],
 })
 export class HomepageModule { }

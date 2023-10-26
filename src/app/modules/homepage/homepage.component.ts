@@ -15,6 +15,8 @@ export class HomepageComponent {
 
   academiaForm!: FormGroup;
 
+  visibleGraphAcad: boolean = false
+
   constructor(
     private homepageService: HomePageService,
     private router: Router
@@ -24,10 +26,6 @@ export class HomepageComponent {
 
 ngOnInit() {
   this.getDadosAcademia()
-}
-
-navigateToLogin() {
-  this.router.navigate(['/auth']);
 }
 
 getDadosAcademia() {
@@ -42,6 +40,14 @@ getDadosAcademia() {
       console.log(error);
     }
   });
+}
+
+navigateToLogin() {
+  this.router.navigate(['/auth']);
+}
+
+showGraphAcad(){
+  this.visibleGraphAcad = true;
 }
 }
 
