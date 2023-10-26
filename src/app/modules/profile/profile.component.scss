@@ -219,6 +219,30 @@
 
 }
 
+@media (max-width: 768px) {
+
+    .contentDialogAcademiaUpper {
+        flex-direction: column;
+    }
+
+
+    :host ::ng-deep {
+    .p-dialog {
+        height: 70% !important;
+    }
+
+    .p-dialog-content {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .p-button {
+            margin-top: 1rem;
+        }
+    }
+}
+}
+
 @media (max-width: 580px){
 
     .form-block {
@@ -233,6 +257,16 @@
     .body-infos .p-button{
         width: 40%;
         height: 55px;
+    }
+
+    .p-dialog {
+        width: 70% !important;
+    }
+
+    .p-dialog-content {
+        p-button {
+            width: 85%;
+        }
     }
 
 }
@@ -272,5 +306,7 @@
  }
 
  @media (max-width: 375px){
-
+    .p-dialog {
+        width: 100% !important;
+    }
 }

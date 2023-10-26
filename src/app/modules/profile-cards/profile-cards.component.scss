@@ -271,9 +271,6 @@
   }
 }
 
-@media (max-width: 1200) {
-}
-
 @media (max-width: 960px) {
   .form-block {
     display: flex;
@@ -318,6 +315,12 @@
   }
 }
 
+@media (max-width: 768px) {
+  .cartaoCorpoForm {
+    width: 90%;
+  }
+}
+
 @media (max-width: 550px) {
   .form-block {
     width: 100%;
@@ -340,19 +343,12 @@
       width: 40%;
       height: 55px;
     }
+    .p-dialog {
+      width: 80% !important;
+  }
   }
 
-  .visa-logo {
-    text-align: center;
-    align-items: center;
-  }
 
-  .visa-crinfo {
-    display: flex;
-    justify-content: space-around;
-    padding: 0px;
-    margin-bottom: 10px;
-  }
 }
 
 @media (max-width: 425px) {
@@ -371,6 +367,11 @@
     .sidebar .p-button .p-button-icon-left {
       margin: 0px;
     }
+
+    .p-dialog {
+      width: 100% !important;
+      font-size: 0.8rem;
+  }
   }
 }
 

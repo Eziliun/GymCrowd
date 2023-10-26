@@ -130,6 +130,15 @@ h4{
 
     }
 
+    @media (max-width: 768px){
+        .span-icon {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+
+    }
+
     @media (max-width: 425px){
         h4{
             font-size: 1.5rem;

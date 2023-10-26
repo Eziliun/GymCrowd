@@ -50,7 +50,6 @@ export class ProfileCardsComponent {
       { flag: 'Visa' },
       { flag: 'MasterCard' },
       { flag: 'Elo' },
-      { flag: 'American Express' },
       { flag: 'Maestro' },
     ];
   }
