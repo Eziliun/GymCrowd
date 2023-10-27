@@ -273,6 +273,11 @@
 }
  }
 
+ @media (max-width: 465px){
+    .contentDialogAcademiaOptions{
+        font-size: 1.3rem;
+    }
+ }
  @media (max-width: 425px){
     :host ::ng-deep {
     .sidebar .p-button-label {
