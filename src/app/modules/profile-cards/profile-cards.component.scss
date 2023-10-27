@@ -272,6 +272,18 @@
   }
 }
 
+@media (max-width: 1144px) {
+  .cartaoCorpoForm{
+    width: 75%;
+  }
+
+  :host ::ng-deep {
+    .p-dialog {
+      width: 70% !important;
+    }
+  }
+
+}
 @media (max-width: 960px) {
   .form-block {
     display: flex;
@@ -322,6 +334,14 @@
   }
 }
 
+@media (max-width: 650px) {
+  :host ::ng-deep {
+    .p-dialog {
+      width: 90% !important;
+    }
+  }
+
+}
 @media (max-width: 550px) {
   .form-block {
     width: 100%;
