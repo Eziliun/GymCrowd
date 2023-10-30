@@ -18,6 +18,7 @@ interface QTD {
   styleUrls: ['./contratar.component.scss'],
 })
 export class ContratarComponent {
+
   FreqType: Freq[] | undefined;
 
   QtdPick: QTD[] | undefined;
