@@ -33,7 +33,7 @@
             <input type="text" placeholder="Você ainda não foi malhar!" pInputText formControlName="text" readonly/>
         </div>
         </div>
-        <p-button label="Criar Assinatura" (onClick)="showAcademiaDialog()"></p-button>
+        <p-button label="Adquirir CrowdPass" (onClick)="showAcademiaDialog()"></p-button>
 
         </div>
     </div>
@@ -42,6 +42,11 @@
 
 <p-dialog header="Criar Assinatura" [(visible)]="academiaDialogVisible" [modal]="true" [style]="{width: '50vw'}">
     <div class="contentDialogAcademia">
+
+        <h4>Quer malhar onde quiser, escolhendo a dedo o local dentre todas as nossas academias?</h4>
+        <h2>Assine o CrowdPass!</h2>
+        <p-divider></p-divider>
+
 
         <div class="contentDialogAcademiaUpper">
 
