@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HostListener, Renderer2, ElementRef } from '@angular/core';
 import { iRegister } from '../login-page/interface/auth.model';
 import { iAcademiaUser } from './interface/academia.model';
 import { AcademiaUserService } from './service/profile.service';
 import { FormGroup } from '@angular/forms';
+import { iCartaoUsuario } from './interface/cartao-usuario.modal';
 
 interface RegisterAcademia {
   registerAcademiaName: string;
@@ -24,16 +25,19 @@ interface FormadePagamentoAcademia {
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
-export class ProfileComponent {
+export class ProfileComponent implements OnInit{
 
 
   userAcademiForm!: FormGroup
 
   userAcademiaData!: iAcademiaUser
 
-  academiaDialogVisible: boolean = false;
+  crowdPassDialogVisible: boolean = false;
+
+  academiaSincronizarDialogVisible: boolean = false;
 
   
+  cartaoData!: iCartaoUsuario[];
 
   registerAcademias!: RegisterAcademia[];
 
@@ -53,6 +57,7 @@ export class ProfileComponent {
   ) {}
 
   ngOnInit(){
+    this.getCards();
     this.dropDownSelector();
   }
 
@@ -78,6 +83,15 @@ export class ProfileComponent {
     ];
   }
 
+  getCards(){
+    this.AcademiaUserService.getCartao().subscribe({
+      next: res => {
+        console.log(res)
+        this.cartaoData = res.result;
+      }
+    })
+  }
+
   navigatetoCards() {
     this.router.navigate(['/profileCards']);
   }
@@ -86,8 +100,12 @@ export class ProfileComponent {
     this.router.navigate(['/profileConfig']);
   }
 
+  showCrowdPassDialog(){
+    this.crowdPassDialogVisible = true;
+  }
+
   showAcademiaDialog(){
-    this.academiaDialogVisible = true;
+    this.academiaSincronizarDialogVisible = true;
   }
 
   getDadosAcademiaUser() {

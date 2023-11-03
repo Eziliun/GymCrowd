@@ -8,6 +8,7 @@ import { DividerModule } from 'primeng/divider';
 import { InputTextModule } from 'primeng/inputtext';
 import { Dialog, DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
+import { RadioButtonModule } from 'primeng/radiobutton';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { DropdownModule } from 'primeng/dropdown';
     InputTextModule,
     DialogModule,
     DropdownModule,
+    RadioButtonModule
     
   ]
 })

@@ -4,15 +4,17 @@ import {
     HttpHeaders,
   } from '@angular/common/http';
   import { Injectable } from '@angular/core';
-  import { Observable, catchError, take, throwError, timeout } from 'rxjs';
+  import { Observable, catchError, take, tap, throwError, timeout } from 'rxjs';
   import { Router } from '@angular/router';
 import { iAcademiaUser, userAcademiaRespone } from '../interface/academia.model';
+import { CartaoResponse } from '../interface/cartao-usuario.modal';
   
   @Injectable({
     providedIn: 'root',
   })
   export class AcademiaUserService {
     private apiURLAcademiaUser = 'http://192.168.203.4:8080/v1/academia/user'; //URL da APIAcademiaUser
+    private apiURL = 'http://192.168.203.4:8080/v1/card'
   
     constructor(private http: HttpClient, private router: Router) {}
 
@@ -30,6 +32,12 @@ import { iAcademiaUser, userAcademiaRespone } from '../interface/academia.model'
           catchError((err) => this.handleError(err))
         );
     }
+
+    getCartao(): Observable<CartaoResponse>{
+      return this.http
+      .get<CartaoResponse>(this.apiURL)
+      .pipe(tap(console.log), take(1));;
+  }
   
     private handleError(error: HttpErrorResponse): Observable<never> {
       if (error.status === 401) {

@@ -33,40 +33,57 @@
             <input type="text" placeholder="Você ainda não foi malhar!" pInputText formControlName="text" readonly/>
         </div>
         </div>
-        <p-button label="Adquirir CrowdPass" (onClick)="showAcademiaDialog()"></p-button>
+        <p-button label="Adquirir CrowdPass" (onClick)="showCrowdPassDialog()"></p-button>
+        <p-button label="Sincronizar Academia" (onClick)="showAcademiaDialog()"></p-button>
 
         </div>
     </div>
 </div>
 </div>
 
-<p-dialog header="Criar Assinatura" [(visible)]="academiaDialogVisible" [modal]="true" [style]="{width: '50vw'}">
-    <div class="contentDialogAcademia">
+<p-dialog header="Assinar CrowdPass" [(visible)]="crowdPassDialogVisible" [modal]="true" [style]="{width: '50vw'}">
+    <div class="contentDialogCrowdPass">
 
         <h4>Quer malhar onde quiser, escolhendo a dedo o local dentre todas as nossas academias?</h4>
         <h2>Assine o CrowdPass!</h2>
         <p-divider></p-divider>
 
+        <div class="content-corpo">
+            <div class="card-list">
+                
+                <div class="card" *ngFor="let item of cartaoData">
+                    <div class="card-logo">
+                      <p>{{ item.flag }}</p>
+                      <p>{{ item.cardNumber }}</p>
+                    </div>
+              <p-radioButton></p-radioButton>
 
-        <div class="contentDialogAcademiaUpper">
+              </div>
+            </div>
+          </div>
 
         
-        <div class="contentDialogAcademiaOptions">
-        <h4>Sua Academia:</h4>
-        <p-dropdown [options]="registerAcademias" formControlName="academiaRegistada" optionValue="registerAcademiaName" optionLabel="registerAcademiaName" placeholder="Selecione..."></p-dropdown>
+    <p-button [outlined]="true" label="Assinar"></p-button>
+    </div>
+</p-dialog>
+
+
+<p-dialog header="Sincronizar Academia" [(visible)]="academiaSincronizarDialogVisible" [modal]="true" [style]="{width: '50vw'}">
+    <div class="contentDialogAcademia">
+
+        <h4>Sincronize sua conta com uma de nossas academias que você já seja cliente!</h4>
+        <p-divider></p-divider>
+
+        <div class="sincronizarAcademiaForm">
+
+        <h4>Nome Registrado:</h4>
+        <input type="text" placeholder="Seu nome no Sistema da Academia" pInputText/>
+        <h4>Número de Cadastro:</h4>
+        <input type="text" placeholder="Seu número de Cadastro na Academia" pInputText/>
+        <h4>Academia:</h4>
+        <p-dropdown [options]="registerAcademias" appendTo="body" optionValue="registerAcademiaName" optionLabel="registerAcademiaName" placeholder="Selecione..."></p-dropdown>
         </div>
 
-        <div class="contentDialogAcademiaOptions">
-        <h4>Sua Assinatura:</h4>
-        <p-dropdown  [options]="assinaturaAcademias" formControlName="assinatura" optionValue="assinaturaAcademia" optionLabel="assinaturaAcademia" placeholder="Selecione..."></p-dropdown>
-        </div>
-
-    </div>
-
-        <div class="contentDialogAcademiaOptions" >
-        <h4>Forma de Pagamento:</h4>
-        <p-dropdown  [options]="formadePagamentoAcademias" appendTo="body" formControlName="formaPagamento" optionValue="formadePagamentoAcademia" optionLabel="formadePagamentoAcademia" placeholder="Selecione..."></p-dropdown>
-    </div>
-    <p-button [outlined]="true" label="Criar"></p-button>
+    <p-button [outlined]="true" label="Sincronizar"></p-button>
     </div>
 </p-dialog>
