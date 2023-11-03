@@ -71,7 +71,7 @@ lotacaoGraphsInfo(){
           {
               type: 'bar',
               label: 'Noite',
-              backgroundColor: documentStyle.getPropertyValue('--indigo-800'),
+              backgroundColor: documentStyle.getPropertyValue('--red-800'),
               data: [41, 52, 24, 74, 23, 21, 32]
           }
       ]
