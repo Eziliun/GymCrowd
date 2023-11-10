@@ -23,4 +23,9 @@ export class CartaoUsuario {
         return this.http
         .post<iCartaoUsuario>(this.apiURL, cartaoInfo)
     }
+
+    deleteCartao(id?: number): Observable<iCartaoUsuario> {
+        const url = `${this.apiURL}/${id}`;
+        return this.http.delete<iCartaoUsuario>(url);
+    }
 }

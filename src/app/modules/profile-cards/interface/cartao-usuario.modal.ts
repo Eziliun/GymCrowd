@@ -5,6 +5,7 @@ export interface CartaoResponse {
 }
 
 export interface iCartaoUsuario {
+    id?: number;
     cardNumber: string;
     flag: string;
     nameHolder:string;

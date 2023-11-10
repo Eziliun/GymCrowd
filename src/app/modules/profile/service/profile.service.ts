@@ -7,7 +7,7 @@ import {
   import { Observable, catchError, take, tap, throwError, timeout } from 'rxjs';
   import { Router } from '@angular/router';
 import { iAcademiaUser, userAcademiaRespone } from '../interface/academia.model';
-import { CartaoResponse } from '../interface/cartao-usuario.modal';
+import { CartaoResponse } from '../interface/cartao-usuario.model';
   
   @Injectable({
     providedIn: 'root',

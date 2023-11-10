@@ -16,14 +16,15 @@ interface cartaoBandeiras {
 })
 export class ProfileCardsComponent {
 
-  cartaoData!: iCartaoUsuario[];
+  cartaoDataList!: iCartaoUsuario[];
+
+  cartaoData!: iCartaoUsuario;
 
   cartaoResponse!: CartaoResponse;
 
   cartaoForm!: FormGroup;
 
   cartaoCreditoShow: any = {
-    flag: 'Visa'
   };
 
   bandeiraCartao!: cartaoBandeiras[];
@@ -63,27 +64,11 @@ export class ProfileCardsComponent {
     });
   }
 
-  handleCartaoDelete() {
-    this.confirmationService.confirm({
-        accept: () => {
-            this.messageService.add({ severity: 'success', summary: 'Aceita', detail: 'Cartão Excluido' });
-        },
-        reject: (type: ConfirmEventType) => {
-            switch (type) {
-                case ConfirmEventType.REJECT:
-                    this.messageService.add({ severity: 'error', summary: 'Cancelada', detail: 'Exclusão Cancelada' });
-                    break;
-            }
-        }
-    });
-}
-
-
   getCards(){
     this.cartaoService.getCartao().subscribe({
       next: res => {
         console.log(res)
-        this.cartaoData = res.result;
+        this.cartaoDataList = res.result;
       }
     })
   }
@@ -108,10 +93,7 @@ export class ProfileCardsComponent {
             detail: 'Cupom Enviado Com Sucesso!',
           });
 
-          this.cartaoCreditoShow.cardNumber = request.cardNumber;
-          this.cartaoCreditoShow.flag = request.flag;
-          this.cartaoCreditoShow.nameHolder = request.nameHolder;
-          this.cartaoCreditoShow.dueDate = request.dueDate;
+
           this.cartaoForm.reset();
           this.getCards();
           this.visibleCardDialog = false;
@@ -126,7 +108,48 @@ export class ProfileCardsComponent {
           });
         },
       });
+      this.cartaoCreditoShow.cardNumber = request.cardNumber;
+      this.cartaoCreditoShow.flag = request.flag;
+      this.cartaoCreditoShow.nameHolder = request.nameHolder;
+      this.cartaoCreditoShow.dueDate = request.dueDate;
     }
+  }
+
+  confirmDelete() {
+    this.cartaoService.deleteCartao(this.cartaoData.id).subscribe({
+      next: () => {
+        this.getCards();
+        console.log('Deleted successfully.');
+        this.messageService.add({ 
+          severity: 'error', 
+          summary: 'Excluido', 
+          detail: 'Campo apagado com sucesso!' 
+        });
+      },
+      error: (error) => {
+        console.log('Error deleting.', error);
+      },
+    });
+  }
+  
+  handleCartaoDelete(card: iCartaoUsuario) {
+    this.confirmationService.confirm({
+      accept: () => {
+        this.cartaoData = {...card}
+        this.confirmDelete();
+      },
+      reject: (type: ConfirmEventType) => {
+        switch (type) {
+          case ConfirmEventType.REJECT:
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Cancelada',
+              detail: 'Exclusão Cancelada',
+            });
+            break;
+        }
+      },
+    });
   }
 
 

@@ -74,6 +74,19 @@
   overflow-y: auto;
 }
 
+.noCardMessage{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50%;
+  background: white;
+  color: #ff6000;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  margin-top: 8rem;
+}
+
 .card {
   display: flex;
   flex-direction: row;

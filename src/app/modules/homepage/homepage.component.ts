@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { iDadosAcademias } from './interface/homepage.model';
 import { HomePageService } from './services/homepage.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss']
 })
-export class HomepageComponent {
+export class HomepageComponent implements OnInit {
 
   academiaListData!: iDadosAcademias[];
 
@@ -92,7 +92,7 @@ lotacaoGraphsInfo(){
           }
       },
       scales: {
-          x: {
+          x: { 
               stacked: true,
               ticks: {
                   color: textColorSecondary

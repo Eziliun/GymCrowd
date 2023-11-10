@@ -25,9 +25,20 @@ export class MapComponent {
     this.getUserLocation();
 
     const addresses = [
-      'Rua Joaquim Sa, 20',
-      'Rua Joaquim Sa, 55',
-      'Rua Joaquim Sa, 24',
+      //SmartFit
+    'Av. Santos Dumont, 3060',
+    'Av. Rui Barbosa, 2727',
+
+      //PinkFit
+    'Av. Senador Virgílio Távora, 2201',
+
+    //RedFit
+    'Av. da Abolição, 3860',
+
+    // PurpleFit
+    'R. Carlos Vasconcelos, 284',
+
+
     ];
 
     addresses.forEach((address) => {

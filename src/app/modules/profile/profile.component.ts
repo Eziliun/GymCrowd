@@ -5,7 +5,7 @@ import { iRegister } from '../login-page/interface/auth.model';
 import { iAcademiaUser } from './interface/academia.model';
 import { AcademiaUserService } from './service/profile.service';
 import { FormGroup } from '@angular/forms';
-import { iCartaoUsuario } from './interface/cartao-usuario.modal';
+import { iCartaoUsuario } from './interface/cartao-usuario.model';
 
 interface RegisterAcademia {
   registerAcademiaName: string;
