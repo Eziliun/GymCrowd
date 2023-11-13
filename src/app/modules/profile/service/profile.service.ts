@@ -8,13 +8,14 @@ import {
   import { Router } from '@angular/router';
 import { iAcademiaUser, userAcademiaRespone } from '../interface/academia.model';
 import { CartaoResponse } from '../interface/cartao-usuario.model';
+import { iSincronizarAcademia } from '../interface/sincronizar.model';
   
   @Injectable({
     providedIn: 'root',
   })
   export class AcademiaUserService {
     private apiURLAcademiaUser = 'http://192.168.203.4:8080/v1/academia/user'; //URL da APIAcademiaUser
-    private apiURL = 'http://192.168.203.4:8080/v1/card'
+    private apiURLCard = 'http://192.168.203.4:8080/v1/card'
   
     constructor(private http: HttpClient, private router: Router) {}
 
@@ -22,6 +23,11 @@ import { CartaoResponse } from '../interface/cartao-usuario.model';
       return this.http
       .get<userAcademiaRespone>(this.apiURLAcademiaUser)
   }
+
+    getCartao(): Observable<CartaoResponse>{
+      return this.http
+      .get<CartaoResponse>(this.apiURLCard)
+}
   
     iniciarCadastro(dadosAcademiaUser: iAcademiaUser): Observable<iAcademiaUser> {
       return this.http
@@ -33,11 +39,19 @@ import { CartaoResponse } from '../interface/cartao-usuario.model';
         );
     }
 
-    getCartao(): Observable<CartaoResponse>{
+    sincronizarAcademia(dadosSincronizarAcademia: iSincronizarAcademia): Observable<iSincronizarAcademia> {
       return this.http
-      .get<CartaoResponse>(this.apiURL)
-      .pipe(tap(console.log), take(1));;
-  }
+        .post<iSincronizarAcademia>(this.apiURLAcademiaUser, dadosSincronizarAcademia) 
+        .pipe(
+          take(3),
+          timeout(3000),
+          catchError((err) => this.handleError(err))
+        );
+    }
+
+
+
+
   
     private handleError(error: HttpErrorResponse): Observable<never> {
       if (error.status === 401) {

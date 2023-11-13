@@ -43,7 +43,6 @@ export class ContratarComponent {
   ngOnInit() {
     this.setupForm();
     this.dropData();
-    this.getContact();
   }
 
   dropData() {
@@ -76,18 +75,6 @@ export class ContratarComponent {
 
   }
 
-  getContact(){
-    this.contratarService.getContratar().subscribe({
-      next: res => {
-        console.log(res);
-        this.contratarData = res;
-      },
-      error: error => {
-        console.log(error)
-      }
-    });
-  }
-
   sendContact(){
     if (this.isFormValid){
       const req = this.contratarForm.value;
@@ -109,18 +96,6 @@ export class ContratarComponent {
       })
     }
   }
-
-  sendContactTest(){
-
-          console.log('Infos:', JSON.stringify(this.contratarForm.value));
-          this.messageService.add({
-            key: 'tc',
-            severity: 'success',
-            summary: 'Sucesso!',
-            detail: 'Formuário Enviado com Sucesso!', 
-          });
-          this.contratarForm.reset()
-        }
 
   get isFormValid(): boolean {
     return this.contratarForm.valid;

@@ -14,11 +14,6 @@ export class ContratarService{
         
     ){}
 
-    getContratar(): Observable<iContratar>{
-        return this.http
-        .get<iContratar>(this.apiURL)
-    }
-
     criarContratar(contrato: iContratar): Observable<iContratar> {
         return this.http
         .post<iContratar>(this.apiURL, contrato)

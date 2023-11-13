@@ -9,6 +9,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { Dialog, DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { RadioButtonModule } from 'primeng/radiobutton';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { RadioButtonModule } from 'primeng/radiobutton';
     InputTextModule,
     DialogModule,
     DropdownModule,
-    RadioButtonModule
+    RadioButtonModule,
+    ReactiveFormsModule,
     
   ]
 })
