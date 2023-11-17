@@ -9,7 +9,7 @@ interface Freq {
 }
 
 interface QTD {
-  quantidade: string;
+  quantidade: number;
 }
 
 @Component({
@@ -55,18 +55,18 @@ export class ContratarComponent {
     ];
 
     this.QtdPick = [
-      { quantidade: 'Quantidade de Academias'},
-      { quantidade: '1'},
-      { quantidade: '2'},
-      { quantidade: '3'},
-      { quantidade: '4'},
+      { quantidade: 1},
+      { quantidade: 2},
+      { quantidade: 3},
+      { quantidade: 4},
+      { quantidade: 5},
     ];
   }
 
   setupForm() {
     this.contratarForm = this.formBuilder.group({
       nome_academia: ['', Validators.required],
-      CNPJ_academia: ['', Validators.required],
+      cnpj_academia: ['', Validators.required],
       email: ['', Validators.required],
       numero_telefone: ['', Validators.required],
       tipo_frequencia: ['', Validators.required],
@@ -75,27 +75,39 @@ export class ContratarComponent {
 
   }
 
-  sendContact(){
-    if (this.isFormValid){
-      const req = this.contratarForm.value;
-
-      this.contratarService.criarContratar(req).subscribe({
+  sendContact() {
+    if (this.isFormValid) {
+      const formValue = this.contratarForm.value;
+  
+  
+      const quantidadeAcademias = formValue.quantidade_academias.quantidade;
+      const tipoFrequencia = formValue.tipo_frequencia.name;
+  
+      const requestData = {
+        ...formValue,
+        tipo_frequencia: tipoFrequencia,
+        quantidade_academias: quantidadeAcademias
+      };
+  
+      this.contratarService.criarContratar(requestData).subscribe({
         next: () => {
-          console.log('Infos:', JSON.stringify(this.contratarForm.value));
+          console.log('Infos:', JSON.stringify(requestData));
           this.messageService.add({
             key: 'tc',
             severity: 'success',
             summary: 'Sucesso!',
-            detail: 'Formuário Enviado com Sucesso!', 
+            detail: 'Formuário Enviado com Sucesso!',
           });
-          this.contratarForm.reset()
+          this.contratarForm.reset();
         },
         error: error => {
-          console.log(error)
+          console.log(error);
         }
-      })
+      });
     }
   }
+  
+  
 
   get isFormValid(): boolean {
     return this.contratarForm.valid;

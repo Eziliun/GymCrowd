@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MessageModule } from 'primeng/message';
 import { MessagesModule } from 'primeng/messages';
 import { ToastModule } from 'primeng/toast';
+import { InputMaskModule } from 'primeng/inputmask';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { ToastModule } from 'primeng/toast';
     MessagesModule,
     ToastModule,
     MessageModule,
+    InputMaskModule
   ]
 })
 export class ContratarModule { }

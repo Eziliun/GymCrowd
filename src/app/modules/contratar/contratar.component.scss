@@ -91,9 +91,15 @@ h4{
 
     input {
         margin-top: 15px !important;
+        width: 100%;
     }
 
     .p-input-icon-left > .p-inputtext {
+        width: 95%;
+        border-bottom: 2px solid black;
+    }
+
+    .p-input-icon-left > p-inputMask {
         width: 95%;
         border-bottom: 2px solid black;
     }

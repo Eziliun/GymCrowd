@@ -12,23 +12,21 @@
             <div class="inputRow">
             <span class="p-input-icon-left span-icon">
             <i class="pi pi-building"></i>
-            <input pInputText id="nome_academia" formControlName="nome_academia" Placeholder="Nome da Academia" />
+            <input pInputText id="nome_academia" formControlName="nome_academia" Placeholder="Nome da Academia" maxlength="100" />
             </span>
 
             <span class="p-input-icon-left span-icon">
-            <i class="pi pi-file"></i>
-            <input pInputText id="CNPJ_academia" formControlName="CNPJ_academia" placeholder="CNPJ da Academia"/>
+            <p-inputMask id="cnpj_academia" mask="99.999.999/9999-99" formControlName="cnpj_academia" placeholder="CNPJ da Academia"></p-inputMask>
             </span>
             </div>
             <div class="inputRow">
             <span class="p-input-icon-left span-icon">
             <i class="pi pi-envelope"></i>
-            <input pInputText id="email" formControlName="email" placeholder="Email"/>
+            <input pInputText id="email" formControlName="email" placeholder="Email" maxlength="100"/>
             </span>
 
             <span class="p-input-icon-left span-icon">
-            <i class="pi pi-phone"></i>
-            <input pInputText id="numero_telefone" formControlName="numero_telefone" placeholder="Numero de Contato"/>
+            <p-inputMask id="numero_telefone"  mask="(99)9999-9999" formControlName="numero_telefone" placeholder="Numero de Contato"></p-inputMask>
             </span>
             </div>
 

@@ -7,7 +7,7 @@ export interface icontratarResponse {
 
 export interface iContratar {
     nome_academia: string;
-    CNPJ_academia: string;
+    cnpj_academia: string;
     email: string;
     numero_telefone: number;
     tipo_frequencia: string;

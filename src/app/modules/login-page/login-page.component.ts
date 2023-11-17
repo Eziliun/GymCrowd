@@ -70,7 +70,7 @@ export class LoginPageComponent {
             summary: 'Sucesso!',
             detail: 'Conta Criada!', 
           });
-
+          window.location.reload()
         },
         error: (error) => {
           console.log(error);

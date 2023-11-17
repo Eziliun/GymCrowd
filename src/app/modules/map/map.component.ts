@@ -26,17 +26,16 @@ export class MapComponent {
 
     const addresses = [
       //SmartFit
-    'Av. Santos Dumont, 3060',
     'Av. Rui Barbosa, 2727',
 
       //PinkFit
     'Av. Senador Virgílio Távora, 2201',
 
     //RedFit
-    'Av. da Abolição, 3860',
+    'Av. Senador Virgílio Távora, 2125',
 
     // PurpleFit
-    'R. Carlos Vasconcelos, 284',
+    'R. Joaquim Sá, 20 ',
 
 
     ];

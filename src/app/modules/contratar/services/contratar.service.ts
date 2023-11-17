@@ -7,7 +7,7 @@ import { iContratar } from '../interface/contratar.model';
     providedIn: 'root'
 })
 export class ContratarService{
-    private apiURL = ''; //URL da API
+    private apiURL = 'http://192.168.203.4:8080/v1/hire'; //URL da API
 
     constructor(
         private http: HttpClient,

@@ -59,6 +59,9 @@
               <p-radioButton></p-radioButton>
 
               </div>
+              <div class="noCardMessage" *ngIf="!cartaoData.length">
+                <h4>Você não tem cartãos adicionados</h4>
+              </div>
             </div>
           </div>
 
