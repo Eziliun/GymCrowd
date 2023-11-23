@@ -1,0 +1,36 @@
+.headerFiltroDia{
+  display: flex;
+  height: 20%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  h3{
+    display: flex;
+    font-size: 1.8rem;
+    background: #FF6000;
+    border-radius: 10px;
+    width: 50%;
+    height: 5rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+}
+
+:host::ng-deep{
+  .p-button{
+  background: #FF6000;
+  border-color: #FF6000;
+  color: white;  
+}
+
+  .p-button:hover{
+  background: white;
+  color: #FF6000;  
+}
+}

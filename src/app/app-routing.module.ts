@@ -41,6 +41,11 @@ const routes: Routes = [
     title:"ForgotPass"
   },
   {
+    path:'gymfilter',
+    loadChildren: () => import ('./modules/gym-filter/gym-filter.module').then(m => m.GymFilterModule),    
+    title:"gymFilter"
+  },
+  {
     path:'profile',
     loadChildren: () => import ('./modules/profile/profile.module').then(m => m.ProfileModule),    
     title:"Profile",

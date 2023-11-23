@@ -46,7 +46,7 @@
             <p-button icon="pi pi-trash" [rounded]="true" [outlined]="true" (onClick)="handleCartaoDelete(item)" ></p-button>
 
           </div>
-          <div class="noCardMessage" *ngIf="!cartaoDataList.length">
+          <div class="noCardMessage" *ngIf="!cartaoDataList">
             <h4>Você não tem cartãos adicionados</h4>
           </div>
         </div>

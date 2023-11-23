@@ -74,7 +74,7 @@ export class AuthService {
       );
     } else {
       return throwError(
-        () => 'Erro de Funcionamento, tente novamente mais tarde.'
+        () => 'Email ou Senha incorretos, Tente Novamente.'
       );
     }
   }

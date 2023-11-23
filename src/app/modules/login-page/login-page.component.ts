@@ -113,7 +113,9 @@ export class LoginPageComponent {
             detail: error 
           });
         }
-      });   
+      });  
+      this.router.navigate(['/profile']);
+
     }
   }
 

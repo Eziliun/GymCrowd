@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './shared/services/interceptors/auth-interceptor';
 import { AppConfig } from './shared/config/appconfig';
 import { MapComponent } from './modules/map/map.component';
+import { GymFilterComponent } from './modules/gym-filter/gym-filter.component';
 
 
 @NgModule({
