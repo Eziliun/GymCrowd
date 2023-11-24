@@ -1,7 +1,34 @@
 <div class="headerFiltroDia">
-<p-button label="Escolher meu Horário!"></p-button>
+<p-button label="Escolher meu Horário!" (onClick)="showChooseGymDialog()"></p-button>
+
+<div class="showGymSelected" *ngIf="selectedGym" [ngStyle]="{ 'background-color': getColorForGym(selectedGym) }">
+  <h4>Melhor Academia: {{ selectedGym }}</h4>
+  
+</div>
 <h3>Ocupação Prevista de Hoje!</h3>
 </div>
 <div class="card">
   <p-chart type="bar" [data]="data" [options]="options" height="600px"></p-chart>
 </div>
+
+<p-dialog header="Descubra qual a melhor academia para treinar hoje!" [(visible)]="chooseGymDialog" [modal]="true" [style]="{width: '50vw'}">
+  <div class="contentDialogFilterGym">
+
+    <div class="contentPickInfos">
+    
+    <div class="contentDialogPickGym">
+    <h4>Escolha seu horário:</h4>
+    <p-dropdown [options]="horarios" optionLabel="horas" [(ngModel)]="selectedHorarios" appendTo="body" placeholder="Escolha..."></p-dropdown>
+  </div>
+  <div class="contentDialogPickGym">
+    <h4>Informe seu CEP:</h4>
+    <p-inputMask mask="99999-999" placeholder="00000-00" [(ngModel)]="enteredCEP"></p-inputMask>
+    </div>
+  </div>
+
+  <p-button [outlined]="true" label="Mostrar Academia" (onClick)="showChooseGymDialogSelection()"></p-button>
+
+      <p-divider></p-divider>
+      
+  </div>
+</p-dialog>

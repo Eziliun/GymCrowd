@@ -10,6 +10,10 @@ import { ToastModule } from 'primeng/toast';
 import { GymFilterComponent } from './gym-filter.component';
 import { GymFilterRoutingModule } from './gym-filter-routing.module';
 import { ChartModule } from 'primeng/chart';
+import { DialogModule } from 'primeng/dialog';
+import { DividerModule } from 'primeng/divider';
+import { InputMaskModule } from 'primeng/inputmask';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -25,6 +29,10 @@ import { ChartModule } from 'primeng/chart';
     ToastModule,
     MessageModule,
     ChartModule,
+    DialogModule,
+    DividerModule,
+    InputMaskModule,
+    FormsModule
   ]
 })
 export class GymFilterModule { }

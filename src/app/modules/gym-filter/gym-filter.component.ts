@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 
+interface Horarios {
+    horas: string;
+}
+
 @Component({
   selector: 'app-gym-filter',
   templateUrl: './gym-filter.component.html',
@@ -10,7 +14,20 @@ export class GymFilterComponent {
 
   options: any;
 
+  chooseGymDialog: boolean = false;
+
+  horarios: Horarios[] | undefined;
+
+  selectedHorarios: Horarios | undefined;
+
+  selectedGym: string | undefined;
+
+  enteredCEP: string | undefined;
+
   ngOnInit() {
+
+    this.configDropDowns();
+
     const documentStyle = getComputedStyle(document.documentElement);
     const textColor = documentStyle.getPropertyValue('--text-color');
     const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
@@ -86,4 +103,65 @@ export class GymFilterComponent {
         }
     };
 }
+
+showChooseGymDialogSelection() {
+
+    if(this.isValidForm()){
+
+    const gymNames = ['SmartFit', 'PurpleFit', 'PinkFit', 'RedFit'];
+
+    const randomIndex = Math.floor(Math.random() * gymNames.length);
+  
+    this.selectedGym = gymNames[randomIndex];
+
+    this.chooseGymDialog = false;
+    this.resetFormValues();
+
+
+    } else {
+        this.selectedGym = "Preencha o Formulário"
+    }
+
+}
+
+resetFormValues() {
+    this.selectedHorarios = undefined;
+    this.enteredCEP = undefined;
+  }
+
+getColorForGym(gymName: string): string {
+    switch (gymName) {
+      case 'SmartFit':
+        return '#f5670f'; 
+      case 'PurpleFit':
+        return '#a40ff5'; 
+      case 'PinkFit':
+        return '#f520e3'; 
+      case 'RedFit':
+        return '#f51a0f'; 
+      default:
+        return '#000000'; 
+    }
+  }
+
+configDropDowns(){
+    this.horarios = [
+        { horas: '6-8',},
+        { horas: '8-10'},
+        { horas: '10-12'},
+        { horas: '12-14'},
+        { horas: '14-16'},
+        { horas: '16-18'},
+        { horas: '20-22'},
+        { horas: '22-24'},
+    ];
+}
+
+showChooseGymDialog(){
+    this.chooseGymDialog = true;
+  }
+
+  isValidForm(): boolean {
+    return this.selectedHorarios !== undefined && this.enteredCEP !== undefined;
+  }
 }

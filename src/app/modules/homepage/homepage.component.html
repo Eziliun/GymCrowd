@@ -12,19 +12,19 @@
       <h4>Academias</h4>
     </div>
     <div class="listItens" >
-      <div class="listaCorpoInfo" *ngFor="let item of academiaListData">
+      <div class="listaCorpoInfo">
       <div class="listHeader2">
       <h5>l</h5>
-      <h6>{{item.nomeAcademia}}</h6>
+      <h6>item.nomeAcademia</h6>
       <p-button icon="pi pi-info" (onClick)="showGraphAcad()" [rounded]="true" [outlined]="true"></p-button>
       </div>
       <div class="listCorpo" >
       <div class="enderecos">
-        <p *ngFor="let endereco of  item.enderecoSedes">  {{ endereco.rua }}      {{ endereco.numero }} </p>
+        <p>   endereco.rua        endereco.numero  </p>
       </div>
       <div class="crowdNumber">
       <img src="../../../assets/icons/crowd2.png" alt="crowd">
-      <p>{{ item.lotacaoMedia }}%</p>
+      <p> item.lotacaoMedia}%</p>
     </div>
     </div>
   </div>
@@ -37,6 +37,7 @@
 </main>
 
 <p-dialog header="Lotação da Academia" [(visible)]="visibleGraphAcad" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+  <a href="/gymfilter">Ver Gráificos mais detalhados</a>
   <p class="m-0">
     <div class="card">
       <p-chart type="bar" [data]="data" [options]="options"></p-chart>
