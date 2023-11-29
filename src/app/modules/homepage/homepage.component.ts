@@ -15,7 +15,9 @@ export class HomepageComponent implements OnInit {
 
   academiaForm!: FormGroup;
 
-  visibleGraphAcad: boolean = false
+  visibleGraphAcad: boolean = false;
+
+  visibleAddLocation: boolean = false;
 
   data: any;
 
@@ -122,6 +124,10 @@ navigateToLogin() {
 
 showGraphAcad(){
   this.visibleGraphAcad = true;
+}
+
+showAddLocation(){
+  this.visibleAddLocation = true;
 }
 }
 

@@ -24,6 +24,11 @@ a {
   z-index: 0;
 }
 
+.adicionarLocal{
+  display: flex;
+ justify-content: flex-end;
+}
+
 .viewList {
   display: flex;
   flex-direction: column;
@@ -141,6 +146,42 @@ a {
   border-radius: 10px;
 }
 
+.dialogInputsList{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  .dialogInputListBottomInputs{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    h4{
+      font-size: 1.2rem;
+    }
+  }
+
+  .dialogInputsListItens{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 70%;
+
+  }
+  h4{
+    font-size: 1.5rem;
+    color: #FF6000;
+  }
+}
+
 :host::ng-deep {
   .p-button {
     color: #FF6000;
@@ -157,6 +198,10 @@ a {
       width: 2rem;
       height: 2rem;
     }
+  }
+
+  .nomeLocalInput{
+    width: 100% !important;
   }
 }
 

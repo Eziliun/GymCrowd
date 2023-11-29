@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { ChartModule } from 'primeng/chart';
+import { InputTextModule } from 'primeng/inputtext';
 
 
 
@@ -22,7 +23,8 @@ import { ChartModule } from 'primeng/chart';
     ReactiveFormsModule,
     ButtonModule,
     DialogModule,
-    ChartModule
+    ChartModule,
+    InputTextModule,
   ],
 })
 export class HomepageModule { }

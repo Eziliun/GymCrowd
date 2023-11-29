@@ -1,46 +1,97 @@
 <main>
   <section class="map-area">
+    <div class="adicionarLocal">
+      <p-button
+        icon="pi pi-plus"
+        label="Adicionar Localização"
+        [outlined]="true"
+        (onClick)="showAddLocation()"
+      ></p-button>
+    </div>
 
-
-<div id="map"> <app-map></app-map> </div>
-    
+    <div id="map">
+      <app-map></app-map>
+    </div>
   </section>
 
   <div class="viewList">
-    <p-button label="Criar Assinatura agora!" (onClick)="navigateToLogin()" [outlined]="true"></p-button>
+    <p-button
+      label="Criar Assinatura agora!"
+      (onClick)="navigateToLogin()"
+      [outlined]="true"
+    ></p-button>
     <div class="listHeader">
       <h4>Academias</h4>
     </div>
-    <div class="listItens" >
+    <div class="listItens">
       <div class="listaCorpoInfo">
-      <div class="listHeader2">
-      <h5>l</h5>
-      <h6>item.nomeAcademia</h6>
-      <p-button icon="pi pi-info" (onClick)="showGraphAcad()" [rounded]="true" [outlined]="true"></p-button>
+        <div class="listHeader2">
+          <h5>l</h5>
+          <h6>item.nomeAcademia</h6>
+          <p-button
+            icon="pi pi-info"
+            (onClick)="showGraphAcad()"
+            [rounded]="true"
+            [outlined]="true"
+          ></p-button>
+        </div>
+        <div class="listCorpo">
+          <div class="enderecos">
+            <p>endereco.rua endereco.numero</p>
+          </div>
+          <div class="crowdNumber">
+            <img src="../../../assets/icons/crowd2.png" alt="crowd" />
+            <p>item.lotacaoMedia}%</p>
+          </div>
+        </div>
       </div>
-      <div class="listCorpo" >
-      <div class="enderecos">
-        <p>   endereco.rua        endereco.numero  </p>
-      </div>
-      <div class="crowdNumber">
-      <img src="../../../assets/icons/crowd2.png" alt="crowd">
-      <p> item.lotacaoMedia}%</p>
     </div>
+    <div class="listItens" *ngIf="!academiaListData">
+      <p class="empty-list">
+        Lista Vazia <br />
+        Tente Novamente mais tarde!
+      </p>
     </div>
-  </div>
-  </div>
-  <div class="listItens" *ngIf="!academiaListData">
-    <p class="empty-list">Lista Vazia <br> Tente Novamente mais tarde!</p>
-  </div>
-
   </div>
 </main>
 
-<p-dialog header="Lotação da Academia" [(visible)]="visibleGraphAcad" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+<p-dialog
+  header="Lotação da Academia"
+  [(visible)]="visibleGraphAcad"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+  [draggable]="false"
+  [resizable]="false"
+>
   <a href="/gymfilter">Ver Gráificos mais detalhados</a>
-  <p class="m-0">
-    <div class="card">
-      <p-chart type="bar" [data]="data" [options]="options"></p-chart>
+  <p class="m-0"></p>
+  <div class="card">
+    <p-chart type="bar" [data]="data" [options]="options"></p-chart>
   </div>
 </p-dialog>
 
+<p-dialog
+  header="Adicionar Nova Localização"
+  [(visible)]="visibleAddLocation"
+  [style]="{ width: '45vw' }"
+>
+  <div class="dialogInputsList">
+    <div class="dialogInputsListItens">
+      <h4>Nome do Local:</h4>
+      <input class="nomeLocalInput" type="text" pInputText />
+    </div>
+
+    <div class="dialogInputListBottomInputs">
+    <div class="dialogInputsListItens">
+      <h4>Nome da Rua:</h4>
+    <input type="text" pInputText />
+  </div>
+
+    <div class="dialogInputsListItens">
+      <h4>Número da Rua:</h4>
+      <input type="text" pInputText />
+    </div>
+  </div>
+  <p-button label="Criar Novo Local"></p-button>
+  </div>
+</p-dialog>
