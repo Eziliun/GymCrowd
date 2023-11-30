@@ -240,6 +240,15 @@
         }
       }
 
+      .card-list{
+        p-button{
+            width: 100% !important;
+        }
+        .p-button{
+            background: #FF6000;
+        }
+      }
+
 
       .p-divider .p-divider-content {
         background: linear-gradient(to right, #FF6000, #FF8000);;

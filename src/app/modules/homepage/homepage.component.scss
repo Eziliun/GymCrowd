@@ -199,9 +199,10 @@ a {
       height: 2rem;
     }
   }
-
-  .nomeLocalInput{
-    width: 100% !important;
+  .dialogInputsList{
+    .p-button{
+      width: 100%;
+    }
   }
 }
 

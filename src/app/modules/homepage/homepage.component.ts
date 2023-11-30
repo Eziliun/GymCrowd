@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { iDadosAcademias } from './interface/homepage.model';
 import { HomePageService } from './services/homepage.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { iAdicionarLocalização } from './interface/adicionarLocal.model';
+import { MessageService } from 'primeng/api';
+import { iGrafico } from './interface/graphs.model';
 
 @Component({
   selector: 'app-homepage',
@@ -15,9 +18,15 @@ export class HomepageComponent implements OnInit {
 
   academiaForm!: FormGroup;
 
-  visibleGraphAcad: boolean = false;
+  visibleGraphAcad: boolean = true;
 
   visibleAddLocation: boolean = false;
+
+  adicionarLocalForm!: FormGroup;
+
+  adicionarLocalData!: iAdicionarLocalização;
+
+  dadosGrafico!: iGrafico;
 
   data: any;
 
@@ -25,14 +34,18 @@ export class HomepageComponent implements OnInit {
 
   constructor(
     private homepageService: HomePageService,
-    private router: Router
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private messageService: MessageService,
     ) {
   
 }
 
 ngOnInit() {
   this.getDadosAcademia();
+  this.getDadosGrafico();
   this.lotacaoGraphsInfo();
+  this.setupForm();
 }
 
 getDadosAcademia() {
@@ -49,6 +62,42 @@ getDadosAcademia() {
   });
 }
 
+getDadosGrafico() {
+  
+  this.homepageService.getDadosGrafico().subscribe({
+    next: res => {
+      console.log(res);
+     this.dadosGrafico = res; 
+    },
+
+    error: error => {
+      console.log(error);
+    }
+  });
+}
+
+sendNovoLocal(){
+  if(this.isFormValid) {
+    const formValue = this.adicionarLocalForm.value;
+
+    this.homepageService.adicionarLocal(formValue).subscribe({
+      next: () =>{
+        console.log('infos', JSON.stringify(formValue));
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Sucesso!',
+          detail: 'Local Adicionado com Sucesso!',
+        });
+        this.adicionarLocalForm.reset();
+      },
+      error: error => {
+        console.log(error);
+        console.log('infos', JSON.stringify(formValue));
+      }
+    })
+  }
+}
+
 lotacaoGraphsInfo(){
   const documentStyle = getComputedStyle(document.documentElement);
   const textColor = documentStyle.getPropertyValue('--text-color');
@@ -62,7 +111,7 @@ lotacaoGraphsInfo(){
               type: 'bar',
               label: 'Manhã',
               backgroundColor: documentStyle.getPropertyValue('--yellow-500'),
-              data: [50, 25, 12, 48, 90, 76, 42]
+              data: [27, 12, 45, 74, 23, 42, 37]
           },
           {
               type: 'bar',
@@ -116,6 +165,17 @@ lotacaoGraphsInfo(){
           }
       }
   };
+}
+
+setupForm(){
+  this.adicionarLocalForm = this.formBuilder.group({
+    nomeLocal: ['', Validators.required],
+    enderecoLocal: ['', Validators.required],
+  });
+}
+
+get isFormValid(): boolean {
+  return this.adicionarLocalForm.valid;
 }
 
 navigateToLogin() {

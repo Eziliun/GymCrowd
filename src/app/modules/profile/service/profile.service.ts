@@ -6,7 +6,6 @@ import {
   import { Injectable } from '@angular/core';
   import { Observable, catchError, take, tap, throwError, timeout } from 'rxjs';
   import { Router } from '@angular/router';
-import { iAcademiaUser, userAcademiaRespone } from '../interface/academia.model';
 import { CartaoResponse } from '../interface/cartao-usuario.model';
 import { iSincronizarAcademia } from '../interface/sincronizar.model';
   
@@ -19,25 +18,11 @@ import { iSincronizarAcademia } from '../interface/sincronizar.model';
   
     constructor(private http: HttpClient, private router: Router) {}
 
-    getDadosAcademia(): Observable<userAcademiaRespone>{
-      return this.http
-      .get<userAcademiaRespone>(this.apiURLAcademiaUser)
-  }
-
     getCartao(): Observable<CartaoResponse>{
       return this.http
       .get<CartaoResponse>(this.apiURLCard)
 }
-  
-    iniciarCadastro(dadosAcademiaUser: iAcademiaUser): Observable<iAcademiaUser> {
-      return this.http
-        .post<iAcademiaUser>(this.apiURLAcademiaUser, dadosAcademiaUser) 
-        .pipe(
-          take(3),
-          timeout(3000),
-          catchError((err) => this.handleError(err))
-        );
-    }
+
 
     sincronizarAcademia(dadosSincronizarAcademia: iSincronizarAcademia): Observable<iSincronizarAcademia> {
       return this.http

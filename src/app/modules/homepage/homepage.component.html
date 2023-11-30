@@ -24,10 +24,10 @@
       <h4>Academias</h4>
     </div>
     <div class="listItens">
-      <div class="listaCorpoInfo">
+      <div class="listaCorpoInfo"  *ngFor="let item of academiaListData">
         <div class="listHeader2">
           <h5>l</h5>
-          <h6>item.nomeAcademia</h6>
+          <h6>{{item.nomeAcademia}}</h6>
           <p-button
             icon="pi pi-info"
             (onClick)="showGraphAcad()"
@@ -37,11 +37,11 @@
         </div>
         <div class="listCorpo">
           <div class="enderecos">
-            <p>endereco.rua endereco.numero</p>
+            <p *ngFor="let endereco of  item.enderecoSedes">  {{ endereco.rua }}      {{ endereco.numero }}</p>
           </div>
           <div class="crowdNumber">
             <img src="../../../assets/icons/crowd2.png" alt="crowd" />
-            <p>item.lotacaoMedia}%</p>
+            <p>{{ item.lotacaoMedia }}%</p>
           </div>
         </div>
       </div>
@@ -73,25 +73,20 @@
 <p-dialog
   header="Adicionar Nova Localização"
   [(visible)]="visibleAddLocation"
-  [style]="{ width: '45vw' }"
+  [style]="{ width: '30vw' }"
 >
+<form [formGroup]="adicionarLocalForm">
   <div class="dialogInputsList">
     <div class="dialogInputsListItens">
       <h4>Nome do Local:</h4>
-      <input class="nomeLocalInput" type="text" pInputText />
+      <input class="nomeLocalInput" type="text" id="nomeLocal" formControlName="nomeLocal" pInputText />
     </div>
 
-    <div class="dialogInputListBottomInputs">
     <div class="dialogInputsListItens">
-      <h4>Nome da Rua:</h4>
-    <input type="text" pInputText />
+      <h4>Endereço Completo:</h4>
+    <input type="text" id="enderecoLocal" formControlName="enderecoLocal" pInputText/>
   </div>
-
-    <div class="dialogInputsListItens">
-      <h4>Número da Rua:</h4>
-      <input type="text" pInputText />
-    </div>
+  <p-button label="Criar Novo Local" [outlined]="true" (onClick)="sendNovoLocal()"></p-button>
   </div>
-  <p-button label="Criar Novo Local"></p-button>
-  </div>
+</form>
 </p-dialog>

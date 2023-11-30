@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { GraphFilterService } from './service/graphfilter.service';
+import { iGraficoFilter } from './interface/filterGraph.model';
 
 interface Horarios {
     horas: string;
@@ -16,6 +18,8 @@ export class GymFilterComponent {
 
   chooseGymDialog: boolean = false;
 
+  filterGymGraphs!: iGraficoFilter;
+
   horarios: Horarios[] | undefined;
 
   selectedHorarios: Horarios | undefined;
@@ -23,6 +27,10 @@ export class GymFilterComponent {
   selectedGym: string | undefined;
 
   enteredCEP: string | undefined;
+
+  constructor(
+    private FilterService: GraphFilterService,
+  ){}
 
   ngOnInit() {
 
@@ -156,6 +164,15 @@ configDropDowns(){
         { horas: '22-24'},
     ];
 }
+
+getDadosGrafico() {
+
+    this.FilterService.getDadosAcademiaFilter().subscribe({
+        next: res => {
+            this.filterGymGraphs = res;
+        }
+    })
+  }
 
 showChooseGymDialog(){
     this.chooseGymDialog = true;

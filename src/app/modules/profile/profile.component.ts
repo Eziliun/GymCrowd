@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HostListener, Renderer2, ElementRef } from '@angular/core';
 import { iRegister } from '../login-page/interface/auth.model';
-import { iAcademiaUser } from './interface/academia.model';
 import { AcademiaUserService } from './service/profile.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { iCartaoUsuario } from './interface/cartao-usuario.model';
@@ -23,12 +22,11 @@ export class ProfileComponent implements OnInit{
 
   userAcademiForm!: FormGroup
 
-  userAcademiaData!: iAcademiaUser
 
   crowdPassDialogVisible: boolean = false;
 
   academiaSincronizarDialogVisible: boolean = false;
-
+  
   sincronizarForm!: FormGroup
 
   cartaoData!: iCartaoUsuario[];
@@ -64,6 +62,9 @@ export class ProfileComponent implements OnInit{
       nomeRegistrado: ['', Validators.required],
       numeroCadastrado: ['', Validators.required],
       academiaSincronizar: ['', Validators.required],
+      formaPagamento: [undefined],
+      assinatura: [undefined],
+      frequenciaUsuário: [undefined],
     });
 
   }
@@ -91,19 +92,6 @@ export class ProfileComponent implements OnInit{
         this.cartaoData = res.result;
       }
     })
-  }
-
-  getDadosAcademiaUser() {
-    this.AcademiaUserService.iniciarCadastro(this.userAcademiaData).subscribe({
-      next: res => {
-        console.log(res);
-        this.userAcademiaData = res;  
-      },
-  
-      error: error => {
-        console.log(error);
-      }
-    });
   }
 
   navigatetoCards() {

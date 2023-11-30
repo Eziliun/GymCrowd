@@ -1,3 +1,5 @@
+<form [formGroup]="sincronizarForm" (ngSubmit)="sendSincronizar()">
+
 <div class="container">
     <h2 class="titulo">Perfil</h2>
 <div class="form-block">
@@ -6,6 +8,7 @@
     <p-button label="Configurações" [outlined]="true" (onClick)="navigatetoConfig()"  icon="pi pi-cog" ></p-button>
     <p-button label="Pagamentos" [outlined]="true" (onClick)="navigatetoCards()"  icon="pi pi-credit-card"></p-button>
     </div>
+
     <div class="content">
         <div class="content-header">
             <img src="../../../assets/icons/perfil-de-usuario.png" alt="">
@@ -18,19 +21,21 @@
         <p-divider align="center">
             <b>Dados Academia</b>
         </p-divider>
+        
         <div class="body-infos">
             <div class="body-infos-row">
                 <div class="body-infos-colum">
             <h5>Academia Registrada:</h5>
-            <input type="text" placeholder="Você não se registrou numa Academia!" pInputText readonly/>
+            <input type="text" placeholder="Você não se registrou numa Academia!" formControlName="academiaSincronizar" pInputText readonly/>
             <h5>Assinatura Feita:</h5>
-            <input type="text" placeholder="Nenhuma Assinatura Feita!" pInputText readonly/>
+            <input type="text" placeholder="Nenhuma Assinatura Feita!" formControlName="assinatura" pInputText readonly/>
         </div>
             <div class="body-infos-colum">
             <h5>Forma de Pagamento:</h5>
-            <input type="text" placeholder="Nenhuma Forma de pagamento Salva!" pInputText readonly/>
+            <input type="text" placeholder="Nenhuma Forma de pagamento Salva!" formControlName="formaPagamento" pInputText readonly/>
             <h5>Frequência do Usuário:</h5>
-            <input type="text" placeholder="Você ainda não foi malhar!" pInputText readonly/>
+            <input type="text" placeholder="Você ainda não foi malhar!" pInputText formControlName="frequenciaUsuário" readonly/>
+            
         </div>
         </div>
         <p-button label="Adquirir CrowdPass" (onClick)="showCrowdPassDialog()"></p-button>
@@ -50,29 +55,24 @@
 
         <div class="content-corpo">
             <div class="card-list">
-                
-                <div class="card" *ngFor="let item of cartaoData">
+                <p-button>
+                <div class="card" *ngFor="let item of cartaoData" >
                     <div class="card-logo">
                       <p>{{ item.flag }}</p>
                       <p>{{ item.cardNumber }}</p>
                     </div>
-              <p-radioButton></p-radioButton>
-
               </div>
               <div class="noCardMessage" *ngIf="!cartaoData">
                 <h4>Você não tem cartãos adicionados</h4>
               </div>
+            </p-button>
             </div>
           </div>
-
-        
-    <p-button [outlined]="true" label="Assinar"></p-button>
     </div>
 </p-dialog>
 
 
 <p-dialog header="Sincronizar Academia" [(visible)]="academiaSincronizarDialogVisible" [modal]="true" [style]="{width: '50vw'}">
-    <form [formGroup]="sincronizarForm" (ngSubmit)="sendSincronizar()">
 
     <div class="contentDialogAcademia">
 
@@ -94,6 +94,8 @@
 
 </div>
 
-</form>
 
 </p-dialog>
+
+
+</form>
