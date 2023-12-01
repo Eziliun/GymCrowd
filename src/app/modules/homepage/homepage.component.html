@@ -10,7 +10,7 @@
     </div>
 
     <div id="map">
-      <app-map></app-map>
+      <app-map ></app-map>
     </div>
   </section>
 
@@ -79,12 +79,12 @@
   <div class="dialogInputsList">
     <div class="dialogInputsListItens">
       <h4>Nome do Local:</h4>
-      <input class="nomeLocalInput" type="text" id="nomeLocal" formControlName="nomeLocal" pInputText />
+      <input class="nomeLocalInput" type="text" id="nome_local" formControlName="nome_local" pInputText />
     </div>
 
     <div class="dialogInputsListItens">
       <h4>Endereço Completo:</h4>
-    <input type="text" id="enderecoLocal" formControlName="enderecoLocal" pInputText/>
+    <input type="text" id="endereco_completo" formControlName="endereco_completo" pInputText/>
   </div>
   <p-button label="Criar Novo Local" [outlined]="true" (onClick)="sendNovoLocal()"></p-button>
   </div>

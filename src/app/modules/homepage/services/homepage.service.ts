@@ -10,7 +10,7 @@ import { iGrafico } from '../interface/graphs.model';
 })
 export class HomePageService{
     private apiURL = 'http://192.168.203.4:8080/v1/gym'; //URL da API
-    private apiURLNovoLocal = 'http://192.168.203.4:8080/v1/gym'; //URL da API
+    private apiURLNovoLocal = 'http://192.168.203.4:8080/v1/local'; //URL da API
     private apiURLGrafico = 'http://192.168.203.4:8080/v1/chart/home'; //URL da API
 
     constructor(
