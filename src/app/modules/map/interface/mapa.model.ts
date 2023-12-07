@@ -15,6 +15,24 @@ export interface markerRequest {
     address: string
 }
 
+export interface AddressSavedResponse {
+    message: string,
+    result: iMarkerSave[],
+    status: boolean
+}
+
+export interface iMarkerSave {
+    latitude?: string,
+    longitude?: string,
+    nome_local: string
+    endereco_completo:string
+}
+
+export interface markerSaveRequest {
+    nome_local: string
+    endereco_completo:string
+}
+
 export interface iAddress {
     road?: string,
     residential: string,

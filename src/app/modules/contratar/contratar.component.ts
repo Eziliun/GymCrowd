@@ -47,7 +47,6 @@ export class ContratarComponent {
 
   dropData() {
     this.FreqType = [
-      { name: 'Tipo de Frequência'},
       { name: 'Catraca' },
       { name: 'Leitor Facial'},
       { name: 'Lista'},

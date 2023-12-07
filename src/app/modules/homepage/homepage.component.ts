@@ -3,9 +3,11 @@ import { iDadosAcademias } from './interface/homepage.model';
 import { HomePageService } from './services/homepage.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { iAdicionarLocalização } from './interface/adicionarLocal.model';
 import { MessageService } from 'primeng/api';
 import { iGrafico } from './interface/graphs.model';
+import { AddressSavedResponse } from '../map/interface/mapa.model';
+import { MapaService } from '../map/services/mapa.service';
+import { MapComponent } from '../map/map.component';
 
 @Component({
   selector: 'app-homepage',
@@ -18,13 +20,14 @@ export class HomepageComponent implements OnInit {
 
   academiaForm!: FormGroup;
 
-  visibleGraphAcad: boolean = true;
+  visibleGraphAcad: boolean = false;
 
   visibleAddLocation: boolean = false;
 
   adicionarLocalForm!: FormGroup;
 
-  adicionarLocalData!: iAdicionarLocalização;
+  adicionarLocalData!: AddressSavedResponse;
+
 
   dadosGrafico!: iGrafico;
 
@@ -37,6 +40,8 @@ export class HomepageComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private messageService: MessageService,
+    private mapaService: MapaService, 
+    private mapComponent: MapComponent,
     ) {
   
 }
@@ -76,11 +81,19 @@ getDadosGrafico() {
   });
 }
 
+sendLocal(){
+  if(this.isFormValid){
+    const formValue = this.adicionarLocalForm.value;
+
+    this.mapComponent.postEnderecosSalvos(formValue);
+  }
+}
+
 sendNovoLocal(){
   if(this.isFormValid) {
     const formValue = this.adicionarLocalForm.value;
 
-    this.homepageService.adicionarLocal(formValue).subscribe({
+    this.mapaService.sendMarkerSaveDados(formValue).subscribe({
       next: () =>{
         console.log('infos', JSON.stringify(formValue));
         this.messageService.add({
@@ -89,6 +102,7 @@ sendNovoLocal(){
           detail: 'Local Adicionado com Sucesso!',
         });
         this.adicionarLocalForm.reset();
+        this.visibleAddLocation = false;
       },
       error: error => {
         console.log(error);
@@ -169,8 +183,8 @@ lotacaoGraphsInfo(){
 
 setupForm(){
   this.adicionarLocalForm = this.formBuilder.group({
-    nomeLocal: ['', Validators.required],
-    enderecoLocal: ['', Validators.required],
+    nome_local: ['', Validators.required],
+    endereco_completo: ['', Validators.required],
   });
 }
 

@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, take, tap } from 'rxjs';
 import { academiaResponse, iDadosAcademias } from '../interface/homepage.model';
-import { iAdicionarLocalização } from '../interface/adicionarLocal.model';
 import { iGrafico } from '../interface/graphs.model';
+import { AddressSavedResponse } from '../../map/interface/mapa.model';
 
 @Injectable({
     providedIn: 'root'
@@ -33,9 +33,9 @@ export class HomePageService{
         .post<iDadosAcademias>(this.apiURL, dadosAcademias)
     }
 
-    adicionarLocal(dadosNovoLocal: iAdicionarLocalização): Observable<iAdicionarLocalização> {
+    adicionarLocal(dadosNovoLocal: AddressSavedResponse): Observable<AddressSavedResponse> {
         return this.http
-        .post<iAdicionarLocalização>(this.apiURLNovoLocal, dadosNovoLocal)
+        .post<AddressSavedResponse>(this.apiURLNovoLocal, dadosNovoLocal)
     }
     
 }

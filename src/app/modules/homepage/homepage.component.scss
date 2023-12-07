@@ -264,8 +264,19 @@ a {
     margin-top: 3rem;
     margin-bottom: 3rem;
 }
+:host::ng-deep{
+
   .viewList {
   width: 80%;
+
+    .p-button{
+      margin-top: 2rem;
+    }
+  }
+}
+
+.adicionarLocal{
+  justify-content: center;
 }
 
   }
