@@ -1,15 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import { MapaService } from './services/mapa.service';
 import { iMarker, iMarkerSave, markerRequest } from './interface/mapa.model';
-
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss'],
 })
-export class MapComponent {
+export class MapComponent implements OnInit{
   markerData!: iMarker[];
 
   markerDataSave!: iMarkerSave[];
@@ -22,15 +21,15 @@ export class MapComponent {
 
   constructor(private mapaService: MapaService) {}
 
+
+  
   ngOnInit(): void {
     this.initMap();
     this.postEnderecos();
     // this.getUserLocation();
   }
 
-
-
-  postEnderecos(){
+  postEnderecos() {
     const addresses = [
       //SmartFit
       // 'Av. Rui Barbosa, 2727',
@@ -92,27 +91,6 @@ export class MapComponent {
       });
     });
   }
-
-  postEnderecosSalvos(dadoForm: any){
-    this.mapaService.sendMarkerSaveDados(dadoForm).subscribe({
-      next:(res) =>{
-        let array = res.result;
-        array.forEach((object) =>{
-          let ResponseBody = {
-            latitude: object.latitude,
-            longitude: object.longitude,
-            enderecoCompleto: object.endereco_completo,
-            nomeLocal: object.nome_local,
-          }
-          L.marker([parseFloat(ResponseBody.latitude!), parseFloat(ResponseBody.longitude!)])
-          .addTo(this.map)
-          .bindPopup(ResponseBody.nomeLocal );
-        });
-      }
-    })
-    
-  }
-
   private initMap(): void {
     this.map = L.map('map', {
       center: this.centroid,
@@ -131,6 +109,27 @@ export class MapComponent {
 
     tiles.addTo(this.map);
   }
+
+  postEnderecosSalvos(dadoForm: any) {
+    this.mapaService.sendMarkerSaveDados(dadoForm).subscribe({
+      next: (res) => {
+        let ResponseBody: any = {
+          enderecoCompleto: res.result.enderecoCompleto,
+          nomeLocal: res.result.nomeLocal,
+          latitude: res.result.latitude,
+          longitude: res.result.longitude,
+        };
+        L.marker([
+          parseFloat(ResponseBody.latitude!),
+          parseFloat(ResponseBody.longitude!),
+        ]) 
+        .addTo(this.map)
+          .bindPopup(ResponseBody.nomeLocal);        
+      },
+    });
+  }
+
+
 
   // private getUserLocation(): void {
   //   if ('geolocation' in navigator) {

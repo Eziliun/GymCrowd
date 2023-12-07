@@ -17,15 +17,15 @@ export interface markerRequest {
 
 export interface AddressSavedResponse {
     message: string,
-    result: iMarkerSave[],
+    result: iMarkerSave,
     status: boolean
 }
 
 export interface iMarkerSave {
     latitude?: string,
     longitude?: string,
-    nome_local: string
-    endereco_completo:string
+    nomeLocal: string
+    enderecoCompleto:string
 }
 
 export interface markerSaveRequest {
