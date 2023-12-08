@@ -10,6 +10,7 @@ import { Dialog, DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ToastModule } from 'primeng/toast';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     DropdownModule,
     RadioButtonModule,
     ReactiveFormsModule,
+    ToastModule
     
   ]
 })

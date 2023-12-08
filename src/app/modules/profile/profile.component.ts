@@ -5,6 +5,8 @@ import { iRegister } from '../login-page/interface/auth.model';
 import { AcademiaUserService } from './service/profile.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { iCartaoUsuario } from './interface/cartao-usuario.model';
+import { iSincronizarAcademia } from './interface/sincronizar.model';
+import { MessageService } from 'primeng/api';
 
 interface RegisterAcademia {
   registerAcademiaName: string;
@@ -18,6 +20,9 @@ interface RegisterAcademia {
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit{
+  email: string = '';
+  username: string = '';
+  cpf: string = '';
 
 
   userAcademiForm!: FormGroup
@@ -39,12 +44,16 @@ export class ProfileComponent implements OnInit{
     private router: Router,
     private AcademiaUserService: AcademiaUserService,
     private formBuilder: FormBuilder,
+    private messageService: MessageService,
   ) {}
 
   ngOnInit(){
     this.getCards();
     this.dropDownSelector();
     this.setupForm();
+    this.email = localStorage.getItem('email') ?? '';
+    this.username = localStorage.getItem('username') ?? '';
+    this.cpf = localStorage.getItem('cpf') ?? '';
   }
 
   dropDownSelector() {
@@ -59,30 +68,51 @@ export class ProfileComponent implements OnInit{
   setupForm() {
 
     this.sincronizarForm = this.formBuilder.group({
-      nomeRegistrado: ['', Validators.required],
-      numeroCadastrado: ['', Validators.required],
-      academiaSincronizar: ['', Validators.required],
-      formaPagamento: [undefined],
+      nome_registrado: ['', Validators.required],
+      numero_cadastrado: ['', Validators.required],
+      academia_sincronizar: ['', Validators.required],
+      forma_pagamento: [undefined],
       assinatura: [undefined],
-      frequenciaUsuário: [undefined],
+      frequencia_usuario: [undefined],
     });
 
   }
 
-  sendSincronizar(){
-    if (this.isFormValid){
-      const req = this.sincronizarForm.value;
+sendSincronizar() {
+  if (this.isFormValid) {
+    const nomeRegistrado = this.sincronizarForm.get('nome_registrado')?.value;
+    const numeroCadastrado = this.sincronizarForm.get('numero_cadastrado')?.value;
+    const academiaSincronizar = this.sincronizarForm.get('academia_sincronizar')?.value;
+    const request: iSincronizarAcademia = {
+      nome_registrado: nomeRegistrado,
+      numero_registrado: numeroCadastrado,
+      academia_sincronizar: academiaSincronizar,
+    };
 
-      this.AcademiaUserService.sincronizarAcademia(req).subscribe({
-        next: () => {
-          this.sincronizarForm.reset()
-        },
-        error: error => {
-          console.log(error)
-        }
-      })
-    }
+    this.AcademiaUserService.sincronizarAcademia(request).subscribe({
+      next: (res) => {
+        const data = res.result;
+
+        this.sincronizarForm.patchValue({
+          academia_sincronizar: data.academia_sincronizar,
+          forma_pagamento: data.forma_pagamento,
+          assinatura: data.assinatura,
+          frequencia_usuario: data.frequencia_usuario,
+        });
+        this.messageService.add({
+          key: 'tc',
+          severity: 'success',
+          summary: 'Sucesso!',
+          detail: 'Sicronização Ocorreu com Sucesso!',
+        });
+        this.academiaSincronizarDialogVisible = false;
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    });
   }
+}
 
 
   getCards(){
@@ -94,13 +124,20 @@ export class ProfileComponent implements OnInit{
     })
   }
 
+  sendCrowdPass(){
+    this.messageService.add({
+      key: 'tc',
+      severity: 'success',
+      summary: 'Sucesso!',
+      detail: 'Cartão Selecionado!',
+    });
+    this.crowdPassDialogVisible = false
+  }
+
   navigatetoCards() {
     this.router.navigate(['/profileCards']);
   }
-  
-  navigatetoConfig() {
-    this.router.navigate(['/profileConfig']);
-  }
+
 
   showCrowdPassDialog(){
     this.crowdPassDialogVisible = true;

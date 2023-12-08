@@ -5,9 +5,9 @@ export interface academiaResponse {
 }
 
 export interface iDadosAcademias {
-    nomeAcademia: string;
-    enderecoSedes: EnderecoSede[];
-    lotacaoMedia: number;
+    nome_academia: string;
+    endereco_sedes: EnderecoSede[];
+    lotacao_media: number;
 }
 
 export interface EnderecoSede {

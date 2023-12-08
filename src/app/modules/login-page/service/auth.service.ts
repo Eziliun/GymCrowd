@@ -5,7 +5,7 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, take, throwError, timeout } from 'rxjs';
-import { iLogin, iRegister } from '../interface/auth.model';
+import { iLogin, iRegister, iRegisterResponse } from '../interface/auth.model';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -14,43 +14,33 @@ import { Router } from '@angular/router';
 export class AuthService {
   private apiURLLogin = 'http://192.168.203.4:8080/v1/auth/login'; //URL da APILogin
   private apiURLRegister = 'http://192.168.203.4:8080/v1/users'; //URL da APILogin
-  private isAuthenticated = false;
 
   constructor(private http: HttpClient, private router: Router) {}
 
   login(data: any): Observable<iLogin> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' }); 
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post<iLogin>(this.apiURLLogin, data, { headers }).pipe(
+      take(3),
+      timeout(3000),
+      catchError((err) => this.handleError(err))
+    );
+  }
+
+  register(data: iRegister): Observable<iRegisterResponse> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http
-      .post<iLogin>(this.apiURLLogin, data, { headers }) 
+      .post<iRegisterResponse>(this.apiURLRegister, data, { headers })
       .pipe(
         take(3),
         timeout(3000),
         catchError((err) => this.handleError(err))
       );
-  }
-
-  register(data: any): Observable<iRegister> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' }); 
-    return this.http
-      .post<iRegister>(this.apiURLRegister, data, { headers }) 
-      .pipe(
-        take(3),
-        timeout(3000),
-        catchError((err) => this.handleError(err))
-      );
-  }
-
-  loginUser() {
-    this.isAuthenticated = true;
-  }
-
-  logoutUser() {
-    this.isAuthenticated = false;
   }
 
   isAuthenticatedUser(): boolean {
-    return this.isAuthenticated;
+    return localStorage.getItem('access_token') !== null;
   }
+
 
   // logout() {
 
@@ -73,11 +63,7 @@ export class AuthService {
         () => 'Erro ao consumir o serviço. Tente novamente mais tarde.'
       );
     } else {
-      return throwError(
-        () => 'Email ou Senha incorretos, Tente Novamente.'
-      );
+      return throwError(() => 'Email ou Senha incorretos, Tente Novamente.');
     }
   }
-
-
 }

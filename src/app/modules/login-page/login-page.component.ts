@@ -62,15 +62,18 @@ export class LoginPageComponent {
   sendRegister() {
     if(this.registerForm.valid){
       this.authService.register(this.registerForm.value).subscribe({
-        next: () => {
+        next: (resp) => {
           console.log('Infos:', JSON.stringify(this.registerForm.value));
+          localStorage.setItem("cpf", resp.result.cpf);
+          localStorage.setItem("username", resp.result.username);
+          localStorage.setItem("email", resp.result.email );
           this.messageService.add({
             key: 'tc',
             severity: 'success',
             summary: 'Sucesso!',
             detail: 'Conta Criada!', 
           });
-          window.location.reload()
+          window.location.reload()        
         },
         error: (error) => {
           console.log(error);
@@ -85,16 +88,12 @@ export class LoginPageComponent {
     }
   }
 
-  // loginUser() {
-  //   this.authService.loginUser();
-  // }
-
   sendLogin() {
     if(this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe({
         next: (resp) => {
             console.log('Infos:', JSON.stringify(this.loginForm.value));
-            localStorage.setItem("acess_token", resp.token);
+            localStorage.setItem("access_token", resp.token);
             this.messageService.add({
             key: 'tc',
             severity: 'success',
@@ -102,7 +101,6 @@ export class LoginPageComponent {
             detail: 'Logado Com Sucesso!!', 
           });
             this.router.navigateByUrl('homepage');
-            this.authService.loginUser();
         },
         error: (error) => {
           console.log(error);
@@ -114,7 +112,6 @@ export class LoginPageComponent {
           });
         }
       });  
-      this.router.navigate(['/profile']);
 
     }
   }

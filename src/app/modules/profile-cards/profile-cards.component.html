@@ -10,12 +10,6 @@
         (onClick)="navigatetoProfile()"
       ></p-button>
       <p-button
-        label="Configurações"
-        [outlined]="true"
-        icon="pi pi-cog"
-        (onClick)="navigatetoConfig()"
-      ></p-button>
-      <p-button
         label="Pagamentos"
         [outlined]="true"
         icon="pi pi-credit-card"
@@ -40,7 +34,7 @@
           <div class="card" *ngFor="let item of cartaoDataList">
             <div class="card-logo">
               <p>{{ item.flag }}</p>
-              <p>{{ item.cardNumber }}</p>
+              <p>{{ item.card_number }}</p>
             </div>
             
             <p-button icon="pi pi-trash" [rounded]="true" [outlined]="true" (onClick)="handleCartaoDelete(item)" ></p-button>
@@ -74,7 +68,7 @@
         </div>
 
         <div class="cartaoFormCenter">
-          <h2>{{ cartaoCreditoShow.cardNumber }}</h2>
+          <h2>{{ cartaoCreditoShow.card_number }}</h2>
         </div>
 
         <div class="cartaoFormBottom">
@@ -96,9 +90,9 @@
           <p-inputMask
             type="text"
             mask="9999 9999 9999 9999"
-            formControlName="cardNumber"
+            formControlName="card_number"
             placeholder="Digite o número do cartão"
-            [(ngModel)]="cartaoCreditoShow.cardNumber"
+            [(ngModel)]="cartaoCreditoShow.card_number"
           >
           </p-inputMask>
 

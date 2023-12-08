@@ -221,6 +221,12 @@
         gap: 0.5rem;
     }
 
+    .card {
+        .p-button{
+            height: 8rem !important;
+        }
+    }
+
     .p-button:hover {
         background: #fff !important;
         color: #FF6000 !important;
@@ -330,6 +336,7 @@
             border: none;
             height: 90%;
             margin-top: 3px;
+            gap: 1rem;
         }
     }
 

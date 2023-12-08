@@ -7,7 +7,7 @@ import {
   import { Observable, catchError, take, tap, throwError, timeout } from 'rxjs';
   import { Router } from '@angular/router';
 import { CartaoResponse } from '../interface/cartao-usuario.model';
-import { iSincronizarAcademia } from '../interface/sincronizar.model';
+import { RespondeSincro, iSincronizarAcademia, iSincronizarAcademiaResponse } from '../interface/sincronizar.model';
   
   @Injectable({
     providedIn: 'root',
@@ -15,6 +15,7 @@ import { iSincronizarAcademia } from '../interface/sincronizar.model';
   export class AcademiaUserService {
     private apiURLAcademiaUser = 'http://192.168.203.4:8080/v1/academia/user'; //URL da APIAcademiaUser
     private apiURLCard = 'http://192.168.203.4:8080/v1/card'
+    private apiURLCardSincronizar = 'http://192.168.203.4:8080/v1/sync/gym'
   
     constructor(private http: HttpClient, private router: Router) {}
 
@@ -24,9 +25,9 @@ import { iSincronizarAcademia } from '../interface/sincronizar.model';
 }
 
 
-    sincronizarAcademia(dadosSincronizarAcademia: iSincronizarAcademia): Observable<iSincronizarAcademia> {
+    sincronizarAcademia(dadosSincronizarAcademia: iSincronizarAcademia): Observable<RespondeSincro> {
       return this.http
-        .post<iSincronizarAcademia>(this.apiURLAcademiaUser, dadosSincronizarAcademia) 
+        .post<RespondeSincro>(this.apiURLCardSincronizar, dadosSincronizarAcademia) 
         .pipe(
           take(3),
           timeout(3000),

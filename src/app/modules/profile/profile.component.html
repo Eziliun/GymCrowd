@@ -1,3 +1,4 @@
+<p-toast key="tc"></p-toast>
 <form [formGroup]="sincronizarForm" (ngSubmit)="sendSincronizar()">
 
 <div class="container">
@@ -5,7 +6,6 @@
 <div class="form-block">
     <div class="sidebar">
     <p-button label="Conta" [outlined]="true"  icon="pi pi-user"></p-button>
-    <p-button label="Configurações" [outlined]="true" (onClick)="navigatetoConfig()"  icon="pi pi-cog" ></p-button>
     <p-button label="Pagamentos" [outlined]="true" (onClick)="navigatetoCards()"  icon="pi pi-credit-card"></p-button>
     </div>
 
@@ -13,9 +13,9 @@
         <div class="content-header">
             <img src="../../../assets/icons/perfil-de-usuario.png" alt="">
             <div class="header-infos">
-            <h5>Nome:</h5>
-            <h5>CPF: </h5>
-            <h5>Email:</h5>
+            <h5>Nome:{{ username }}</h5>
+            <h5>CPF: {{ cpf }} </h5>
+            <h5>Email: {{ email }}</h5>
             </div>
         </div>
         <p-divider align="center">
@@ -26,15 +26,15 @@
             <div class="body-infos-row">
                 <div class="body-infos-colum">
             <h5>Academia Registrada:</h5>
-            <input type="text" placeholder="Você não se registrou numa Academia!" formControlName="academiaSincronizar" pInputText readonly/>
+            <input type="text" placeholder="Você não se registrou numa Academia!" formControlName="academia_sincronizar" pInputText readonly/>
             <h5>Assinatura Feita:</h5>
             <input type="text" placeholder="Nenhuma Assinatura Feita!" formControlName="assinatura" pInputText readonly/>
         </div>
             <div class="body-infos-colum">
             <h5>Forma de Pagamento:</h5>
-            <input type="text" placeholder="Nenhuma Forma de pagamento Salva!" formControlName="formaPagamento" pInputText readonly/>
+            <input type="text" placeholder="Nenhuma Forma de pagamento Salva!" formControlName="forma_pagamento" pInputText readonly/>
             <h5>Frequência do Usuário:</h5>
-            <input type="text" placeholder="Você ainda não foi malhar!" pInputText formControlName="frequenciaUsuário" readonly/>
+            <input type="text" placeholder="Você ainda não foi malhar!" pInputText formControlName="frequencia_usuario" readonly/>
             
         </div>
         </div>
@@ -55,17 +55,19 @@
 
         <div class="content-corpo">
             <div class="card-list">
-                <p-button>
+                Escolha seu Cartão de Pagamento!
                 <div class="card" *ngFor="let item of cartaoData" >
+                <p-button (onClick)="sendCrowdPass()">
+
                     <div class="card-logo">
                       <p>{{ item.flag }}</p>
-                      <p>{{ item.cardNumber }}</p>
+                      <p>{{ item.card_number }}</p>
                     </div>
+            </p-button>
               </div>
               <div class="noCardMessage" *ngIf="!cartaoData">
                 <h4>Você não tem cartãos adicionados</h4>
               </div>
-            </p-button>
             </div>
           </div>
     </div>
@@ -83,11 +85,11 @@
         <div class="sincronizarAcademiaForm">
 
         <h4>Nome Registrado:</h4>
-        <input type="text" placeholder="Seu nome no Sistema da Academia" formControlName="nomeRegistrado" pInputText/>
+        <input type="text" placeholder="Seu nome no Sistema da Academia" formControlName="nome_registrado" pInputText/>
         <h4>Número de Cadastro:</h4>
-        <input type="text" placeholder="Seu número de Cadastro na Academia" formControlName="numeroCadastrado" pInputText/>
+        <input type="text" placeholder="Seu número de Cadastro na Academia" formControlName="numero_cadastrado" pInputText/>
         <h4>Academia:</h4>
-        <p-dropdown [options]="registerAcademias" appendTo="body" formControlName="academiaSincronizar" optionValue="registerAcademiaName" optionLabel="registerAcademiaName" placeholder="Selecione..."></p-dropdown>
+        <p-dropdown [options]="registerAcademias" appendTo="body" formControlName="academia_sincronizar" optionValue="registerAcademiaName" optionLabel="registerAcademiaName" placeholder="Selecione..."></p-dropdown>
         </div>
 
     <p-button [outlined]="true" label="Sincronizar" (onClick)="sendSincronizar()"></p-button>

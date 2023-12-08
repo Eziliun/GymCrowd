@@ -93,8 +93,6 @@ sendNovoLocal(){
   if(this.isFormValid) {
     const formValue = this.adicionarLocalForm.value;
 
-    this.mapaService.sendMarkerSaveDados(formValue).subscribe({
-      next: () =>{
         console.log('infos', JSON.stringify(formValue));
         this.messageService.add({
           severity: 'success',
@@ -103,14 +101,8 @@ sendNovoLocal(){
         });
         this.adicionarLocalForm.reset();
         this.visibleAddLocation = false;
-      },
-      error: error => {
-        console.log(error);
-        console.log('infos', JSON.stringify(formValue));
       }
-    })
   }
-}
 
 lotacaoGraphsInfo(){
   const documentStyle = getComputedStyle(document.documentElement);

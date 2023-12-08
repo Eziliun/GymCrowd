@@ -30,7 +30,7 @@ export class HeaderComponent {
   }
 
   logout() {
-    this.authService.logoutUser();
+    localStorage.removeItem('access_token');
     this.router.navigate(['/auth']);
   }
 

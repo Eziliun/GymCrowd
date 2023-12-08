@@ -57,7 +57,7 @@ export class ProfileCardsComponent {
 
   setupForm() {
     this.cartaoForm = this.formBuilder.group({
-      cardNumber: ['', Validators.required],
+      card_number: ['', Validators.required],
       flag: ['', Validators.required],
       nameHolder:['', Validators.required],
       dueDate: ['', Validators.required],
@@ -78,7 +78,7 @@ export class ProfileCardsComponent {
     if (this.isFormValid) {
 
       const request: iCartaoUsuario = {
-        cardNumber: this.cartaoForm.controls['cardNumber'].value,
+        card_number: this.cartaoForm.controls['card_number'].value,
         flag: this.cartaoForm.controls['flag'].value,
         nameHolder: this.cartaoForm.controls['nameHolder'].value,
         dueDate: this.cartaoForm.controls['dueDate'].value,
@@ -108,7 +108,7 @@ export class ProfileCardsComponent {
           });
         },
       });
-      this.cartaoCreditoShow.cardNumber = request.cardNumber;
+      this.cartaoCreditoShow.card_number = request.card_number;
       this.cartaoCreditoShow.flag = request.flag;
       this.cartaoCreditoShow.nameHolder = request.nameHolder;
       this.cartaoCreditoShow.dueDate = request.dueDate;
@@ -164,10 +164,6 @@ get isFormValid(): boolean {
 
   navigatetoProfile() {
     this.router.navigate(['/profile']);
-  }
-
-  navigatetoConfig() {
-    this.router.navigate(['/profileConfig']);
   }
 
 }

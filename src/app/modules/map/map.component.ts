@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import { MapaService } from './services/mapa.service';
 import { iMarker, iMarkerSave, markerRequest } from './interface/mapa.model';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-map',
@@ -19,26 +20,30 @@ export class MapComponent implements OnInit{
 
   private userLocationMarker!: L.Marker;
 
-  constructor(private mapaService: MapaService) {}
+  constructor(
+    private mapaService: MapaService,
+    ) {}
 
 
   
   ngOnInit(): void {
     this.initMap();
     this.postEnderecos();
+    this.adicionarMarcador();
     // this.getUserLocation();
+    
   }
 
   postEnderecos() {
     const addresses = [
       //SmartFit
-      // 'Av. Rui Barbosa, 2727',
+      'Av. Rui Barbosa, 2727',
 
       //   //PinkFit
-      // 'Av. Senador Virgílio Távora, 2201',
+      'Av. Senador Virgílio Távora, 2201',
 
       // //RedFit
-      // 'Av. Senador Virgílio Távora, 2125',
+      'Av. Senador Virgílio Távora, 2125',
 
       // PurpleFit
       'R. Joaquim Sá, 20 ',
@@ -109,6 +114,14 @@ export class MapComponent implements OnInit{
 
     tiles.addTo(this.map);
   }
+
+
+  adicionarMarcador(){
+    L.marker([-3.747427554383683, -38.511345775788264]).addTo(this.map)
+    .bindPopup('Casinha')
+    .openPopup();
+  }
+
 
   postEnderecosSalvos(dadoForm: any) {
     this.mapaService.sendMarkerSaveDados(dadoForm).subscribe({
