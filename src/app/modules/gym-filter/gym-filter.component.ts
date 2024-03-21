@@ -115,13 +115,6 @@ export class GymFilterComponent {
 showChooseGymDialogSelection() {
 
     if(this.isValidForm()){
-
-    const gymNames = ['SmartFit', 'PurpleFit', 'PinkFit', 'RedFit'];
-
-    const randomIndex = Math.floor(Math.random() * gymNames.length);
-  
-    this.selectedGym = gymNames[randomIndex];
-
     this.chooseGymDialog = false;
     this.resetFormValues();
 
