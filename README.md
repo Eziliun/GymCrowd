@@ -1,6 +1,10 @@
 # Gymcrowd
 
-Aplicativo de Academia WEB feito para apresentação na Faculdade
+Aplicativo de Academia WEB.
+
+Aplicativo feito com o intuito de controlar o acesso a academia e comunicar para o usuário o quão lotado as academias da regiao estão, mostrando no mapa as academias da rede e indicando para o usuário onde ele pode malhar para sua melhor experiência.
+
+Angular, Quarkus, JWT, LeaFleet, dentre outras tecnologias...
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.
 
